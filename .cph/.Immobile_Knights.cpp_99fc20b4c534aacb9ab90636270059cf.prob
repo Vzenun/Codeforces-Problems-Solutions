@@ -1,0 +1,1 @@
+{"name":"Local: Immobile_Knights","url":"/Users/vidurgoel/Codeforces/Immobile_Knights.cpp","tests":[{"id":1669224615576,"input":"3\n1 7\n8 8\n3 3\n","output":"1 7\n7 2\n2 2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Immobile_Knights.cpp","group":"local","local":true}
