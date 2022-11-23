@@ -1,0 +1,1 @@
+{"name":"Local: Odd_Divisor","url":"/Users/vidurgoel/Codeforces/Odd_Divisor.cpp","tests":[{"id":1669202649002,"input":"6\n2\n3\n4\n5\n998244353\n1099511627776","output":"NO\nYES\nNO\nYES\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Odd_Divisor.cpp","group":"local","local":true}
