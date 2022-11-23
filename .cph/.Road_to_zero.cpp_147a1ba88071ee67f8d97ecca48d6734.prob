@@ -1,0 +1,1 @@
+{"name":"Local: Road_to_zero","url":"/Users/vidurgoel/Codeforces/Road_to_zero.cpp","tests":[{"id":1668456554645,"input":"2\n1 3\n391 555\n0 0\n9 4","output":"1337\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Road_to_zero.cpp","group":"local","local":true}

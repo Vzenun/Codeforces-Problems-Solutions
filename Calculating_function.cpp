@@ -1,0 +1,19 @@
+#include<iostream>
+#include<cmath>
+#include<string>
+#include<climits>
+
+using namespace std;
+
+int main(){
+    long long int n;
+    cin>>n;
+    long long int num=0;
+    if(n%2==0){
+        cout<<n/2;
+    }
+    else{
+        cout<<(n/2)-n;
+    }
+    return 0;
+}

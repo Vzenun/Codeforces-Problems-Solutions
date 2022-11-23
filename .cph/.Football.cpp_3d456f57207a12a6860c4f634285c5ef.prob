@@ -1,0 +1,1 @@
+{"name":"Local: Football","url":"/Users/vidurgoel/Codeforces/Football.cpp","tests":[{"id":1668430439798,"input":"1\nABC","output":"ABC"},{"id":1668430450385,"input":"5\nA\nABA\nABA\nA\nA","output":"A"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Football.cpp","group":"local","local":true}

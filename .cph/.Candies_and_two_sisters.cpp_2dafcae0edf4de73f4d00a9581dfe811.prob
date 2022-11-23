@@ -1,0 +1,1 @@
+{"name":"Local: Candies_and_two_sisters","url":"/Users/vidurgoel/Codeforces/Candies_and_two_sisters.cpp","tests":[{"id":1668187274587,"input":"6\n7\n1\n2\n3\n2000000000\n763243547","output":"3\n0\n0\n1\n999999999\n381621773"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Candies_and_two_sisters.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: Insomnia_cure","url":"/Users/vidurgoel/Codeforces/Insomnia_cure.cpp","tests":[{"id":1667820475774,"input":"1\n2\n3\n4\n12","output":"12"},{"id":1667820489282,"input":"2\n3\n4\n5\n24","output":"17"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Insomnia_cure.cpp","group":"local","local":true}

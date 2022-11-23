@@ -1,0 +1,1 @@
+{"name":"Local: Swap_Game","url":"/Users/vidurgoel/Codeforces/Swap_Game.cpp","tests":[{"id":1668709121842,"input":"6\n5 5\n13 42\n18 4\n1337 420\n123456789 1000000000\n100500 9000\n","output":"0\n3\n2\n92\n87654322\n9150\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Swap_Game.cpp","group":"local","local":true}

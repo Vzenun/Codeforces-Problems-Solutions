@@ -1,0 +1,1 @@
+{"name":"Local: Lucky?","url":"/Users/vidurgoel/Codeforces/Lucky?.cpp","tests":[{"id":1669113595801,"input":"5\n213132\n973894\n045207\n000000\n055776","output":"YES\nNO\nYES\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Lucky?.cpp","group":"local","local":true}
