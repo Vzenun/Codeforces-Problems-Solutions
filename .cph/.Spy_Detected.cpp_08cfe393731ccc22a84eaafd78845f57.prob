@@ -1,0 +1,1 @@
+{"name":"Local: Spy_Detected","url":"/Users/vidurgoel/Codeforces/Spy_Detected.cpp","tests":[{"id":1669437395342,"input":"4\n4\n11 13 11 11\n5\n1 4 4 4 4\n10\n3 3 3 3 10 3 3 3 3 3\n3\n20 20 10\n","output":"13\n1\n10\n10"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Spy_Detected.cpp","group":"local","local":true}
