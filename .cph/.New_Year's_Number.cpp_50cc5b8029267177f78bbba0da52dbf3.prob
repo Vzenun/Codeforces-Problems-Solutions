@@ -1,0 +1,1 @@
+{"name":"Local: New_Year's_Number","url":"/Users/vidurgoel/Codeforces/New_Year's_Number.cpp","tests":[{"id":1669526307468,"input":"5\n1\n4041\n4042\n8081\n8079","output":"NO\nYES\nYES\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/New_Year's_Number.cpp","group":"local","local":true}
