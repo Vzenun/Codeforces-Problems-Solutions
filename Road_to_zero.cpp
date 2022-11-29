@@ -15,14 +15,28 @@ int main(){
         cin>>x>>y;
         cin>>a>>b;
         if(x==y){
-            if(2*a*x)
-            cout<<b*x<<endl;
+            if(2*a*x>=b*x){
+                cout<<b*x<<endl;
+            }
+            else{
+                cout<<2*a*x<<endl;
+            }
         }
         else if(x>y){
-            cout<<b*y+a*(x-y)<<endl;
+            if(2*a*y>=b*y){
+                cout<<b*y+a*(x-y)<<endl;
+            }
+            else{
+                cout<<2*a*y+a*(x-y)<<endl;
+            }
         }
         else{
-            cout<<b*x+a*(y-x)<<endl;
+            if(2*a*x>=b*x){
+                cout<<b*x+a*(y-x)<<endl;
+            }
+            else{
+                cout<<2*a*x+a*(y-x)<<endl;
+            }
         }
     }
     return 0;

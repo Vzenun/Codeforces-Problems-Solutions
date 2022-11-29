@@ -1,0 +1,1 @@
+{"name":"Local: Tricky_sum","url":"/Users/vidurgoel/Codeforces/Tricky_sum.cpp","tests":[{"id":1669709027860,"input":"2\n4\n1000000000","output":"-4\n499999998352516354"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Tricky_sum.cpp","group":"local","local":true}
