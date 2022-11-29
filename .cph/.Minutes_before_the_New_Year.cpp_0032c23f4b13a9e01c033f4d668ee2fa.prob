@@ -1,0 +1,1 @@
+{"name":"Local: Minutes_before_the_New_Year","url":"/Users/vidurgoel/Codeforces/Minutes_before_the_New_Year.cpp","tests":[{"id":1669706983331,"input":"5\n23 55\n23 0\n0 1\n4 20\n23 59","output":"5\n60\n1439\n1180\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Minutes_before_the_New_Year.cpp","group":"local","local":true}

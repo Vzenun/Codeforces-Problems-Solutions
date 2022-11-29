@@ -36,12 +36,11 @@ int main(){
         while(n%2==0){
             n=n/2;
         }
-        //cout<<n;
+        //cout<<n;e
         for(int j=n;j>=1;j--){
             if(n%j==0){
                 //cout<<j<<endl;
-                if(chek_num(j+1)!=-1){
-                    //cout<<j;
+                if((pow(2,floor(log(j+1)/log(2)))==j)){
                     cout<<m/j<<endl;
                     break;
                 }
