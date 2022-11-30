@@ -4,26 +4,28 @@
 #include<climits>
 #include<algorithm>
 
+# define ll long long int
+
 using namespace std;
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(0);
-    long long int test;
+    ll test;
     cin>>test;
-    for(long long int i=0;i<test;i++){
-        long long int n;
+    for(ll i=0;i<test;i++){
+        ll n;
         cin>>n;
-        if(n%2==0){
-            cout<<n/2<<" "<<n/2<<endl;
+        ll fla=0;
+        for(ll i=2;i*i<=n;i++){
+            if(n%i==0){
+                cout<<n/i<<" "<<n-n/i<<endl;
+                fla=1;
+                break;
+            }
         }
-        else{
-            if(n%3==0){
-                cout<<n/3<<" "<<n-n/3<<endl;
-            }
-            else{
-                cout<<1<<" "<<n-1<<endl;
-            }
+        if(fla==0){
+            cout<<1<<" "<<n-1<<endl;
         }
     }
     return 0;
