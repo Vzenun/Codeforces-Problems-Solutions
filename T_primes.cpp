@@ -5,35 +5,43 @@
 #include<vector>
 #include<stack>
 #include<algorithm>
+#include<set>
 
-// class Node{
-//     public:
-//     string s;
-//     Node * next;
-// };
-
-bool isPrime(int n){
-    int sum=0;
-    int a=0;
-    for(int i=2;i*i<=n;i++){
-        if(n%i==0){
-            if(i*i==n){
-                sum+=1;
-            }
-            else{
-                a+=1;
-            }
-        }
-    }
-    if(sum==1 && a==0){
-        return true;
-    }
-    return false;
-}
+# define ll long long int
 
 using namespace std;
 
 int main(){
-    cout<<sqrt(25.25);
+    ll test;
+    cin>>test;
+    for(ll i=0;i<test;i++){
+        ll n;
+        cin>>n;
+        if(n==1){
+            cout<<"NO"<<endl;
+        }
+        else if(ceil(sqrt((double)n))==floor(sqrt((double)n))){
+            ll k=(ll)ceil(sqrt((double)n));
+            ll flag=0;
+            if(ceil(sqrt((double)k))==floor(sqrt((double)k))){
+                cout<<"NO"<<endl;
+            }
+            else{
+                for(int i=2;i*i<=k;i++){
+                    if(k%i==0){
+                        cout<<"NO"<<endl;
+                        flag=1;
+                        break;
+                    }
+                }
+                if(flag==0){
+                    cout<<"YES"<<endl;
+                }
+            }
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
     return 0;
 }

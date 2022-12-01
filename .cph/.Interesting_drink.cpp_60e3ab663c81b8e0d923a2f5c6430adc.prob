@@ -1,0 +1,1 @@
+{"name":"Local: Interesting_drink","url":"/Users/vidurgoel/Codeforces/Interesting_drink.cpp","tests":[{"id":1669791183044,"input":"6\n3 10 6 8 6 11\n9\n1\n10\n3\n11\n5\n6\n7\n9\n14","output":"0\n5\n1\n6\n1\n3\n3\n4\n6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Interesting_drink.cpp","group":"local","local":true}
