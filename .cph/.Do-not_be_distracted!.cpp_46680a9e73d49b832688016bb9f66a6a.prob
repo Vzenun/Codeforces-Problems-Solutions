@@ -1,0 +1,1 @@
+{"name":"Local: Do-not_be_distracted!","url":"/Users/vidurgoel/Codeforces/Do-not_be_distracted!.cpp","tests":[{"id":1669950159784,"input":"5\n3\nABA\n11\nDDBBCCCBBEZ\n7\nFFGZZZY\n1\nZ\n2\nAB","output":"NO\nNO\nYES\nYES\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Do-not_be_distracted!.cpp","group":"local","local":true}

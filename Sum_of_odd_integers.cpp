@@ -20,7 +20,6 @@ int main(){
         ll n,k;
         cin>>n>>k;
         if(n%2==0){
-
         }
         else{
             
