@@ -1,3 +1,6 @@
+// Vidur Goel
+// Date - 3:12:2022
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -5,84 +8,40 @@
 #include<algorithm>
 #include<vector>
 #include<stack>
+#include<cstdio>
+#include<cstring>
+//#include <bits/stdc++.h>
 
-using namespace std;
 
 # define ll long long int
-# define vec vector<long long int>
+//# define vec long long int[]
 
-ll binarysearch(vec arr,ll num,ll i,ll j){
-    if(i<j){
-        ll m=(i+j)/2;
-        if(arr[m]==num){
-            return m;
-        }
-        else if(arr[m]<num){
-            return binarysearch(arr,num,m+1,j);
-        }
-        else{
-            return binarysearch(arr,num,i,m);
-        }
-    }
-    else{
-        if(arr[i]<=num){
-            return i;
-        }
-        else{
-            return i-1;
-        }
-    }
-}
+using namespace std;
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(0);
     ll n;
     cin>>n;
-    vec arr;
+    ll arr[n];
+    ll arr2[n+1];
     for(ll i=0;i<n;i++){
-        ll k;
-        cin>>k;
-        arr.push_back(k);
+        cin>>arr[i];
+        //cout<<arr[i];
     }
-    sort(arr.begin(),arr.end());
-    vec arr2;
-    vec arr3;
-    arr2.push_back(arr[0]);
-    ll h=arr[0];
-    ll count=1;
-    for(ll i=0;i<n-1;i++){
-        if(arr[i]!=arr[i+1]){
-            arr2.push_back(arr[i+1]);
-        }
-        if(h==arr[i+1]){
-            count++;
-        }
-        else{
-            arr3.push_back(count);
-            count=1;
-            h=arr[i+1];
-        }
-    }
-    arr3.push_back(count);
-    ll sum=0;
-    for(int i=0;i<arr3.size();i++){
-        sum+=arr3[i];
-        arr3[i]=sum;
-    }
+    sort(arr,arr+n);
     ll q;
     cin>>q;
-    for(ll i=0;i<q;i++){
-        ll num;
-        cin>>num;
-        if(num<arr[0]){
-            cout<<0<<endl;
-        }
-        else if(num>=arr[n-1]){
-            cout<<n<<endl;
+    for(ll a=0;a<q;a++){
+        ll time;
+        cin>>time;
+        if(time>=arr[n-1]){
+            //cout<<arr[n-1]<<endl;
+            cout<<n-1+1<<endl;
         }
         else{
-            cout<<arr3[binarysearch(arr2,num,0,arr2.size()-1)]<<endl;
+            ll k=std::upper_bound(arr,arr+n,time)-arr;
+            cout<<k<<endl;
         }
     }
     return 0;
