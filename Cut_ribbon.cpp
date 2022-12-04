@@ -1,39 +1,36 @@
+// Vidur Goel
+
 #include<iostream>
 #include<string>
 #include<cmath>
 #include<climits>
+#include<algorithm>
+#include<vector>
+#include<stack>
+
+# define ll long long int
+# define vec vector<long long int>
 
 using namespace std;
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(0);
-    long long int n;
-    long long int arr[3];
-    cin>>n>>arr[0]>>arr[1]>>arr[2];
-    long long int min=4000001;
-    long long int max=0;
-    long long int mid=;
-    for(int i=0;i<3;i++){
-        for(int j=i;j<3;j++){
-            if(arr[i]>arr[j]){
-                long long int temp=
-            }
-        }
+    ll n;
+    cin>>n;
+    ll arr[3];
+    for(ll i=0;i<3;i++){
+        cin>>arr[i];
     }
-    if(min>b){
-        min=b;
+    sort(arr,arr+3);
+    ll min=arr[0];
+    ll mid=arr[1];
+    ll max=arr[2];
+    if(n%min==0){
+        cout<<n/min<<endl;
     }
-    if(min>c){
-        min=c;
+    else{
+        if()
     }
-    if(max<b){
-        max=b;
-    }
-    if(max<c){
-        max=c;
-    }
-    )
-    
     return 0;
 }

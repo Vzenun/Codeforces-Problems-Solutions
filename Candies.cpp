@@ -1,48 +1,40 @@
+// Vidur Goel
+
 #include<iostream>
 #include<string>
 #include<cmath>
 #include<climits>
 #include<algorithm>
+#include<vector>
+#include<stack>
 
+# define ll long long int
+# define vec vector<long long int>
 
 using namespace std;
-
-long long int chek_num(long long int n){
-    int k=0;
-    //cout<<n<<endl;
-    while(n%2==0){
-        n=n/2;
-        k++;
-    }
-    //cout<<k<<endl;
-    //cout<<n<<endl;
-    if(n==1){
-        return k-1;
-    }
-    else{
-        return -1;
-    }
-}
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(0);
-    long long int test;
+    ll test; //number of test caases
     cin>>test;
-    for(long long int i=0;i<test;i++){
-        long long int n;
+    for(ll i=1;i<=test;i++){
+        ll n;
         cin>>n;
-        long long int m=n;
-        while(n%2==0){
-            n=n/2;
+        if(ceil(log2(n+1))==floor(log2(n+1))){
+            cout<<1<<endl;
         }
-        //cout<<n;e
-        for(int j=n;j>=1;j--){
-            if(n%j==0){
-                //cout<<j<<endl;
-                if((pow(2,floor(log(j+1)/log(2)))==j)){
-                    cout<<m/j<<endl;
-                    break;
+        else{
+            for(ll j=2;j*j<=n;j++){
+                if(n%j==0){
+                    if(ceil(log2(j+1))==floor(log2(j+1))){
+                        cout<<n/j<<endl;
+                        break;
+                    }
+                    else if(ceil(log2((n/j)+1))==floor(log2((n/j)+1))){
+                        cout<<j<<endl;
+                        break;
+                    }
                 }
             }
         }
