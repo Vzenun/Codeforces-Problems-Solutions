@@ -1,0 +1,1 @@
+{"name":"Local: Plus_One_on_the_Subset","url":"/Users/vidurgoel/Codeforces/Plus_One_on_the_Subset.cpp","tests":[{"id":1670348364268,"input":"3\n6\n3 4 2 4 1 2\n3\n1000 1002 998\n2\n12 11","output":"3\n4\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Plus_One_on_the_Subset.cpp","group":"local","local":true}

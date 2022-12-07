@@ -1,0 +1,1 @@
+{"name":"Local: Black_Square","url":"/Users/vidurgoel/Codeforces/Black_Square.cpp","tests":[{"id":1670391939923,"input":"1 2 3 4\n123214","output":"13"},{"id":1670391963634,"input":"1 5 3 2\n11221","output":"13"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Black_Square.cpp","group":"local","local":true}
