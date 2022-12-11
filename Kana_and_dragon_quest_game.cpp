@@ -1,3 +1,5 @@
+// Vidur Goel
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -8,7 +10,7 @@
 
 # define ll long long int
 # define vec vector<long long int>
-# define ul unsigned long long
+# define ul unsigned long long int
 
 using namespace std;
 
