@@ -1,0 +1,1 @@
+{"name":"Local: Block_Towers","url":"/Users/vidurgoel/Codeforces/Block_Towers.cpp","tests":[{"id":1671203267129,"input":"4\n3\n1 2 3\n3\n1 2 2\n2\n1 1000000000\n10\n3 8 6 7 4 1 2 4 10 1","output":"3\n2\n500000001\n9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Block_Towers.cpp","group":"local","local":true}
