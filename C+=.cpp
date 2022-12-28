@@ -11,7 +11,6 @@
 using namespace std;
 
 ll answer(ll total,ll a,ll b,ll n){
-    //cout<<a<<" "<<b<<endl;
     if(a>b){
         if(a>n){
             return total;
