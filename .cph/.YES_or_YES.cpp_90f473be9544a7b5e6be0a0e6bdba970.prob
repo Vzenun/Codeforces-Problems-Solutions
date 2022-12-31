@@ -1,0 +1,1 @@
+{"name":"Local: YES_or_YES","url":"/Users/vidurgoel/Codeforces/YES_or_YES.cpp","tests":[{"id":1672232590510,"input":"10\nYES\nyES\nyes\nYes\nYeS\nNoo\norZ\nyEz\nYas\nXES","output":"YES\nYES\nYES\nYES\nYES\nNO\nNO\nNO\nNO\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/YES_or_YES.cpp","group":"local","local":true}

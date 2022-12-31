@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/vidurgoel/Codeforces",
-      "program": "/Users/vidurgoel/Codeforces/build/Debug/outDebug"
+      "cwd": "/Users/vidurgoel/Codeforces/new",
+      "program": "/Users/vidurgoel/Codeforces/new/build/Debug/outDebug"
     }
   ]
 }
