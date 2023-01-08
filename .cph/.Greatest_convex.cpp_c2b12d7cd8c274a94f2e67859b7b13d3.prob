@@ -1,0 +1,1 @@
+{"name":"Local: Greatest_convex","url":"/Users/vidurgoel/Codeforces/Greatest_convex.cpp","tests":[{"id":1672991618080,"input":"9\n2\n3\n12\n13\n14\n15\n344\n23\n234","output":"1\n2\n11\n12\n13\n14\n343\n22\n233"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Greatest_convex.cpp","group":"local","local":true}
