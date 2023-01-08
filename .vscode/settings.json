@@ -67,7 +67,8 @@
     "sstream": "cpp",
     "stack": "cpp",
     "unordered_map": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "climits": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",
