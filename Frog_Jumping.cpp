@@ -31,8 +31,17 @@ void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
 
 int main(){
     make_it_fast();
-    ll n;
-    cin>>n;
-    
+    ll test;
+    cin>>test;
+    for(ll i=0;i<test;i++){
+        ll a,b,k;
+        cin>>a>>b>>k;
+        if(k%2==0){
+            cout<<(a-b)*(k/2)<<endl;
+        }
+        else{
+            cout<<(a-b)*(k/2)+a<<endl;
+        }
+    }
     return 0;
 }

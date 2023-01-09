@@ -1,0 +1,1 @@
+{"name":"Local: Extremely_Round","url":"/Users/vidurgoel/Codeforces/Extremely_Round.cpp","tests":[{"id":1673280771009,"input":"6\n9\n42\n13\n100\n111\n1500","output":"9\n13\n10\n19\n19\n28"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Extremely_Round.cpp","group":"local","local":true}
