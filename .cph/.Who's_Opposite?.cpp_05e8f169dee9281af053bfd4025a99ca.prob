@@ -1,0 +1,1 @@
+{"name":"Local: Who's_Opposite?","url":"/Users/vidurgoel/Codeforces/Who's_Opposite?.cpp","tests":[{"id":1673436033939,"input":"7\n6 2 4\n2 3 1\n2 4 10\n5 3 4\n1 3 2\n2 5 4\n4 3 2","output":"8\n-1\n-1\n-1\n4\n1\n-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Who's_Opposite?.cpp","group":"local","local":true}

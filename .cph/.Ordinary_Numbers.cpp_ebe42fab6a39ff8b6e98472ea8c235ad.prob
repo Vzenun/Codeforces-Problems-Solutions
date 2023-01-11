@@ -1,0 +1,1 @@
+{"name":"Local: Ordinary_Numbers","url":"/Users/vidurgoel/Codeforces/Ordinary_Numbers.cpp","tests":[{"id":1673439506197,"input":"7\n1\n2\n3\n4\n5\n100\n121","output":"1\n2\n3\n4\n5\n18\n19\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Ordinary_Numbers.cpp","group":"local","local":true}

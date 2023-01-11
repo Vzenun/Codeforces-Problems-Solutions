@@ -19,10 +19,17 @@ int main(){
     for(ll j=0;j<t;j++){
         ll n,k;
         cin>>n>>k;
-        if(n%2==0){
+        if(n%2==0 && k%2!=0){
+            cout<<"NO"<<endl;
+        }
+        else if(n%2!=0 && k%2==0){
+            cout<<"NO"<<endl;
+        }
+        else if(k*k>n){
+            cout<<"NO"<<endl;
         }
         else{
-            
+            cout<<"YES"<<endl;
         }
     }
     return 0;

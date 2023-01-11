@@ -1,0 +1,1 @@
+{"name":"Local: Sum_of_odd_integers","url":"/Users/vidurgoel/Codeforces/Sum_of_odd_integers.cpp","tests":[{"id":1673432136532,"input":"6\n3 1\n4 2\n10 3\n10 2\n16 4\n16 5\n","output":"YES\nYES\nNO\nYES\nYES\nNO\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Sum_of_odd_integers.cpp","group":"local","local":true}

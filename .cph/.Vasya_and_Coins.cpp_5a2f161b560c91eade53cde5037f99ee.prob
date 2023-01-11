@@ -1,0 +1,1 @@
+{"name":"Local: Vasya_and_Coins","url":"/Users/vidurgoel/Codeforces/Vasya_and_Coins.cpp","tests":[{"id":1673281392261,"input":"5\n1 1\n4 0\n0 2\n0 0\n2314 2374","output":"4\n5\n1\n1\n7063"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Vasya_and_Coins.cpp","group":"local","local":true}
