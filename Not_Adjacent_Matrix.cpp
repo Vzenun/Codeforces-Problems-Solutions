@@ -66,6 +66,12 @@ void solve_mul(){
         
     }
 }
+
+void solve_single(){
+    ll n;
+    cin>>n;
+}
+
 void solve_array(){
     ll n;
     cin>>n;
@@ -79,5 +85,6 @@ int main(){
     //seive();
     solve_mul();
     solve_array();
+    solve_single();
     return 0;
 }
