@@ -79,7 +79,66 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        ll x1,p1,p2,x2;
+        cin>>x1>>p1;
+        cin>>x2>>p2;
+        if(p1-p2>=7){
+            cout<<">"<<endl;
+            continue;
+        }
+        else if(p2-p1>=7){
+            cout<<"<"<<endl;
+            continue;
+        }
+        if(p2==p1){
+            if(x1<x2){
+                cout<<"<"<<endl;
+            }
+            else if(x1>x2){
+                cout<<">"<<endl;
+            }
+            else{
+                cout<<"="<<endl;
+            }
+        }
+        else if(p2>p1){
+            if(x1<x2){
+                cout<<"<"<<endl;
+                continue;
+            }
+            ll k=p2-p1;
+            lld b1=expo(10,k);
+            b1=x1/b1;
+            lld b2=x2;
+            if(b1<b2){
+                cout<<"<"<<endl;
+            }
+            else if(b1>b2){
+                cout<<">"<<endl;
+            }
+            else{
+                cout<<"="<<endl;
+            }
+        }
+        else{
+            if(x1>x2){
+                cout<<">"<<endl;
+                continue;
+            }
+            ll k=p1-p2;
+            lld b2=expo(10,k);
+            b2=x2/b2;
+            lld b1=x1;
+            if(b1<b2){
+                cout<<"<"<<endl;
+            }
+            else if(b1>b2){
+                cout<<">"<<endl;
+            }
+            else{
+                cout<<"="<<endl;
+            }
+        }
     }
 }
 

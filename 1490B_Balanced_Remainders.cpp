@@ -79,7 +79,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -93,6 +93,70 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll ans[3]={0};
+    for(ll i=0;i<n;i++){
+        arr[i]=arr[i]%3;
+        ans[arr[i]]+=1;
+    }
+    ll ans2[3]={0,1,2};
+    mergeSort_two_arr1(ans,ans2,0,2);
+    ll a=ans[0];
+    for(ll i=0;i<3;i++){
+        ans[i]=ans[i]-a;
+    }
+    //print_array(ans,3);
+    ll b=ans[1]+ans[2];
+    a=b/3;
+    ll sum=0;
+    if(ans2[2]==1 && ans2[1]==0){
+        if(ans[2]>=a && ans[1]>=a){
+            cout<<1*(ans[2]-a)+2*(ans[1]-a);
+        }
+        else if(ans[2]>=a && ans[1]<a){
+            cout<<1*(a)+2*(a-ans[1]);
+        }
+    }
+    else if(ans2[2]==1 && ans2[1]==2){
+        if(ans[2]>=a && ans[1]>=a){
+            cout<<1*(ans[1]-a)+2*(ans[2]-a);
+        }
+        else if(ans[2]>=a && ans[1]<a){
+            cout<<2*(a)+1*(a-ans[1]);
+        }
+    }
+    else if(ans2[2]==2 && ans2[1]==0){
+        if(ans[2]>=a && ans[1]>=a){
+            cout<<1*(ans[1]-a)+2*(ans[2]-a);
+        }
+        else if(ans[2]>=a && ans[1]<a){
+            cout<<2*(a)+1*(a-ans[1]);
+        }
+    }
+    else if(ans2[2]==2 && ans2[1]==1){
+        if(ans[2]>=a && ans[1]>=a){
+            cout<<1*(ans[2]-a)+2*(ans[1]-a);
+        }
+        else if(ans[2]>=a && ans[1]<a){
+            cout<<1*(a)+2*(a-ans[1]);
+        }
+    }
+    else if(ans2[2]==0 && ans2[1]==1){
+        if(ans[2]>=a && ans[1]>=a){
+            cout<<1*(ans[1]-a)+2*(ans[2]-a);
+        }
+        else if(ans[2]>=a && ans[1]<a){
+            cout<<2*(a)+1*(a-ans[1]);
+        }
+    }
+    else if(ans2[2]==0 && ans2[1]==2){
+        if(ans[2]>=a && ans[1]>=a){
+            cout<<1*(ans[2]-a)+2*(ans[1]-a);
+        }
+        else if(ans[2]>=a && ans[1]<a){
+            cout<<1*(a)+2*(a-ans[1]);
+        }
+    }
+    cout<<endl;
 }
 
 int main(){

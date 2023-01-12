@@ -1,0 +1,1 @@
+{"name":"Local: 1613A_Long_Comparison","url":"/Users/vidurgoel/Codeforces/1613A_Long_Comparison.cpp","tests":[{"id":1673480431665,"input":"5\n2 1\n19 0\n10 2\n100 1\n1999 0\n2 3\n1 0\n1 0\n99 0\n1 2","output":">\n=\n<\n=\n<"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1613A_Long_Comparison.cpp","group":"local","local":true}

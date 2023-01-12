@@ -1,0 +1,1 @@
+{"name":"Local: Music","url":"/Users/vidurgoel/Codeforces/Music.cpp","tests":[{"id":1673467436570,"input":"5 2 2","output":"2"},{"id":1673467538187,"input":"5 4 7","output":"1"},{"id":1673467544137,"input":"6 2 3","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Music.cpp","group":"local","local":true}

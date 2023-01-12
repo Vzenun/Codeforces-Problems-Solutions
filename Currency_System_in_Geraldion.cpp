@@ -72,6 +72,7 @@ void solve_single(){
     cin>>n;
 }
 
+// Also a solution but it is bigger
 void solve_array(){
     ll n;
     cin>>n;
@@ -103,12 +104,31 @@ void solve_array(){
     }
 }
 
+// Other solution which is much easier:
+void solve_array2(){
+    ll n;
+    cin>>n;
+    ll * arr=new ll[n];
+    read_array(arr,n);
+    ll flag=0;
+    for(ll i=0;i<n;i++){
+        if(arr[i]==1){
+            flag=1;
+            cout<<-1<<endl;
+            return;
+        }
+    }
+    if(flag==0){
+        cout<<1<<endl;
+    }
+}
+
 int main(){
     make_it_fast();
     seive();
     //solve_mul();
-    solve_array();
+    //solve_array();
     //solve_single();
-    //cout<<gcd(2,2);
+    solve_array2();
     return 0;
 }
