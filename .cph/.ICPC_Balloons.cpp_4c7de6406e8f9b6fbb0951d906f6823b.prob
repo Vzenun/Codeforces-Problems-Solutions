@@ -1,0 +1,1 @@
+{"name":"Local: ICPC_Balloons","url":"/Users/vidurgoel/Codeforces/ICPC_Balloons.cpp","tests":[{"id":1673633819716,"input":"6\n3\nABA\n1\nA\n3\nORZ\n5\nBAAAA\n4\nBKPT\n10\nCODEFORCES","output":"5\n2\n6\n7\n8\n17"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/ICPC_Balloons.cpp","group":"local","local":true}
