@@ -107,6 +107,9 @@ void solve_mul(){
 void solve_single(){
     ll n;
     cin>>n;
+    string s;
+    cin>>s;
+    cout<<n+1<<endl;
 }
 
 void solve_array(){
@@ -114,13 +117,14 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

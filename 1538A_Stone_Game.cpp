@@ -100,7 +100,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -114,6 +114,28 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll pos_st;
+    ll pos_lt;
+    for(ll i=0;i<n;i++){
+        if(arr[i]==n){
+            pos_lt=i;
+        }
+        if(arr[i]==1){
+            pos_st=i;
+        }
+    }
+    if(pos_lt>pos_st){
+        ll one=pos_lt+1;
+        ll two=n-pos_st;
+        ll three=pos_st+1+n-pos_lt;
+        cout<<min(one,min(two,three))<<nn;
+    }
+    else{
+        ll one=pos_st+1;
+        ll two=n-pos_lt;
+        ll three=pos_lt+1+n-pos_st;
+        cout<<min(one,min(two,three))<<nn;
+    }
 }
 
 int main(){
