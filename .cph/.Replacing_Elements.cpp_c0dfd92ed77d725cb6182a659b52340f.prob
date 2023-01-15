@@ -1,0 +1,1 @@
+{"name":"Local: Replacing_Elements","url":"/Users/vidurgoel/Codeforces/Replacing_Elements.cpp","tests":[{"id":1673778769168,"input":"3\n5 3\n2 3 2 5 4\n3 4\n2 4 4\n5 4\n2 1 5 3 6\n","output":"NO\nYES\nYES\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Replacing_Elements.cpp","group":"local","local":true}

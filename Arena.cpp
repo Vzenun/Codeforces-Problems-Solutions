@@ -103,7 +103,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -117,6 +117,9 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    sort(arr,arr+n);
+    ll count1=count(arr,arr+n,arr[0]);
+    cout<<n-count1<<nn;
 }
 
 int main(){

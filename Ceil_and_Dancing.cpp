@@ -108,8 +108,22 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
+    if(n==m){
+        for(ll i=0;i<n;i++){
+            cout<<i+1<<" "<<i+1<<endl;
+        }
+    }
+    else if(n>m){
+        ll num=n-m+1;
+        for(ll i=0;i<num;i++){
+            cout<<i+1<<" "<<1<<endl;
+        }
+        for(ll i=num;i<n;i++){
+            cout<<i+1<<" "<<i-num+2<<endl;
+        }
+    }
 }
 
 void solve_array(){
@@ -122,8 +136,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

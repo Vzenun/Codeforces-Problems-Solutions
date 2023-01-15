@@ -103,13 +103,12 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    
 }
 
 void solve_array(){
@@ -117,6 +116,20 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    sort(arr,arr+n);
+    ll num=0;
+    if(arr[0]!=0){
+        num++;
+    }
+    for(ll i=0;i<n-1;i++){
+        if(arr[i]<=i && arr[i+1]>i+1){
+            num++;
+        }
+    }
+    if(arr[n-1]<=n-1){
+        num++;
+    }
+    cout<<num<<endl;
 }
 
 int main(){

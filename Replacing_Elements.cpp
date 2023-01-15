@@ -53,7 +53,7 @@ string yup="YES";
 string nope="NO";
 
 ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
-ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
+ll maxar(ll * arr,ll n){return *max_element(arr,arr+n);}
 
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
@@ -103,7 +103,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -113,11 +113,19 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,d;
+    cin>>n>>d;
     ll * arr=new ll[n];
     read_array(arr,n);
+    sort(arr,arr+n);
+    if(arr[0]+arr[1]>d && arr[n-1]>d){
+        cout<<nope<<nn;
+    }
+    else{
+        cout<<yup<<nn;
+    }
 }
+
 
 int main(){
     make_it_fast();

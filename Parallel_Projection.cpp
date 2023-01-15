@@ -103,13 +103,36 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll w,d,h,a,b,f,g;
+    cin>>w>>d>>h;
+    cin>>a>>b>>f>>g;
+    ll len=h;
+    len+=abs(a-f);
+    if(b+g>d+d-b-g){
+        len+=d+d-b-g;
+    }
+    else{
+        len+=b+g;
+    }
+    ll  len2=h;
+    len2+=abs(b-g);
+    if(a+f>w+w-a-f){
+        len2+=w+w-a-f;
+    }
+    else{
+        len2+=a+f;
+    }
+    if(len<=len2){
+        cout<<len<<endl;
+    }
+    else{
+        cout<<len2<<endl;
+    }
 }
 
 void solve_array(){
