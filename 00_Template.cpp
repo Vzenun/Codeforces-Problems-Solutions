@@ -40,11 +40,15 @@ typedef long double lld;
 #define MOD 1000000007
 #define MOD1 998244353
 #define sor(x) sort(all(x))
-# define vec vector<ll>
+#define vec vector<ll>
+#define nn endl
 
 using namespace std;
 using namespace chrono;
 ll seiv[1000001]={0};
+
+ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
+ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}

@@ -40,11 +40,15 @@ typedef long double lld;
 #define MOD 1000000007
 #define MOD1 998244353
 #define sor(x) sort(all(x))
-# define vec vector<ll>
+#define vec vector<ll>
+#define nn endl
 
 using namespace std;
 using namespace chrono;
 ll seiv[1000001]={0};
+
+ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
+ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
@@ -89,17 +93,34 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,k;
+    cin>>n>>k;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll t=n-k;
+    ll sum=0;
+    ll min;
+    for(ll i=0;i<k;i++){
+        sum+=arr[i];
+    }
+    min=sum;
+    ll kr=1;
+    for(ll i=k;i<n;i++){
+        sum+=arr[i];
+        sum-=arr[i-k];
+        if(sum<min){
+            min=sum;
+            kr=i-k+2;
+        }
+    }
+    cout<<kr<<endl;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

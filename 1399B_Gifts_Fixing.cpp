@@ -40,11 +40,15 @@ typedef long double lld;
 #define MOD 1000000007
 #define MOD1 998244353
 #define sor(x) sort(all(x))
-# define vec vector<ll>
+#define vec vector<ll>
+#define nn endl
 
 using namespace std;
 using namespace chrono;
 ll seiv[1000001]={0};
+
+ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
+ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
@@ -79,7 +83,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -92,7 +96,31 @@ void solve_array(){
     ll n;
     cin>>n;
     ll * arr=new ll[n];
+    ll * arr2=new ll[n];
     read_array(arr,n);
+    read_array(arr2,n);
+    ll el1;
+    ll el2;
+    el1=minar(arr,n);
+    el2=minar(arr2,n);
+    // cout<<el1<<nn;
+    // cout<<el2<<nn;
+    ll sum=0;
+    for(ll i=0;i<n;i++){
+        if(arr[i]>el1 && arr2[i]>el2){
+            ll k=min(arr[i]-el1,arr2[i]-el2);
+            arr[i]-=k;
+            arr2[i]-=k;
+            sum+=k;
+        }
+        if(arr[i]==el1 && arr2[i]>el2){
+            sum+=arr2[i]-el2;
+        }
+        if(arr[i]>el1 && arr2[i]==el2){
+            sum+=arr[i]-el1;
+        }
+    }
+    cout<<sum<<endl;
 }
 
 int main(){

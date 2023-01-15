@@ -89,17 +89,41 @@ void solve_single(){
 }
 
 void solve_array(){
+    ll * arr=new ll[3];
     ll n;
     cin>>n;
-    ll * arr=new ll[n];
-    read_array(arr,n);
+    read_array(arr,3);
+    sort(arr,arr+3);
+    ll a=arr[0];
+    ll b=arr[1];
+    ll c=arr[2];
+    //cout<<a<<" "<<b<<" "<<c<<endl;
+    if(n%a==0){
+        cout<<n/a<<endl;
+        return;
+    }
+    else{
+        ll sum=1;
+        for(ll num1=0;num1<=n/a;num1++){
+            for(ll num2=0;num2<=n/b;num2++){
+                //cout<<num1<<" "<<num2<<endl;
+                if((n-(a*num1+b*num2))%c==0 && (n-(a*num1+b*num2))>=0){
+                    ll sum1=num1+num2;
+                    sum1+=(n-(a*num1+b*num2))/c;
+                    sum=max(sum,sum1);
+                }
+            }
+        }
+        cout<<sum<<endl;
+        return;
+    }
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

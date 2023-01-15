@@ -40,11 +40,20 @@ typedef long double lld;
 #define MOD 1000000007
 #define MOD1 998244353
 #define sor(x) sort(all(x))
-# define vec vector<ll>
+#define vec vector<ll>
+#define nn endl
 
 using namespace std;
 using namespace chrono;
+
+string yup="YES";
+string nope="NO";
+
+
 ll seiv[1000001]={0};
+
+ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
+ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
@@ -79,13 +88,22 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    lld d=360;
+    ll m=180-n;
+    d=d/m;
+    if(d==(ll)d){
+        cout<<yup<<nn;
+    }
+    else{
+        cout<<nope<<nn;
+    }
 }
 
 void solve_array(){
