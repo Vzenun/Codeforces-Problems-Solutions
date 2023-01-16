@@ -103,44 +103,52 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
+    if(m==n){
+        cout<<m/2<<nn;
+    }
+    else if(m>n){
+        ll k=m/2;
+        if(k==n){
+            cout<<n<<endl;
+        }
+        else if(k>n){
+            cout<<n<<endl;
+        }
+        else{
+            ll r=4*n-2*m;
+            r=r/3;
+            cout<<r/2+n-r<<nn;
+        }
+    }
+    else{
+        swap(m,n);
+        ll k=m/2;
+        if(k==n){
+            cout<<n<<endl;
+        }
+        else if(k>n){
+            cout<<n<<endl;
+        }
+        else{
+            ll r=4*n-2*m;
+            r=r/3;
+            cout<<r/2+n-r<<nn;
+        }
+    }
 }
 
 void solve_array(){
-    ll n,k;
-    cin>>n>>k;
+    ll n;
+    cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll num=1;
-    ll i=0;
-    while(i<n){
-        if(arr[i]==num){
-            num++;
-            i++;
-        }
-        else{
-            i++;
-        }
-    }
-    num=num-1;
-    //cout<<num<<endl;
-    if(num==n){
-        cout<<0<<nn;
-        return;
-    }
-    else if(n-num<=k){
-        cout<<1<<nn;
-        return;
-    }
-    else{
-        cout<<ceil((lld(n-num))/k)<<nn;
-    }
 }
 
 int main(){

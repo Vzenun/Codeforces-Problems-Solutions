@@ -1,0 +1,1 @@
+{"name":"Local: 1550A_Find_the_array","url":"/Users/vidurgoel/Codeforces/1550A_Find_the_array.cpp","tests":[{"id":1673859420938,"input":"4\n1\n8\n7\n42","output":"1\n3\n3\n7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1550A_Find_the_array.cpp","group":"local","local":true}

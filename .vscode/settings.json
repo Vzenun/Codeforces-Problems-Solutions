@@ -69,7 +69,8 @@
     "unordered_map": "cpp",
     "algorithm": "cpp",
     "climits": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "random": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",

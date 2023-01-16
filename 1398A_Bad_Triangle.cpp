@@ -113,33 +113,24 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n,k;
-    cin>>n>>k;
+    ll n;
+    cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll num=1;
+    vec a;
+    vec b;
     ll i=0;
-    while(i<n){
-        if(arr[i]==num){
-            num++;
-            i++;
-        }
-        else{
-            i++;
-        }
+    ll j=1;
+    ll k=n-1;
+    while(arr[i]<arr[j]+arr[k] && arr[i]+arr[k]>arr[j] && arr[i]+arr[j]>arr[k] && j<n-1){
+        j++;
     }
-    num=num-1;
-    //cout<<num<<endl;
-    if(num==n){
-        cout<<0<<nn;
-        return;
-    }
-    else if(n-num<=k){
-        cout<<1<<nn;
+    if(j==n-1){
+        cout<<-1<<nn;
         return;
     }
     else{
-        cout<<ceil((lld(n-num))/k)<<nn;
+        cout<<i+1<<" "<<j+1<<" "<<k+1<<nn;
     }
 }
 

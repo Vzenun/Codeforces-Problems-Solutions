@@ -103,7 +103,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        
     }
 }
 
@@ -113,41 +113,48 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n,k;
-    cin>>n>>k;
+    ll n,m;
+    cin>>n>>m;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll num=1;
+    ll * arr2=new ll[m];
+    read_array(arr2,m);
+    ll * arr3=new ll[m];
+    for(ll i=0;i<m;i++){
+        arr3[i]=i;
+    }
+    ll * ans=new ll[m];
+    sort(arr,arr+n);
+    mergeSort_two_arr(arr2,arr3,0,m-1);
     ll i=0;
-    while(i<n){
-        if(arr[i]==num){
-            num++;
+    ll j=0;
+    ll num=0;
+    while(i<m && j<n){
+        if(arr[j]>arr2[i]){
+            ans[arr3[i]]=num;
             i++;
         }
         else{
+            j++;
+            num++;
+        }
+    }
+    if(i<m){
+        while(i<m){
+            ans[arr3[i]]=num;
             i++;
         }
     }
-    num=num-1;
-    //cout<<num<<endl;
-    if(num==n){
-        cout<<0<<nn;
-        return;
-    }
-    else if(n-num<=k){
-        cout<<1<<nn;
-        return;
-    }
-    else{
-        cout<<ceil((lld(n-num))/k)<<nn;
+    for(ll i=0;i<m;i++){
+        cout<<ans[i]<<" ";
     }
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

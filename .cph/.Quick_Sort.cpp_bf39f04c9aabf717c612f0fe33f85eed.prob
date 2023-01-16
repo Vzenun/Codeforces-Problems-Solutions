@@ -1,0 +1,1 @@
+{"name":"Local: Quick_Sort","url":"/Users/vidurgoel/Codeforces/Quick_Sort.cpp","tests":[{"id":1673881872699,"input":"4\n3 2\n1 2 3\n3 1\n3 1 2\n4 2\n1 3 2 4\n4 2\n2 3 1 4\n","output":"0\n1\n1\n2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Quick_Sort.cpp","group":"local","local":true}

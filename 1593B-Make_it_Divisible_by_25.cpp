@@ -103,44 +103,51 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    string s=to_string(n);
+    vec zero;
+    vec five;
+    vec two;
+    vec seven;
+    for(ll i=0;i<s.size();i++){
+        if(s[i]=='0'){
+            zero.pb(i);
+        }
+        else if(s[i]=='2'){
+            two.pb(i);
+        }
+        else if(s[i]=='5'){
+            five.pb(i);
+        }
+        else if(s[i]=='7'){
+            seven.pb(i);
+        }
+    }
+    ll min1=INT_MAX;
+    ll n1=zero.size();
+    ll n2=two.size();
+    ll n3=five.size();
+    ll n4=seven.size();
+    //50
+    //75
+    //00
+    //25
+    if(n1>=2){
+        ll min1=min(n-1-zero[n1-1]+zero[n1-1]-zero[n1-2]-1,min1);
+    }
 }
 
 void solve_array(){
-    ll n,k;
-    cin>>n>>k;
+    ll n;
+    cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll num=1;
-    ll i=0;
-    while(i<n){
-        if(arr[i]==num){
-            num++;
-            i++;
-        }
-        else{
-            i++;
-        }
-    }
-    num=num-1;
-    //cout<<num<<endl;
-    if(num==n){
-        cout<<0<<nn;
-        return;
-    }
-    else if(n-num<=k){
-        cout<<1<<nn;
-        return;
-    }
-    else{
-        cout<<ceil((lld(n-num))/k)<<nn;
-    }
 }
 
 int main(){

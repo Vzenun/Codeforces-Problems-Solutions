@@ -1,0 +1,1 @@
+{"name":"Local: 734B_Anton_and_Digits","url":"/Users/vidurgoel/Codeforces/734B_Anton_and_Digits.cpp","tests":[{"id":1673869134473,"input":"5 1 3 4","output":"800"},{"id":1673869144918,"input":"1 1 1 1","output":"256"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/734B_Anton_and_Digits.cpp","group":"local","local":true}
