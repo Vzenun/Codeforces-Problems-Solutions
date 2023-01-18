@@ -1,0 +1,1 @@
+{"name":"Local: 1714B_Remove_Prefix","url":"/Users/vidurgoel/Codeforces/1714B_Remove_Prefix.cpp","tests":[{"id":1674021661570,"input":"5\n4\n3 1 4 3\n5\n1 1 1 1 1\n1\n1\n6\n6 5 4 3 2 1\n7\n1 2 1 7 1 2 1","output":"1\n4\n0\n0\n5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1714B_Remove_Prefix.cpp","group":"local","local":true}

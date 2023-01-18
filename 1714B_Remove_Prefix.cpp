@@ -1,7 +1,5 @@
 // Vidur Goel
 
-//Codeforcees Handle: Vidurcodviz
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -105,7 +103,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -119,6 +117,37 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll * idx=new ll[n];
+    ll * kdx=new ll[n];
+    ll * mdx=new ll[n];
+    for(ll i=0;i<n;i++){
+        idx[i]=0;
+        mdx[i]=0;
+        kdx[i]=0;
+    }
+    for(ll i=0;i<n;i++){
+        idx[arr[i]-1]+=1;
+    }
+    //print_array(idx,n);
+    for(ll i=0;i<n;i++){
+        if(idx[arr[i]-1]>=2){
+            mdx[arr[i]-1]+=1;
+            if(mdx[arr[i]-1]+1==idx[arr[i]-1]){
+                kdx[arr[i]-1]=i;
+            }
+        }
+    }
+    //print_array(mdx,n);
+    //print_array(kdx,n);
+    ll flag=-1;
+    for(ll i=0;i<n;i++){
+        if(idx[i]>=2){
+            if(kdx[i]>flag){
+                flag=kdx[i];
+            }
+        }
+    }
+    cout<<flag+1<<nn;
 }
 
 int main(){
