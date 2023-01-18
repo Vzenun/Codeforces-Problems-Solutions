@@ -103,46 +103,13 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        solve_array();
     }
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(m==n){
-        cout<<m/2<<nn;
-    }
-    else if(m>n){
-        ll k=m/2;
-        if(k==n){
-            cout<<n<<endl;
-        }
-        else if(k>n){
-            cout<<n<<endl;
-        }
-        else{
-            ll r=4*n-2*m;
-            if(r%3==0){
-                r=
-            }
-        }
-    }
-    else{
-        swap(m,n);
-        ll k=m/2;
-        if(k==n){
-            cout<<n<<endl;
-        }
-        else if(k>n){
-            cout<<n<<endl;
-        }
-        else{
-            ll r=4*n-2*m;
-            r=r/3;
-            cout<<r/2+n-r<<nn;
-        }
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
@@ -150,6 +117,21 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    sort(arr,arr+n);
+    ll k=1;
+    for(ll i=0;i<n-1;i++){
+        if(arr[i]==arr[i+1]){
+            k++;
+            if(k>=3){
+                cout<<arr[i]<<nn;
+                return;
+            }
+        }
+        else{
+            k=1;
+        }
+    }
+    cout<<-1<<nn;
 }
 
 int main(){

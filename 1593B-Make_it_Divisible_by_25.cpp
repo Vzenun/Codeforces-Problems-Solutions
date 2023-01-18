@@ -139,8 +139,9 @@ void solve_single(){
     //00
     //25
     if(n1>=2){
-        ll min1=min(n-1-zero[n1-1]+zero[n1-1]-zero[n1-2]-1,min1);
+        min1=min(n-1-zero[n1-1]+zero[n1-1]-zero[n1-2]-1,min1);
     }
+    min
 }
 
 void solve_array(){

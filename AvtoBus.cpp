@@ -108,39 +108,33 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(m==n){
-        cout<<m/2<<nn;
+    ll n;
+    cin>>n;
+    if(n%2==1){
+        cout<<-1<<nn;
+        return;
     }
-    else if(m>n){
-        ll k=m/2;
-        if(k==n){
-            cout<<n<<endl;
-        }
-        else if(k>n){
-            cout<<n<<endl;
-        }
-        else{
-            ll r=4*n-2*m;
-            if(r%3==0){
-                r=
-            }
-        }
+    else if(n<=3){
+        cout<<-1<<nn;
     }
     else{
-        swap(m,n);
-        ll k=m/2;
-        if(k==n){
-            cout<<n<<endl;
+        if(n%4==0 && n%6==0){
+            cout<<n/6<<" "<<n/4<<nn;
         }
-        else if(k>n){
-            cout<<n<<endl;
+        else if(n%6==0 && n%4==2){
+            cout<<n/6<<" "<<n/4<<endl;
         }
-        else{
-            ll r=4*n-2*m;
-            r=r/3;
-            cout<<r/2+n-r<<nn;
+        else if(n%6==2 && n%4==0){
+            cout<<n/6+1<<" "<<n/4<<endl;
+        }
+        else if(n%6==2 && n%4==2){
+            cout<<n/6+1<<" "<<n/4<<endl;
+        }
+        else if(n%6==4 && n%4==0){
+            cout<<n/6+1<<" "<<n/4<<endl;
+        }
+        else if(n%6==4 && n%4==2){
+            cout<<n/6+1<<" "<<n/4<<endl;
         }
     }
 }

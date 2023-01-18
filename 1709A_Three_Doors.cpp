@@ -100,7 +100,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -112,8 +112,17 @@ void solve_single(){
 void solve_array(){
     ll n;
     cin>>n;
-    ll * arr=new ll[n];
-    read_array(arr,n);
+    ll * arr=new ll[3];
+    read_array(arr,3);
+    if(arr[n-1]==0){
+        cout<<"NO"<<nn;
+    }
+    else if(arr[arr[n-1]-1]==0){
+        cout<<"NO"<<nn;
+    }
+    else{
+        cout<<"YES"<<nn;
+    }
 }
 
 int main(){

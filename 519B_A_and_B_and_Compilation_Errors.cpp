@@ -58,7 +58,7 @@ ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
 void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
-void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
+//void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 
 bool prime(ll n){for(int i=2;i*i<=n;i++){if(n%i==0){return false;}}return true;}
@@ -103,46 +103,13 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        solve_array();
     }
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(m==n){
-        cout<<m/2<<nn;
-    }
-    else if(m>n){
-        ll k=m/2;
-        if(k==n){
-            cout<<n<<endl;
-        }
-        else if(k>n){
-            cout<<n<<endl;
-        }
-        else{
-            ll r=4*n-2*m;
-            if(r%3==0){
-                r=
-            }
-        }
-    }
-    else{
-        swap(m,n);
-        ll k=m/2;
-        if(k==n){
-            cout<<n<<endl;
-        }
-        else if(k>n){
-            cout<<n<<endl;
-        }
-        else{
-            ll r=4*n-2*m;
-            r=r/3;
-            cout<<r/2+n-r<<nn;
-        }
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
@@ -150,13 +117,45 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll * arr2=new ll[n-1];
+    read_array(arr2,n-1);
+    ll * arr3=new ll[n-2];
+    read_array(arr3,n-2);
+    sort(arr,arr+n);
+    sort(arr2,arr2+n-1);
+    //print_array(arr,n);
+    sort(arr3,arr3+n-2);
+    ll flag=0;
+    ll i=0;
+    while(flag==0 && i<n-1){
+        if(arr[i]!=arr2[i]){
+            cout<<arr[i]<<nn;
+            flag=1;
+        }
+        i++;
+    }
+    if(flag==0){
+        cout<<arr[n-1]<<nn;
+    }
+    i=0;
+    flag=0;
+    while(flag==0 && i<n-2){
+        if(arr2[i]!=arr3[i]){
+            cout<<arr2[i]<<nn;
+            flag=1;
+        }
+        i++;
+    }
+    if(flag==0){
+        cout<<arr2[n-2]<<nn;
+    }
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

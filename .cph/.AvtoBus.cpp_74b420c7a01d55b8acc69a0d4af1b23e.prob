@@ -1,0 +1,1 @@
+{"name":"Local: AvtoBus","url":"/Users/vidurgoel/Codeforces/AvtoBus.cpp","tests":[{"id":1673885070666,"input":"4\n4\n7\n24\n998244353998244352\n","output":"1 1\n-1\n4 6\n166374058999707392 249561088499561088\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/AvtoBus.cpp","group":"local","local":true}

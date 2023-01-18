@@ -103,60 +103,58 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        
     }
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(m==n){
-        cout<<m/2<<nn;
-    }
-    else if(m>n){
-        ll k=m/2;
-        if(k==n){
-            cout<<n<<endl;
-        }
-        else if(k>n){
-            cout<<n<<endl;
-        }
-        else{
-            ll r=4*n-2*m;
-            if(r%3==0){
-                r=
-            }
-        }
-    }
-    else{
-        swap(m,n);
-        ll k=m/2;
-        if(k==n){
-            cout<<n<<endl;
-        }
-        else if(k>n){
-            cout<<n<<endl;
-        }
-        else{
-            ll r=4*n-2*m;
-            r=r/3;
-            cout<<r/2+n-r<<nn;
-        }
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll sum=0;
+    for(ll i=0;i<n;i++){
+        sum+=arr[i];
+    }
+    ll flag=0;
+    ll nump=0;
+    for(ll i=0;i<m;i++){
+        ll k;
+        cin>>k;
+        if(k==1){
+            if(flag==0)
+            ll i;
+            cin>>i;
+            ll x;
+            cin>>x;
+            if(arr[i-1]>=x){
+                sum-=arr[i-1]-x;
+            }
+            else{
+                sum+=x-arr[i-1];
+            }
+            cout<<sum<<nn;
+        }
+        if(k==2){
+            flag=1;
+            ll x;
+            cin>>x;
+            sum=x*n;
+            cout<<sum<<nn;
+        }
+    }
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

@@ -95,12 +95,25 @@ void solve_array(){
     read_array(arr,n);
     ll * ans=new ll [n];
     for(ll i=0;i<n;i++){
-        ans[i]=i;
+        ans[i]=arr[i]-i;
     }
-    mergeSort_two_arr(arr,ans,0,n-1);
-    for(ll i=0;i<n;i++){
-        ans[i]=i;
+
+    sort(ans,ans+n);
+    ll num=1;
+    ll sum=0;
+    for(ll i=0;i<n-1;i++){
+        if(ans[i]==ans[i+1]){
+            num++;
+        }
+        else{
+            sum+=(num)*(num-1)/2;
+            num=1;
+        }
     }
+    if(num>1){
+        sum+=(num)*(num-1)/2;
+    }
+    cout<<sum<<endl;
 }
 
 int main(){
