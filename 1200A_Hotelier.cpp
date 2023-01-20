@@ -57,8 +57,10 @@ ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
+void read_array(char * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
 void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
-void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
+//void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
+void print_array(char * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 
 bool prime(ll n){for(int i=2;i*i<=n;i++){if(n%i==0){return false;}}return true;}
@@ -115,15 +117,44 @@ void solve_single(){
 void solve_array(){
     ll n;
     cin>>n;
-    ll * arr=new ll[n];
+    char * arr=new char[n];
     read_array(arr,n);
+    int a[10];
+    for(int i=0;i<10;i++){
+        a[i]=0;
+    }
+    ll im=0;
+    int jm=9;
+    for(ll i=0;i<n;i++){
+        if(arr[i]=='L'){
+            while(a[im]==1){
+                im++;
+            }
+            a[im]=1;
+            im=0;
+        }
+        else if(arr[i]=='R'){
+            while(a[jm]==1){
+                jm--;
+            }
+            a[jm]=1;
+            jm=9;
+        }
+        else{
+            a[arr[i]-'0']=0;
+        }
+    }
+    for(ll i=0;i<10;i++){
+        cout<<a[i];
+    }
+    cout<<nn;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

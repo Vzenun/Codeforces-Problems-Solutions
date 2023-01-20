@@ -119,7 +119,7 @@ void solve_single(){
     for(ll i=0;i<n;i++){
         arr[i]=0;
     }
-    if(n<m){
+    else if(n<m){
         ll k=(2*m)/n;
         for(ll i=1;i<n;i+=2){
             if(i==n-1 || i==n-2){

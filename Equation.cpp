@@ -103,39 +103,39 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    if(!prime(n)){
+        cout<<2*n<<" "<<n<<endl;
+    }
+    else{
+        ll a=2*n;
+        ll b=n;
+        while(prime(a) || prime(b)){
+            a++;
+            b++;
+        }
+        cout<<a<<" "<<b<<nn;
+    }
 }
 
 void solve_array(){
     ll n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(ll i=0;i<n-1;i++){
-        if(s.find(s.substr(i,2))!=i && i>0 && s.find(s.substr(i,2))!=i-1){
-            cout<<yup<<nn;
-            return;
-        }
-        else if(s.find(s.substr(i,2))!=i && i==0){
-            cout<<yup<<nn;
-            return;
-        }
-    }
-    cout<<nope<<nn;
-    return;
+    ll * arr=new ll[n];
+    read_array(arr,n);
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    // solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

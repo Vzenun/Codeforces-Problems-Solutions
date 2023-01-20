@@ -1,5 +1,7 @@
 // Vidur Goel
 
+//Codeforcees Handle: Vidurcodviz
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -58,7 +60,7 @@ ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
 void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
-void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
+//void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 
 bool prime(ll n){for(int i=2;i*i<=n;i++){if(n%i==0){return false;}}return true;}
@@ -103,39 +105,54 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    string s1,s2;
+    cin>>s1;
+    cin>>s2;
+    ll hour1=(s1[0]-'0')*10+(s1[1]-'0');
+    ll hour2=(s2[0]-'0')*10+(s2[1]-'0');
+    ll min1=(s1[3]-'0')*10+(s1[4]-'0');
+    ll min2=(s2[3]-'0')*10+(s2[4]-'0');
+    min1=hour1*60+min1;
+    min2=hour2*60+min2;
+    ll min3=(min1+min2)/2;
+    ll hour3=min3/60;
+    min3=min3%60;
+    if(hour3<10 && min3<10){
+        string m="0"+to_string(hour3)+":"+"0"+to_string(min3);
+        cout<<m<<nn;
+    }
+    else if(hour3>=10 && min3<10){
+        string m=to_string(hour3)+":"+"0"+to_string(min3);
+        cout<<m<<nn;
+    }
+    else if(hour3<10 && min3>=10){
+        string m="0"+to_string(hour3)+":"+to_string(min3);
+        cout<<m<<nn;
+    }
+    else if(hour3>=10 && min3>=10){
+        string m=to_string(hour3)+":"+to_string(min3);
+        cout<<m<<nn;
+    }
+
 }
 
 void solve_array(){
     ll n;
     cin>>n;
-    string s;
-    cin>>s;
-    for(ll i=0;i<n-1;i++){
-        if(s.find(s.substr(i,2))!=i && i>0 && s.find(s.substr(i,2))!=i-1){
-            cout<<yup<<nn;
-            return;
-        }
-        else if(s.find(s.substr(i,2))!=i && i==0){
-            cout<<yup<<nn;
-            return;
-        }
-    }
-    cout<<nope<<nn;
-    return;
+    ll * arr=new ll[n];
+    read_array(arr,n);
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }
