@@ -2,20 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-                                                                                                                                                                             
-                                                                                                                                                                             
-                                                                                                                                                                             
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -119,13 +105,29 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,x;
+    cin>>n>>x;
+    if(n==1 || n==2){
+        cout<<1<<nn;
+        return;
+    }
+    else{
+        n=n-2;
+        ll h=n/x;
+        ll m=n%x;
+        if(m==0){
+            cout<<h+1<<nn;
+        }
+        else{
+            cout<<h+2<<nn;
+        }
+        return;
+    }
 }
 
 void solve_array(){
@@ -133,37 +135,6 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll * brr=new ll[n];
-    for(ll i=0;i<n;i++){
-        brr[i]=0;
-    }
-    ll i=0;
-    ll j=n-1;
-    ll num=n;
-    int k=1;
-    while(num!=0 && i<=j){
-        cout<<num<<" ";
-        if(num==arr[i]){
-            brr[num-1]=1;
-            i++;
-            num--;
-            cout<<"*";
-        }
-        if
-        else if(num==arr[j]){
-            cout<<"@";
-            brr[num-1]=1;
-            j--;
-            num--;
-        }
-        else{
-            num--;
-        }
-    }
-    for(ll i=0;i<n;i++){
-        cout<<brr[arr[i]-1];
-    }
-    cout<<nn;
 }
 
 int main(){

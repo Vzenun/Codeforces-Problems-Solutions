@@ -119,7 +119,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        
     }
 }
 
@@ -129,48 +129,18 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,t;
+    cin>>n>>t;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll * brr=new ll[n];
-    for(ll i=0;i<n;i++){
-        brr[i]=0;
-    }
-    ll i=0;
-    ll j=n-1;
-    ll num=n;
-    int k=1;
-    while(num!=0 && i<=j){
-        cout<<num<<" ";
-        if(num==arr[i]){
-            brr[num-1]=1;
-            i++;
-            num--;
-            cout<<"*";
-        }
-        if
-        else if(num==arr[j]){
-            cout<<"@";
-            brr[num-1]=1;
-            j--;
-            num--;
-        }
-        else{
-            num--;
-        }
-    }
-    for(ll i=0;i<n;i++){
-        cout<<brr[arr[i]-1];
-    }
-    cout<<nn;
+    
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }
