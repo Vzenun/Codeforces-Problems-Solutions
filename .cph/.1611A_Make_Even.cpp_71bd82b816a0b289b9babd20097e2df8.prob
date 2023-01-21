@@ -1,0 +1,1 @@
+{"name":"Local: 1611A_Make_Even","url":"/Users/vidurgoel/Codeforces/1611A_Make_Even.cpp","tests":[{"id":1674311217230,"input":"4\n3876\n387\n4489\n3\n","output":"0\n2\n1\n-1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1611A_Make_Even.cpp","group":"local","local":true}

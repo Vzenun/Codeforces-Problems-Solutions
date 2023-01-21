@@ -1,0 +1,1 @@
+{"name":"Local: 1774A_Add_Plus_Minus_Sign","url":"/Users/vidurgoel/Codeforces/1774A_Add_Plus_Minus_Sign.cpp","tests":[{"id":1674283092265,"input":"3\n2\n11\n5\n01101\n5\n10001\n","output":"-\n+-++\n+++-\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1774A_Add_Plus_Minus_Sign.cpp","group":"local","local":true}
