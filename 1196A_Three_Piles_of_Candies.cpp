@@ -2,14 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-//maximium value long long can take 9, 223, 372, 036, 854, 775, 807
-// 2^63-1
-// i.e, length of 19 only
-
-//maximium value long long can take 18, 446, 744, 073, 709, 551, 615
-// 2^64-1
-// i.e, length of 20 only
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -113,84 +105,29 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
 void solve_single(){
-    string s;
-    cin>>s;
-    //cout<<s<<nn;
-    ll num_odd=0;
-    for(ll i=0;i<s.size();i++){
-        if(s[i]=='0' || s[i]=='8'){
-            // cout<<s;
-            // cout<<"FER";
-            cout<<yup<<nn;
-            cout<<s[i]<<nn;
-            return;
-        }
-        if((s[i]-'0')%2==0){
-            num_odd=1;
-        }
-    }
-    if(num_odd==0){
-        cout<<nope<<nn;
-        return;
-    }
-    else if(s.size()<=2){
-        if(stoi(s)%8==0){
-            cout<<yup<<nn;
-            return;
-        }
-        else{
-            cout<<nope<<nn;
-            return;
-        }
-    }
-    else{
-        for(ll i=0;i<s.size()-1;i++){
-            for(ll j=i+1;j<s.size();j++){
-                string s1="";
-                s1=s1+s[i]+s[j];
-                ll a=(ll)(stoi(s1));
-                if(a%8==0){
-                    cout<<yup<<nn;
-                    cout<<a<<nn;
-                    return;
-                }
-            }
-        }
-        for(ll i=0;i<s.size()-2;i++){
-            for(ll j=i+1;j<s.size()-1;j++){
-                for(ll k=j+1;k<s.size();k++){
-                    string s1="";
-                    s1=s1+s[i]+s[j]+s[k];
-                    ll a=(ll)(stoi(s1));
-                    if(a%8==0){
-                        cout<<yup<<nn;
-                        cout<<a<<nn;
-                        return;
-                    }
-                }
-            }
-        }
-        cout<<nope<<nn;
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n=3;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll sum=arr[0]+arr[1]+arr[2];
+    sum=sum/2;
+    cout<<sum<<nn;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
+    solve_mul();
     //solve_array();
-    solve_single();
+    //solve_single();
     return 0;
 }

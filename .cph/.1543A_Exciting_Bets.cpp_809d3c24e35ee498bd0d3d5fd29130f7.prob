@@ -1,0 +1,1 @@
+{"name":"Local: 1543A_Exciting_Bets","url":"/Users/vidurgoel/Codeforces/1543A_Exciting_Bets.cpp","tests":[{"id":1674281222425,"input":"4\n8 5\n1 2\n4 4\n3 9","output":"3 1\n1 0\n0 0\n6 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1543A_Exciting_Bets.cpp","group":"local","local":true}

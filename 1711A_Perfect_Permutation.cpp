@@ -2,14 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-//maximium value long long can take 9, 223, 372, 036, 854, 775, 807
-// 2^63-1
-// i.e, length of 19 only
-
-//maximium value long long can take 18, 446, 744, 073, 709, 551, 615
-// 2^64-1
-// i.e, length of 20 only
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -99,6 +91,12 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
 // find(vect.begin(), vect.end(),5) != vect.end()?
 //                      cout << "\nElement found":
 //                  cout << "\nElement not found";
+//maximium value long long can take 9, 223, 372, 036, 854, 775, 807
+// 2^63-1
+// i.e, length of 19 only
+//maximium value long long can take 18, 446, 744, 073, 709, 551, 615
+// 2^64-1
+// i.e, length of 20 only
 
 void Merge_two_arr(vec &arr,vec &brr,ll i,ll m,ll j){ll size1=m-i+1;ll size2=j-m;ll a[size1];ll a1[size1];ll b[size2];ll b1[size2];for(ll k=0;k<size1;k++){a[k]=arr[i+k];a1[k]=brr[i+k];}for(ll k=0;k<size2;k++){b[k]=arr[m+1+k];b1[k]=brr[m+1+k];}ll k=i;ll st=0;ll end=0;while(st<size1 && end<size2){if(a[st]<=b[end]){arr[k]=a[st];brr[k]=a1[st];st++;k++;}else{arr[k]=b[end];brr[k]=b1[end];end++;k++;}}while(st<size1){arr[k]=a[st];brr[k]=a1[st];st++;k++;}while(end<size2){arr[k]=b[end];brr[k]=b1[end];end++;k++;}}
 void mergeSort_two_arr(vec &arr,vec &brr,ll i,ll j){if(i<j){ll m=(i+j)/2;mergeSort_two_arr(arr,brr,i,m);mergeSort_two_arr(arr,brr,m+1,j);Merge_two_arr(arr,brr,i,m,j);}}
@@ -113,70 +111,18 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    string s;
-    cin>>s;
-    //cout<<s<<nn;
-    ll num_odd=0;
-    for(ll i=0;i<s.size();i++){
-        if(s[i]=='0' || s[i]=='8'){
-            // cout<<s;
-            // cout<<"FER";
-            cout<<yup<<nn;
-            cout<<s[i]<<nn;
-            return;
-        }
-        if((s[i]-'0')%2==0){
-            num_odd=1;
-        }
+    ll n;
+    cin>>n;
+    cout<<n;
+    for(ll i=1;i<n;i++){
+        cout<<" "<<i;
     }
-    if(num_odd==0){
-        cout<<nope<<nn;
-        return;
-    }
-    else if(s.size()<=2){
-        if(stoi(s)%8==0){
-            cout<<yup<<nn;
-            return;
-        }
-        else{
-            cout<<nope<<nn;
-            return;
-        }
-    }
-    else{
-        for(ll i=0;i<s.size()-1;i++){
-            for(ll j=i+1;j<s.size();j++){
-                string s1="";
-                s1=s1+s[i]+s[j];
-                ll a=(ll)(stoi(s1));
-                if(a%8==0){
-                    cout<<yup<<nn;
-                    cout<<a<<nn;
-                    return;
-                }
-            }
-        }
-        for(ll i=0;i<s.size()-2;i++){
-            for(ll j=i+1;j<s.size()-1;j++){
-                for(ll k=j+1;k<s.size();k++){
-                    string s1="";
-                    s1=s1+s[i]+s[j]+s[k];
-                    ll a=(ll)(stoi(s1));
-                    if(a%8==0){
-                        cout<<yup<<nn;
-                        cout<<a<<nn;
-                        return;
-                    }
-                }
-            }
-        }
-        cout<<nope<<nn;
-    }
+    cout<<nn;
 }
 
 void solve_array(){
@@ -189,8 +135,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
+    solve_mul();
     //solve_array();
-    solve_single();
+    //solve_single();
     return 0;
 }

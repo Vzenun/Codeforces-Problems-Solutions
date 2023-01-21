@@ -1,0 +1,1 @@
+{"name":"Local: 1345A_Puzzle_Pieces","url":"/Users/vidurgoel/Codeforces/1345A_Puzzle_Pieces.cpp","tests":[{"id":1674279299037,"input":"3\n1 3\n100000 100000\n2 2\n","output":"YES\nNO\nYES\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1345A_Puzzle_Pieces.cpp","group":"local","local":true}
