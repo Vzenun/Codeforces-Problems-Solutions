@@ -118,15 +118,21 @@ void solve_mul(){
 void solve_single(){
     ll n;
     cin>>n;
-    if(n==1){
-        cout<<-1<<nn;
-    }
-    else{
-        for(ll i=0;i<n-1;i++){
-            cout<<5;
+    ll sum=0;
+    while(n>=10){
+        sum+=(n/10)*10;
+        ll a=n%10;
+        if(a==0){
+            n=n/10;
         }
-        cout<<4<<nn;
+        else{
+            n=n/10+a;
+        }
+        //cout<<"*"<<n<<"*"<<nn;
     }
+    sum+=n;
+    cout<<sum<<nn;
+
 }
 
 void solve_array(){

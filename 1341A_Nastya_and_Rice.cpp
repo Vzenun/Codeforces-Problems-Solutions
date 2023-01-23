@@ -51,8 +51,8 @@ using namespace std;
 using namespace chrono;
 ll seiv[1000001]={0};
 
-string yup="YES";
-string nope="NO";
+string yup="Yes";
+string nope="No";
 
 ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
 ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
@@ -116,16 +116,17 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
-    if(n==1){
-        cout<<-1<<nn;
+    ll n,a,b,c,d;
+    cin>>n>>a>>b>>c>>d;
+    ll sum1=n*(a-b);
+    ll sum2=n*(a+b);
+    ll a1=c-d;
+    ll a2=c+d;
+    if((sum2>=a1 && sum1<=a2)){
+        cout<<yup<<nn;
     }
     else{
-        for(ll i=0;i<n-1;i++){
-            cout<<5;
-        }
-        cout<<4<<nn;
+        cout<<nope<<nn;
     }
 }
 

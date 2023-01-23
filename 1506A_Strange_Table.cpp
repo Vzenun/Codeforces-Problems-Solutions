@@ -116,16 +116,17 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
-    if(n==1){
-        cout<<-1<<nn;
+    ll n,m,a;
+    cin>>n>>m>>a;
+    ll k=a/n;
+    ll k1=a%n;
+    if(k1==0){
+        ll sum=k+(n-1)*m;
+        cout<<sum<<nn;
     }
     else{
-        for(ll i=0;i<n-1;i++){
-            cout<<5;
-        }
-        cout<<4<<nn;
+        ll sum=1+k+(k1-1)*(m);
+        cout<<sum<<nn;
     }
 }
 

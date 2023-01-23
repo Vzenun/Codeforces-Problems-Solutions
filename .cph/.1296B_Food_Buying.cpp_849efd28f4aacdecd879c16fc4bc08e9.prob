@@ -1,0 +1,1 @@
+{"name":"Local: 1296B_Food_Buying","url":"/Users/vidurgoel/Codeforces/1296B_Food_Buying.cpp","tests":[{"id":1674488210246,"input":"6\n1\n10\n19\n9876\n12345\n1000000000\n","output":"1\n11\n21\n10973\n13716\n1111111111\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1296B_Food_Buying.cpp","group":"local","local":true}

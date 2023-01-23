@@ -2,20 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-                                                                                                                                                                             
-                                                                                                                                                                             
-                                                                                                                                                                             
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -115,17 +101,90 @@ void mergeSort_two_arr(ll * &arr,ll * &brr,ll i,ll j){if(i<j){ll m=(i+j)/2;merge
 void Merge_two_arr1(ll arr[],ll brr[],ll i,ll m,ll j){ll size1=m-i+1;ll size2=j-m;ll a[size1];ll a1[size1];ll b[size2];ll b1[size2];for(ll k=0;k<size1;k++){a[k]=arr[i+k];a1[k]=brr[i+k];}for(ll k=0;k<size2;k++){b[k]=arr[m+1+k];b1[k]=brr[m+1+k];}ll k=i;ll st=0;ll end=0;while(st<size1 && end<size2){if(a[st]<=b[end]){arr[k]=a[st];brr[k]=a1[st];st++;k++;}else{arr[k]=b[end];brr[k]=b1[end];end++;k++;}}while(st<size1){arr[k]=a[st];brr[k]=a1[st];st++;k++;}while(end<size2){arr[k]=b[end];brr[k]=b1[end];end++;k++;}}
 void mergeSort_two_arr1(ll arr[],ll brr[],ll i,ll j){if(i<j){ll m=(i+j)/2;mergeSort_two_arr1(arr,brr,i,m);mergeSort_two_arr1(arr,brr,m+1,j);Merge_two_arr1(arr,brr,i,m,j);}}
 
+ll a[26][26][26]={0};
+
 void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    vector<string> a1;
+    vector<string> a2;
+    vector<string> a3;
+    string s;
+    for(ll i=0;i<n;i++){
+        cin>>s;
+        a1.pb(s);
+    }
+    for(ll i=0;i<n;i++){
+        cin>>s;
+        a2.pb(s);
+    }
+    for(ll i=0;i<n;i++){
+        cin>>s;
+        a3.pb(s);
+    }
+    for(ll i=0;i<n;i++){
+        a[a1[i][0]-'a'][a1[i][1]-'a'][a1[i][2]-'a']+=1;
+    }
+    for(ll i=0;i<n;i++){
+        a[a2[i][0]-'a'][a2[i][1]-'a'][a2[i][2]-'a']+=1;
+    }
+    for(ll i=0;i<n;i++){
+        a[a3[i][0]-'a'][a3[i][1]-'a'][a3[i][2]-'a']+=1;
+    }
+    ll sum1=0;
+    ll sum2=0;
+    ll sum3=0;
+    for(ll i=0;i<n;i++){
+        if(a[a1[i][0]-'a'][a1[i][1]-'a'][a1[i][2]-'a']==3){
+            sum1+=0;
+        }
+        else if(a[a1[i][0]-'a'][a1[i][1]-'a'][a1[i][2]-'a']==2){
+            sum1+=1;
+        }
+        else{
+            sum1+=3;
+        }
+    }
+    for(ll i=0;i<n;i++){
+        if(a[a2[i][0]-'a'][a2[i][1]-'a'][a2[i][2]-'a']==3){
+            sum2+=0;
+        }
+        else if(a[a2[i][0]-'a'][a2[i][1]-'a'][a2[i][2]-'a']==2){
+            sum2+=1;
+        }
+        else{
+            sum2+=3;
+        }
+    }
+    for(ll i=0;i<n;i++){
+        if(a[a3[i][0]-'a'][a3[i][1]-'a'][a3[i][2]-'a']==3){
+            sum3+=0;
+        }
+        else if(a[a3[i][0]-'a'][a3[i][1]-'a'][a3[i][2]-'a']==2){
+            sum3+=1;
+        }
+        else{
+            sum3+=3;
+        }
+    }
+    //cout<<"4";
+    cout<<sum1<<" "<<sum2<<" "<<sum3<<nn;
+    for(ll i=0;i<26;i++){
+        for(ll j=0;j<26;j++){
+            for(ll k=0;k<26;k++){
+                a[i][j][k]=0;
+            }
+        }
+    }
+    return;
 }
 
 void solve_array(){
