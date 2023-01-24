@@ -1,0 +1,1 @@
+{"name":"Local: 1360C_Similar_Pairs","url":"/Users/vidurgoel/Codeforces/1360C_Similar_Pairs.cpp","tests":[{"id":1674491958835,"input":"4\n2\n1 1\n2\n1 2\n2\n1 3\n2\n1 4\n","output":"YES\nYES\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1360C_Similar_Pairs.cpp","group":"local","local":true}

@@ -61,8 +61,8 @@ ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+
 
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
-void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
-//void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
+//void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
+void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 
 bool prime(ll n){for(int i=2;i*i<=n;i++){if(n%i==0){return false;}}return true;}
@@ -100,8 +100,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
 // 2^64-1
 // i.e, length of 20 only
 
-// reverse(s.begin(), s.end()); to reverse the string.(in built function)
-
 void Merge_two_arr(vec &arr,vec &brr,ll i,ll m,ll j){ll size1=m-i+1;ll size2=j-m;ll a[size1];ll a1[size1];ll b[size2];ll b1[size2];for(ll k=0;k<size1;k++){a[k]=arr[i+k];a1[k]=brr[i+k];}for(ll k=0;k<size2;k++){b[k]=arr[m+1+k];b1[k]=brr[m+1+k];}ll k=i;ll st=0;ll end=0;while(st<size1 && end<size2){if(a[st]<=b[end]){arr[k]=a[st];brr[k]=a1[st];st++;k++;}else{arr[k]=b[end];brr[k]=b1[end];end++;k++;}}while(st<size1){arr[k]=a[st];brr[k]=a1[st];st++;k++;}while(end<size2){arr[k]=b[end];brr[k]=b1[end];end++;k++;}}
 void mergeSort_two_arr(vec &arr,vec &brr,ll i,ll j){if(i<j){ll m=(i+j)/2;mergeSort_two_arr(arr,brr,i,m);mergeSort_two_arr(arr,brr,m+1,j);Merge_two_arr(arr,brr,i,m,j);}}
 
@@ -115,7 +113,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -124,11 +122,71 @@ void solve_single(){
     cin>>n;
 }
 
+ll a[100]={0};
+
+void clean(){
+    for(ll i=0;i<100;i++){
+        a[i]=0;
+    }
+}
+
 void solve_array(){
     ll n;
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    if(n%2==1){
+        cout<<nope<<nn;
+        clean();
+        return;
+    }
+    for(ll i=0;i<n;i++){
+        a[arr[i]-1]+=1;
+    }
+    ll num_odd=0;
+    ll num_even=0;
+    for(ll i=0;i<100;i++){
+        if(i%2==0 && a[i]!=0){
+            num_even+=a[i];
+        }
+        else if(i%2==1 && a[i]!=0){
+            num_odd+=a[i];
+        }
+    }
+    if(num_even%2==0 && num_odd%2==0){
+        cout<<yup<<nn;
+        clean();
+        return;
+    }
+    else if(num_even%2==0 && num_odd%2==1){
+        cout<<nope<<nn;
+        clean();
+        return;
+    }
+    else if(num_even%2==1 && num_odd%2==0){
+        cout<<nope<<nn;
+        clean();
+        return;
+    }
+    ll num1=0;
+    for(ll i=0;i<99;i++){
+        if(a[i]!=0 && a[i+1]!=0){
+            ll ar=min(a[i],a[i+1]);
+            num1+=ar;
+            a[i]-=ar;
+            a[i+1]-=ar;
+        }
+    }
+    if(num1>=1){
+        cout<<yup<<nn;
+        clean();
+        return;
+    }
+    else{
+        cout<<nope<<nn;
+        clean();
+        return;
+    }
 }
 
 int main(){
