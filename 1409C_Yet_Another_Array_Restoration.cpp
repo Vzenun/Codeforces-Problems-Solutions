@@ -122,13 +122,42 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,x,y;
+    cin>>n>>x>>y;
+    //here y>x
+    if((y-x)%(n-1)==0){
+        //cout
+        ll m=(y-x)/(n-1);
+        for(ll i=0;i<n;i++){
+            cout<<x+i*m<<" ";
+        }
+        cout<<nn;
+    }
+    else{
+        ll m=n-1;
+        while((y-x)%m!=0 && m>0){
+            m--;
+        }
+        ll t=(y-x)/m;
+        for(ll i=0;i<=m;i++){
+            cout<<x+i*t<<" ";
+        }
+        n-=m+1;
+        for(ll i=x-t;i>0 && n>0;i-=t){
+            cout<<i<<" ";
+            n--;
+        }
+        for(ll i=y+t;n>0;i+=t){
+            cout<<i<<" ";
+            n--;
+        }
+        cout<<nn;
+    }
 }
 
 void solve_array(){

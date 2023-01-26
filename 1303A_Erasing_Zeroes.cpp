@@ -122,13 +122,46 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    string s;
+    cin>>s;
+    ll num_f=0;
+    ll num_l=0;
+    ll num1=0;
+    for(ll i=0;i<s.size();i++){
+        if(s[i]=='1'){
+            num_f=i;
+            break;
+        }
+    }
+    for(ll i=0;i<s.size();i++){
+        if(s[s.size()-1-i]=='1'){
+            num_l=s.size()-1-i;
+            break;
+        }
+    }
+    for(ll i=0;i<s.size();i++){
+        if(s[i]=='1'){
+            num1++;
+        }
+    }
+    if(num1==0){
+        cout<<0<<nn;
+        return;
+    }
+    //cout<<num1<<" "<<num_l<<" "<<num_f<<nn;
+    if(num_l-num_f==0 || num_l-num_f==1){
+        cout<<0<<nn;
+        return;
+    }
+    else{
+        cout<<num_l-num_f+1-num1<<nn;
+        return;
+    }
 }
 
 void solve_array(){

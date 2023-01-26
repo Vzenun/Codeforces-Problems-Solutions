@@ -1,0 +1,1 @@
+{"name":"Local: 1303A_Erasing_Zeroes","url":"/Users/vidurgoel/Codeforces/1303A_Erasing_Zeroes.cpp","tests":[{"id":1674758808021,"input":"5\n010011\n0\n1111000\n0101\n001000010111101011000","output":"2\n0\n0\n1\n7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1303A_Erasing_Zeroes.cpp","group":"local","local":true}

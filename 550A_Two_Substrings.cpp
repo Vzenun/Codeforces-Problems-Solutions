@@ -127,8 +127,37 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    string s;
+    cin>>s;
+    ll flag=0;
+    ll am=-1;
+    ll flag1=0;
+    vec a;
+    vec b;
+    for(ll i=0;i<s.size()-1;i++){
+        if(s[i]=='A' && s[i+1]=='B'){
+            flag=1;
+            a.pb(i);
+        }
+        if(s[i]=='B' && s[i+1]=='A'){
+            flag1=1;
+            b.pb(i);
+        }
+    }
+    if(flag==0 || flag1==0){
+        cout<<nope<<nn;
+    }
+    else{
+        if(abs(b[b.size()-1]-a[0])>=2){
+            cout<<yup<<nn;
+        }
+        else if(abs(b[0]-a[a.size()-1])>=2){
+            cout<<yup<<nn;
+        }
+        else{
+            cout<<nope<<nn;
+        }
+    }
 }
 
 void solve_array(){
@@ -141,8 +170,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }
