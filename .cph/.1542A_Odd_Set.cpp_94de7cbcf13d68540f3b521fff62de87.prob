@@ -1,0 +1,1 @@
+{"name":"Local: 1542A_Odd_Set","url":"/Users/vidurgoel/Codeforces/1542A_Odd_Set.cpp","tests":[{"id":1674798525760,"input":"5\n2\n2 3 4 5\n3\n2 3 4 5 5 5\n1\n2 4\n1\n2 3\n4\n1 5 3 2 6 7 3 4","output":"Yes\nNo\nNo\nYes\nNo"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1542A_Odd_Set.cpp","group":"local","local":true}

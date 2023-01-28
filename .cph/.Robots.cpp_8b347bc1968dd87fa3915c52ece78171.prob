@@ -1,0 +1,1 @@
+{"name":"Local: Robots","url":"/Users/vidurgoel/Codeforces/Robots.cpp","tests":[{"id":1674881283007,"input":"6\n1 3\nERR\n2 2\nER\nRE\n2 2\nER\nER\n1 1\nR\n4 3\nEEE\nEEE\nERR\nEER\n3 3\nEEE\nEER\nREE","output":"YES\nNO\nYES\nYES\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Robots.cpp","group":"local","local":true}

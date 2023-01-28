@@ -1,18 +1,6 @@
 // Vidur Goel
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-                                                                                                                                                                             
-                                                                                                                                                                             
-                                                                                                                                                                             
-*/
+//Codeforcees Handle: Vidurcodviz
 
 #include<iostream>
 #include<string>
@@ -39,6 +27,8 @@
 #include<set>
 #include<utility>
 #include<string_view>
+#include<deque>
+#include<iterator>
 
 void solve_array();
 void solve_single();
@@ -69,9 +59,11 @@ string nope="NO";
 ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
 ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
+ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
+
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
-void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
+//void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 
@@ -103,6 +95,19 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
 // find(vect.begin(), vect.end(),5) != vect.end()?
 //                      cout << "\nElement found":
 //                  cout << "\nElement not found";
+//maximium value long long can take 9, 223, 372, 036, 854, 775, 807
+// 2^63-1
+// i.e, length of 19 only
+//maximium value long long can take 18, 446, 744, 073, 709, 551, 615
+// 2^64-1
+// i.e, length of 20 only
+
+// reverse(s.begin(), s.end()); to reverse the string.(in built function)
+// set<int, greater<int> > s1;
+// s1.insert(10);
+// set<int> a;
+// by default the sets are sorted in the ascending order
+
 
 void Merge_two_arr(vec &arr,vec &brr,ll i,ll m,ll j){ll size1=m-i+1;ll size2=j-m;ll a[size1];ll a1[size1];ll b[size2];ll b1[size2];for(ll k=0;k<size1;k++){a[k]=arr[i+k];a1[k]=brr[i+k];}for(ll k=0;k<size2;k++){b[k]=arr[m+1+k];b1[k]=brr[m+1+k];}ll k=i;ll st=0;ll end=0;while(st<size1 && end<size2){if(a[st]<=b[end]){arr[k]=a[st];brr[k]=a1[st];st++;k++;}else{arr[k]=b[end];brr[k]=b1[end];end++;k++;}}while(st<size1){arr[k]=a[st];brr[k]=a1[st];st++;k++;}while(end<size2){arr[k]=b[end];brr[k]=b1[end];end++;k++;}}
 void mergeSort_two_arr(vec &arr,vec &brr,ll i,ll j){if(i<j){ll m=(i+j)/2;mergeSort_two_arr(arr,brr,i,m);mergeSort_two_arr(arr,brr,m+1,j);Merge_two_arr(arr,brr,i,m,j);}}
@@ -117,61 +122,58 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
-    string s=to_string(n);
-    vec zero;
-    vec two;
-    vec five;
-    vec seven;
-    for(ll i=s.size()-1;i>=0;i--){
-        if(s[i]=='2'){
-            two.push_back(i);
-        }
-        else if(s[i]=='7'){
-            seven.push_back(i);
-        }
-        else if(s[i]=='5'){
-            five.push_back(i);
-        }
-        else if(s[i]=='0'){
-            zero.push_back(i);
-        }
-    }
-    ll min1=INT_MAX;
-    if(five.size()!=0 && two.size()!=0){
-        min1=min(min1,(ll)(s.size()-1-max(five[0],two[0])+abs(five[0]-two[0])-1));
-    }
-    if(five.size()!=0 && seven.size()!=0){
-        min1=min(min1,(ll)(s.size()-1-max(five[0],seven[0])+abs(five[0]-seven[0])-1));
-    }
-    if(zero.size()!=0 && five.size()!=0){
-        min1=min(min1,(ll)(s.size()-1-max(five[0],zero[0])+abs(five[0]-zero[0])-1));
-    }
-    if(zero.size()>=2){
-        min1=min(min1,(ll)(s.size()-1-max(zero[0],zero[1])+abs(zero[1]-zero[0])-1));
-    }
-    cout<<min1<<nn;
-
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
-    ll * arr=new ll[n];
-    read_array(arr,n);
+    ll n,k;
+    cin>>n>>k;
+    string s;
+    cin>>s;
+    char * brr=new char[k];
+    for(ll i=0;i<k;i++){
+        cin>>brr[i];
+    }
+    ll b[n];
+    ll a[26]={0};
+    for(ll i=0;i<k;i++){
+        a[brr[i]-'a']=1;
+    }
+    for(ll i=0;i<n;i++){
+        if(a[s[i]-'a']==1){
+            b[i]=1;
+        }
+        else{
+            b[i]=0;
+        }
+    }
+    ll sum=0;
+    ll num=0;
+    //print_array(b,n);
+    for(ll i=0;i<n;i++){
+        if(b[i]==1){
+            num++;
+        }
+        else{
+            sum+=num*(num+1)/2;
+            num=0;
+        }
+    }
+    sum+=num*(num+1)/2;
+    cout<<sum<<nn;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

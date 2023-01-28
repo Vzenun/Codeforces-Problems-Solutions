@@ -1,0 +1,1 @@
+{"name":"Local: 1535A_Fair_Playoff","url":"/Users/vidurgoel/Codeforces/1535A_Fair_Playoff.cpp","tests":[{"id":1674773166891,"input":"4\n3 7 9 5\n4 5 6 9\n5 3 8 1\n6 5 3 2","output":"YES\nNO\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1535A_Fair_Playoff.cpp","group":"local","local":true}
