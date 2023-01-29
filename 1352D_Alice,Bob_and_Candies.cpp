@@ -1,18 +1,6 @@
 // Vidur Goel
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-                                                                                                                                                                             
-                                                                                                                                                                             
-                                                                                                                                                                             
-*/
+//Codeforcees Handle: Vidurcodviz
 
 #include<iostream>
 #include<string>
@@ -39,6 +27,8 @@
 #include<set>
 #include<utility>
 #include<string_view>
+#include<deque>
+#include<iterator>
 
 void solve_array();
 void solve_single();
@@ -69,10 +59,12 @@ string nope="NO";
 ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
 ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
+ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
+
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
 void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
-void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
+//void print_array(ll arr[],ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 
 bool prime(ll n){for(int i=2;i*i<=n;i++){if(n%i==0){return false;}}return true;}
@@ -103,6 +95,19 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
 // find(vect.begin(), vect.end(),5) != vect.end()?
 //                      cout << "\nElement found":
 //                  cout << "\nElement not found";
+//maximium value long long can take 9, 223, 372, 036, 854, 775, 807
+// 2^63-1
+// i.e, length of 19 only
+//maximium value long long can take 18, 446, 744, 073, 709, 551, 615
+// 2^64-1
+// i.e, length of 20 only
+
+// reverse(s.begin(), s.end()); to reverse the string.(in built function)
+// set<int, greater<int> > s1;
+// s1.insert(10);
+// set<int> a;
+// by default the sets are sorted in the ascending order
+
 
 void Merge_two_arr(vec &arr,vec &brr,ll i,ll m,ll j){ll size1=m-i+1;ll size2=j-m;ll a[size1];ll a1[size1];ll b[size2];ll b1[size2];for(ll k=0;k<size1;k++){a[k]=arr[i+k];a1[k]=brr[i+k];}for(ll k=0;k<size2;k++){b[k]=arr[m+1+k];b1[k]=brr[m+1+k];}ll k=i;ll st=0;ll end=0;while(st<size1 && end<size2){if(a[st]<=b[end]){arr[k]=a[st];brr[k]=a1[st];st++;k++;}else{arr[k]=b[end];brr[k]=b1[end];end++;k++;}}while(st<size1){arr[k]=a[st];brr[k]=a1[st];st++;k++;}while(end<size2){arr[k]=b[end];brr[k]=b1[end];end++;k++;}}
 void mergeSort_two_arr(vec &arr,vec &brr,ll i,ll j){if(i<j){ll m=(i+j)/2;mergeSort_two_arr(arr,brr,i,m);mergeSort_two_arr(arr,brr,m+1,j);Merge_two_arr(arr,brr,i,m,j);}}
@@ -117,27 +122,13 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(n==m){
-        for(ll i=0;i<n;i++){
-            cout<<i+1<<" "<<i+1<<endl;
-        }
-    }
-    else if(n>m){
-        ll num=n-m+1;
-        for(ll i=0;i<num;i++){
-            cout<<i+1<<" "<<1<<endl;
-        }
-        for(ll i=num;i<n;i++){
-            cout<<i+1<<" "<<i-num+2<<endl;
-        }
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
@@ -145,13 +136,46 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll sum_a=0;
+    ll sum_b=0;
+    ll i=0;
+    ll j=n-1;
+    ll k1=0;
+    ll k2=0;
+    ll flag=0;
+    ll num=0;
+    while(i<=j){
+        if(flag==0){
+            k1=0;
+            while(k1<=k2 && i<=j){
+                sum_a+=arr[i];
+                k1+=arr[i];
+                i++;
+            }
+            //cout<<k1<<"*"<<nn;
+            flag=1;
+            num++;
+        }
+        else{
+            k2=0;
+            while(k2<=k1 && i<=j){
+                sum_b+=arr[j];
+                k2+=arr[j];
+                j--;
+            }
+            //cout<<k2<<"**"<<nn;
+            flag=0;
+            num++;
+        }
+    }
+    cout<<num<<" "<<sum_a<<" "<<sum_b<<nn;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
+    solve_mul();
     //solve_array();
-    solve_single();
+    //solve_single();
     return 0;
 }
