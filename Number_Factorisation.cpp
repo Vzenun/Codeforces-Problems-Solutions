@@ -70,7 +70,7 @@ void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}
 bool prime(ll n){for(int i=2;i*i<=n;i++){if(n%i==0){return false;}}return true;}
 void seive(){seiv[0]=0;seiv[1]=1;for(ll i=2;i*i<1000001;i++){if(seiv[i]==0){seiv[i]=i;for(ll j=i*i;j<1000001;j=j+i){if(seiv[j]==0){seiv[j]=i;}}}}}
 
-ll gcd(ll a,ll b){if(b==0){return a;}if(a>=b){return gcd(b,a%b);}else{return gcd(b,a);}}
+ll gcd(ll a,ll b){if(b==0){return a;}if(a>b){return gcd(b,a%b);}else{return gcd(b,a);}}
 ll expo(ll num,ll coef){ll res=1;while(coef!=0){if(coef%2==0){coef=coef/2;num=num*num;}else{coef=coef-1;res=res*num;}}return res;}
 ll expo_mod(ll a,ll n,ll m){ll res=1;while(n!=0){if(n%2==0){a=a*a;a=a%m;n=n/2;}else{res=res*a;res=res%m;n--;}}return res;}
 
@@ -118,17 +118,65 @@ void mergeSort_two_arr(ll * &arr,ll * &brr,ll i,ll j){if(i<j){ll m=(i+j)/2;merge
 void Merge_two_arr1(ll arr[],ll brr[],ll i,ll m,ll j){ll size1=m-i+1;ll size2=j-m;ll a[size1];ll a1[size1];ll b[size2];ll b1[size2];for(ll k=0;k<size1;k++){a[k]=arr[i+k];a1[k]=brr[i+k];}for(ll k=0;k<size2;k++){b[k]=arr[m+1+k];b1[k]=brr[m+1+k];}ll k=i;ll st=0;ll end=0;while(st<size1 && end<size2){if(a[st]<=b[end]){arr[k]=a[st];brr[k]=a1[st];st++;k++;}else{arr[k]=b[end];brr[k]=b1[end];end++;k++;}}while(st<size1){arr[k]=a[st];brr[k]=a1[st];st++;k++;}while(end<size2){arr[k]=b[end];brr[k]=b1[end];end++;k++;}}
 void mergeSort_two_arr1(ll arr[],ll brr[],ll i,ll j){if(i<j){ll m=(i+j)/2;mergeSort_two_arr1(arr,brr,i,m);mergeSort_two_arr1(arr,brr,m+1,j);Merge_two_arr1(arr,brr,i,m,j);}}
 
+ll a[100001]={0};
+
 void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    if(prime(n)){
+        cout<<n<<nn;
+        return;
+    }
+    for(ll i=2;i*i<=n;i++){
+        if(n%i==0){
+            ll count=0;
+            while(n%i==0){
+                count++;
+                n=n/i;
+            }
+            a[i]=count;
+        }
+    }
+    vec am;
+    vec cnt;
+    if(n>1){
+        am.pb(n);
+        cnt.pb(1);
+    }
+    for(ll i=2;i<100001;i++){
+        if(a[i]!=0){
+            am.pb(i);
+            cnt.pb(a[i]);
+        }
+    }
+    mergeSort_two_arr(cnt,am,0,am.size()-1);
+    vec ct;
+    while(cnt[am.size()-1]!=0){
+        ll num=1;
+        for(ll i=0;i<am.size();i++){
+            if(cnt[i]!=0){
+                num*=am[i];
+                cnt[i]-=1;
+            }
+        }
+        ct.pb(num);
+    }
+    ll sum=0;
+    for(ll i=0;i<ct.size();i++){
+        sum+=ct[i];
+    }
+    cout<<sum<<nn;
+    for(ll i=2;i<100001;i++){
+        a[i]=0;
+    }
 }
 
 void solve_array(){

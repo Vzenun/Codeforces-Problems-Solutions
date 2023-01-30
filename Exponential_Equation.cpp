@@ -70,7 +70,7 @@ void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}
 bool prime(ll n){for(int i=2;i*i<=n;i++){if(n%i==0){return false;}}return true;}
 void seive(){seiv[0]=0;seiv[1]=1;for(ll i=2;i*i<1000001;i++){if(seiv[i]==0){seiv[i]=i;for(ll j=i*i;j<1000001;j=j+i){if(seiv[j]==0){seiv[j]=i;}}}}}
 
-ll gcd(ll a,ll b){if(b==0){return a;}if(a>=b){return gcd(b,a%b);}else{return gcd(b,a);}}
+ll gcd(ll a,ll b){if(b==0){return a;}if(a>b){return gcd(b,a%b);}else{return gcd(b,a);}}
 ll expo(ll num,ll coef){ll res=1;while(coef!=0){if(coef%2==0){coef=coef/2;num=num*num;}else{coef=coef-1;res=res*num;}}return res;}
 ll expo_mod(ll a,ll n,ll m){ll res=1;while(n!=0){if(n%2==0){a=a*a;a=a%m;n=n/2;}else{res=res*a;res=res%m;n--;}}return res;}
 
@@ -122,13 +122,19 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    if(n%2==0){
+        cout<<1<<" "<<n/2<<nn;
+    }
+    else{
+        cout<<-1<<nn;
+    }
 }
 
 void solve_array(){
