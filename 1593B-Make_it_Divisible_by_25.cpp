@@ -1,19 +1,5 @@
 // Vidur Goel
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-                                                                                                                                                                             
-                                                                                                                                                                             
-                                                                                                                                                                             
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -127,34 +113,43 @@ void solve_single(){
     string s=to_string(n);
     vec zero;
     vec two;
-    vec five;
+    vec fivezer;
     vec seven;
+    vec fivets;
+    ll flag1=0;
     for(ll i=s.size()-1;i>=0;i--){
-        if(s[i]=='2'){
-            two.push_back(i);
-        }
-        else if(s[i]=='7'){
-            seven.push_back(i);
-        }
-        else if(s[i]=='5'){
-            five.push_back(i);
-        }
-        else if(s[i]=='0'){
+        if(s[i]=='0' && zero.size()<2){
             zero.push_back(i);
         }
     }
+    for(ll i=s.size()-1;i>=0;i--){
+        if(s[i]=='5' && zero.size()!=0 && i<zero[0] && fivezer.size()<1){
+            fivezer.push_back(i);
+        }
+        if(s[i]=='5' && fivets.size()<1){
+            fivets.push_back(i);
+        }
+    }
+    for(ll i=s.size()-1;i>=0;i--){
+        if(s[i]=='2' && fivets.size()!=0 && i<fivets[0] && two.size()<1 ){
+            two.push_back(i);
+        }
+        if(s[i]=='7' && fivets.size()!=0 && i<fivets[0] && seven.size()<1){
+            seven.push_back(i);
+        }
+    }
     ll min1=INT_MAX;
-    if(five.size()!=0 && two.size()!=0){
-        min1=min(min1,(ll)(s.size()-1-max(five[0],two[0])+abs(five[0]-two[0])-1));
+    if(zero.size()==2){
+        min1=min(min1,(ll)(s.size()-1-zero[1]-1));
     }
-    if(five.size()!=0 && seven.size()!=0){
-        min1=min(min1,(ll)(s.size()-1-max(five[0],seven[0])+abs(five[0]-seven[0])-1));
+    if(zero.size()!=0 && fivezer.size()!=0){
+        min1=min(min1,(ll)(s.size()-1-fivezer[0]-1));
     }
-    if(zero.size()!=0 && five.size()!=0){
-        min1=min(min1,(ll)(s.size()-1-max(five[0],zero[0])+abs(five[0]-zero[0])-1));
+    if(fivets.size()!=0 && seven.size()!=0){
+        min1=min(min1,(ll)(s.size()-1-seven[0]-1));
     }
-    if(zero.size()>=2){
-        min1=min(min1,(ll)(s.size()-1-max(zero[0],zero[1])+abs(zero[1]-zero[0])-1));
+    if(fivets.size()!=0 && two.size()!=0){
+        min1=min(min1,(ll)(s.size()-1-two[0]-1));
     }
     cout<<min1<<nn;
 

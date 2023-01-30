@@ -1,0 +1,1 @@
+{"name":"Local: 1333A_Little_Artem","url":"/Users/vidurgoel/Codeforces/1333A_Little_Artem.cpp","tests":[{"id":1675094534577,"input":"2\n3 2\n3 3\n","output":"BW\nWB\nBB\nBWB\nBWW\nBWB"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1333A_Little_Artem.cpp","group":"local","local":true}
