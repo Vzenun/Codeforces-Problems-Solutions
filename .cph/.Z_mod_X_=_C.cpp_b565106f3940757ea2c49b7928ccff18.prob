@@ -1,0 +1,1 @@
+{"name":"Local: Z_mod_X_=_C","url":"/Users/vidurgoel/Codeforces/Z_mod_X_=_C.cpp","tests":[{"id":1675145910741,"input":"4\n1 3 4\n127 234 421\n2 7 8\n59 94 388\n","output":"12 11 4\n1063 234 1484\n25 23 8\n2221 94 2609\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Z_mod_X_=_C.cpp","group":"local","local":true}

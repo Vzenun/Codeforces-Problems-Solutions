@@ -127,13 +127,43 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(n==1 || n==2){
-        cout<<m*(n-1)<<nn;
+    ll n;
+    cin>>n;
+    string s;
+    cin>>s;
+    if(n%2==0){
+        ll i=n/2-1;
+        ll j=n/2;
+        char m=s[i];
+        ll num=0;
+        while(i!=-1 && j!=n){
+            if(s[i]==s[j] && s[i]==m){
+                num+=2;
+                i--;
+                j++;
+            }
+            else{
+                break;
+            }
+        }
+        cout<<num<<nn;
     }
     else{
-        cout<<2*m<<nn;
+        ll i=n/2-1;
+        ll j=n/2+1;
+        char m=s[n/2];
+        ll num=1;
+        while(i!=-1 && j!=n){
+            if(s[i]==s[j] && s[i]==m){
+                num+=2;
+                i--;
+                j++;
+            }
+            else{
+                break;
+            }
+        }
+        cout<<num<<nn;
     }
 }
 

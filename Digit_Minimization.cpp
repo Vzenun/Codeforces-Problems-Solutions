@@ -127,13 +127,20 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(n==1 || n==2){
-        cout<<m*(n-1)<<nn;
+    ll n;
+    cin>>n;
+    string s=to_string(n);
+    if(s.length()==1 || s.length()==2){
+        cout<<s[s.length()-1]<<nn;
     }
     else{
-        cout<<2*m<<nn;
+        ll min=INT32_MAX;
+        for(ll i=0;i<s.length();i++){
+            if(s[i]-'0'<min){
+                min=s[i]-'0';
+            }
+        }
+        cout<<min<<nn;
     }
 }
 

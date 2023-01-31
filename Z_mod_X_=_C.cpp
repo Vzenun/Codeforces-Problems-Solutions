@@ -127,14 +127,14 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(n==1 || n==2){
-        cout<<m*(n-1)<<nn;
-    }
-    else{
-        cout<<2*m<<nn;
-    }
+    ll a,b,c;
+    cin>>a>>b>>c;
+    ll y=b;
+    ll z=c;
+    ll m=z/b;
+    m=m+1;
+    m=m*b+a;
+    cout<<m<<" "<<y<<" "<<z<<nn;
 }
 
 void solve_array(){

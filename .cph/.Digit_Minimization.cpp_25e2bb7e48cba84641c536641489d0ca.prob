@@ -1,0 +1,1 @@
+{"name":"Local: Digit_Minimization","url":"/Users/vidurgoel/Codeforces/Digit_Minimization.cpp","tests":[{"id":1675142391795,"input":"3\n12\n132\n487456398\n","output":"2\n1\n3\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Digit_Minimization.cpp","group":"local","local":true}

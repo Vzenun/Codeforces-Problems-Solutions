@@ -1,0 +1,1 @@
+{"name":"Local: Palindromic_Indices","url":"/Users/vidurgoel/Codeforces/Palindromic_Indices.cpp","tests":[{"id":1675147550325,"input":"3\n3\naba\n8\nacaaaaca\n2\ndd\n","output":"1\n4\n2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Palindromic_Indices.cpp","group":"local","local":true}

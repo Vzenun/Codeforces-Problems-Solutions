@@ -122,26 +122,49 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        solve_array();
     }
 }
 
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(n==1 || n==2){
-        cout<<m*(n-1)<<nn;
-    }
-    else{
-        cout<<2*m<<nn;
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,h;
+    cin>>n>>h;
     ll * arr=new ll[n];
     read_array(arr,n);
+    if(n==1){
+        cout<<h<<nn;
+        return;
+    }
+    vec a;
+    for(ll i=0;i<n-1;i++){
+        a.pb(arr[i+1]-arr[i]);
+    }
+    sort(a.begin(),a.end());
+    if(a[0]*(a.size()+1)>=h){
+        cout<<(ll)ceil((double)h/(a.size()+1))<<nn;
+    }
+    else{
+        ll sum=0;
+        for(ll i=0;i<a.size();i++){
+            if(sum+a[i]*(a.size()-i+1)==h){
+                cout<<a[i]<<nn;
+                return;
+            }
+            else if(sum+a[i]*(a.size()-i+1)>h){
+                cout<<(ll)ceil((double)(h-sum)/(a.size()-i+1))<<nn;
+                return;
+            }
+            else{
+                sum+=a[i];
+            }
+        }
+        cout<<h-sum<<nn;
+    }
 }
 
 int main(){
