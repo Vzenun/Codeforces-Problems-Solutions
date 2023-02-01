@@ -124,13 +124,29 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    if(n%2==0){
+        for(ll i=0;i<n;i++){
+            cout<<n-i<<" ";
+        }
+        cout<<nn;
+    }
+    else{
+        for(ll i=0;i<n/2;i++){
+            cout<<n-i<<" ";
+        }
+        for(ll i=n/2+1;i<n;i++){
+            cout<<n-i<<" ";
+        }
+        cout<<n-n/2<<nn;
+        //cout<<nn;
+    }
 }
 
 void solve_array(){

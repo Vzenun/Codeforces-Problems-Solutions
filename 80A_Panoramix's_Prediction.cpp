@@ -51,7 +51,7 @@ typedef long double lld;
 
 using namespace std;
 using namespace chrono;
-ll seiv[1000001]={0};
+ll seiv[51]={0};
 
 string yup="YES";
 string nope="NO";
@@ -68,7 +68,7 @@ void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;
 void print_array(vec &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
 
 bool prime(ll n){for(int i=2;i*i<=n;i++){if(n%i==0){return false;}}return true;}
-void seive(){seiv[0]=0;seiv[1]=1;for(ll i=2;i*i<1000001;i++){if(seiv[i]==0){seiv[i]=i;for(ll j=i*i;j<1000001;j=j+i){if(seiv[j]==0){seiv[j]=i;}}}}}
+void seive(){seiv[0]=0;seiv[1]=1;for(ll i=2;i*i<51;i++){if(seiv[i]==0){seiv[i]=i;for(ll j=i*i;j<51;j=j+i){if(seiv[j]==0){seiv[j]=i;}}}}}
 
 ll gcd(ll a,ll b){if(b==0){return a;}if(a>=b){return gcd(b,a%b);}else{return gcd(b,a);}}
 ll expo(ll num,ll coef){ll res=1;while(coef!=0){if(coef%2==0){coef=coef/2;num=num*num;}else{coef=coef-1;res=res*num;}}return res;}
@@ -78,8 +78,6 @@ ll add_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) %
 ll mul_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}
 ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
 
-// sqrt() in built function to give the square root in float/double
-// cbrt() in built function to give the cube root in float/double
 // abs() is used for the absolute value of a number
 // sort() inbuilt function in cpp
 // swap() function in c++ used to swap value of two elements of the same data type.
@@ -129,8 +127,18 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
+    ll k=n+1;
+    while(seiv[k]!=0 && seiv[k]!=k){
+        k++;
+    }
+    if(k==m){
+        cout<<yup<<nn;
+    }
+    else{
+        cout<<nope<<nn;
+    }
 }
 
 void solve_array(){
@@ -142,9 +150,9 @@ void solve_array(){
 
 int main(){
     make_it_fast();
-    //seive();
-    solve_mul();
+    seive();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

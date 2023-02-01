@@ -131,6 +131,27 @@ void solve_mul(){
 void solve_single(){
     ll n;
     cin>>n;
+    if(prime(n)){
+        cout<<1<<nn;
+    }
+    else{
+        ll sum=1;
+        for(ll i=2;i*i<=n;i++){
+            if(n%i==0){
+                ll count=0;
+                while(n%i==0){
+                    count++;
+                    n=n/i;
+                }
+                sum*=(count+1);
+            }
+        }
+        if(n>1){
+            //cout<<n<<"^"<<1<<endl;
+            sum*=2;
+        }
+        cout<<sum-1<<nn;
+    }
 }
 
 void solve_array(){
@@ -143,8 +164,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

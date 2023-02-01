@@ -124,13 +124,19 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    ll m=(ll)pow(2,n+1)-2;
+    ll k=(ll)pow(2,n/2)-2;
+    k+=(m+2)/2;
+    m=m-k;
+    cout<<abs(m-k)<<nn;
+
 }
 
 void solve_array(){

@@ -1,0 +1,1 @@
+{"name":"Local: 1472A_Cards_for_Friends","url":"/Users/vidurgoel/Codeforces/1472A_Cards_for_Friends.cpp","tests":[{"id":1675250218313,"input":"5\n2 2 3\n3 3 2\n5 10 2\n11 13 1\n1 4 4\n","output":"YES\nNO\nYES\nYES\nYES\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1472A_Cards_for_Friends.cpp","group":"local","local":true}

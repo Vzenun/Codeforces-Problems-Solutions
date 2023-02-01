@@ -78,8 +78,6 @@ ll add_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) %
 ll mul_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}
 ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
 
-// sqrt() in built function to give the square root in float/double
-// cbrt() in built function to give the cube root in float/double
 // abs() is used for the absolute value of a number
 // sort() inbuilt function in cpp
 // swap() function in c++ used to swap value of two elements of the same data type.
@@ -131,6 +129,12 @@ void solve_mul(){
 void solve_single(){
     ll n;
     cin>>n;
+    ll k=(ll)ceil(cbrt(6*n));
+    while((k*(k+1)*(k+2))/6>n){
+        k--;
+    }
+    cout<<k<<nn;
+    return;
 }
 
 void solve_array(){
@@ -143,8 +147,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

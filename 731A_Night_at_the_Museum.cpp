@@ -129,8 +129,20 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    string s;
+    cin>>s;
+    s='a'+s;
+    ll sum=0;
+    for(ll i=0;i<s.size()-1;i++){
+        ll m=abs(s[i]-s[i+1]);
+        if(m>26-m){
+            sum+=26-m;
+        }
+        else{
+            sum+=m;
+        }
+    }
+    cout<<sum<<nn;
 }
 
 void solve_array(){
@@ -143,8 +155,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }
