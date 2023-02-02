@@ -1,0 +1,1 @@
+{"name":"Local: 1358A_Park_Lighting","url":"/Users/vidurgoel/Codeforces/1358A_Park_Lighting.cpp","tests":[{"id":1675255919128,"input":"5\n1 1\n1 3\n2 2\n3 3\n5 3\n","output":"1\n2\n2\n5\n8\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1358A_Park_Lighting.cpp","group":"local","local":true}

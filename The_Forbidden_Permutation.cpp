@@ -57,7 +57,7 @@ string yup="YES";
 string nope="NO";
 
 ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
-ll maxar(ll * arr,ll n){return *max_element(arr,arr+n);}
+ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
 
@@ -124,7 +124,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -134,10 +134,45 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,m,d;
+    cin>>n>>m>>d;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll * brr=new ll[n];
+    for(ll i=0;i<n;i++){
+        brr[i]=i;
+    }
+    ll * krr=new ll[n];
+    copy_array(arr,krr,n);
+    mergeSort_two_arr(krr,brr,0,n-1);
+    ll * b=new ll[m];
+    read_array(b,m);
+    ll * c=new ll[m];
+    for(ll i=0;i<m;i++){
+        c[i]=brr[b[i]-1];
+    }
+    for(ll i=0;i<m-1;i++){
+        if(!(c[i]<c[i+1] && c[i+1]<=c[i]+d)){
+            cout<<0<<nn;
+            return;
+        }
+    }
+    ll min1=INT_MAX;
+    for(ll i=0;i<m-1;i++){
+        if(c[i]<c[i+1] && c[i+1]<=c[i]+d){
+            min1=min(min1,c[i+1]-c[i]);
+            if(c[i]>c[i]+d-c[i+1]){
+                min1=min(min1,c[i]+d-c[i+1]+1);
+            }
+            if(n-1-c[i+1]>c[i]+d-c[i+1]){
+                min1=min(min1,c[i]+d-c[i+1]+1);
+            }
+            if(n-1-c[i+1]+c[i]>c[i]+d-c[i+1]){
+                min1=min(min1,c[i]+d-c[i+1]+1);
+            }
+        }
+    }
+    cout<<min1<<nn;
 }
 
 int main(){

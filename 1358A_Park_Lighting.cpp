@@ -57,7 +57,7 @@ string yup="YES";
 string nope="NO";
 
 ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
-ll maxar(ll * arr,ll n){return *max_element(arr,arr+n);}
+ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
 
@@ -124,13 +124,25 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
+    if(n%2==0 && m%2==0){
+        cout<<(n/2)*m<<nn;
+    }
+    else if(n%2!=0 && m%2==0){
+        cout<<(m/2)*n<<nn;
+    }
+    else if(n%2==0 && m%2!=0){
+        cout<<(n/2)*m<<nn;
+    }
+    else{
+        cout<<((n-1)/2)*m+1+m/2<<nn;
+    }
 }
 
 void solve_array(){

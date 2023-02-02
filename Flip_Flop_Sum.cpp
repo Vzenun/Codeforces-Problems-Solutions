@@ -57,7 +57,7 @@ string yup="YES";
 string nope="NO";
 
 ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
-ll maxar(ll * arr,ll n){return *max_element(arr,arr+n);}
+ll maxar(ll * arr,ll n){return *min_element(arr,arr+n);}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
 
@@ -124,7 +124,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -138,6 +138,29 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll flag=0;
+    ll num1=0;
+    for(ll i=0;i<n-1;i++){
+        if(arr[i]==arr[i+1] && arr[i]==-1){
+            flag=1;
+        }
+    }
+    for(ll i=0;i<n;i++){
+        if(arr[i]==1){
+            num1++;
+        }
+    }
+    if(num1==n){
+        cout<<n-4<<nn;
+    }
+    else{
+        if(flag==1){
+            cout<<num1+2-(n-num1-2)<<nn;
+        }
+        else{
+            cout<<num1-(n-num1)<<nn;
+        }
+    }
 }
 
 int main(){

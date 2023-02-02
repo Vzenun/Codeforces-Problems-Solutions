@@ -124,7 +124,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -138,6 +138,17 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll m;
+    cin>>m;
+    ll * brr=new ll[m];
+    read_array(brr,m);
+    ll sum=0;
+    for(ll i=0;i<m;i++){
+        sum+=brr[i];
+        sum=sum%n;
+    }
+    sum=sum%n;
+    cout<<arr[sum]<<nn;
 }
 
 int main(){

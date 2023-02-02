@@ -124,7 +124,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -138,6 +138,26 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll m;
+    cin>>m;
+    ll * brr=new ll[m];
+    read_array(brr,m);
+    //cout<<n<<" "<<m<<nn;
+    ll k1=maxar(arr,n);
+    ll k2=maxar(brr,m);
+    //cout<<k1<<" "<<k2<<nn;
+    if(k1>k2){
+        cout<<"Alice"<<nn;
+        cout<<"Alice"<<nn;
+    }
+    else if(k1<k2){
+        cout<<"Bob"<<nn;
+        cout<<"Bob"<<nn;
+    }
+    else{
+        cout<<"Alice"<<nn;
+        cout<<"Bob"<<nn;
+    }
 }
 
 int main(){
