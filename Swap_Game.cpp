@@ -135,7 +135,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -149,67 +149,28 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll a[n];
+    if(arr[0]==1){
+        cout<<"Bob"<<nn;
+        return;
+    }
+    sort(arr,arr+n);
+    if(arr[0]==1){
+        cout<<"Alice"<<nn;
+        return;
+    }
+    ll sum=0;
     for(ll i=0;i<n-1;i++){
-        if(arr[i]<=arr[i+1]){
-            a[i]=1;
-        }
-        else{
-            a[i]=0;
-        }
+        sum+=arr[i]-2;
     }
-    a[n-1]=a[n-2];
-    ll num1=0;
-    ll num2=0;
-    vec i1;
-    vec j1;
-    for(ll i=0;i<n-1;i++){
-        if(a[i]==0 && a[i+1]==1){
-            num1++;
-            i1.pb(i+1);
-        }
-        else if(a[i]==1 && a[i+1]==0){
-            num2++;
-            j1.pb(i+1);
-        }
-    }
-    if(num1>=2 || num2>=2){
-        cout<<"no"<<nn;
-    }
-    else if(num1>1 && num2>1){
-        cout<<"no"<<nn;
-    }
-    else if(num2==0 && num1==0 && a[0]==1){
-        cout<<"yes"<<nn;
-        cout<<1<<" "<<1<<nn;
-    }
-    else if(num1==0 && num2==0 && a[0]==0){
-        cout<<"yes"<<nn;
-        cout<<1<<" "<<n<<nn;
+    if(sum<=arr[n-1]-2){
+        cout<<"Alice"<<nn;
     }
     else{
-        if(num1==1 && num2==1){
-            
+        if((sum+arr[n-1]-2)%2!=0){
+            cout<<"Alice"<<nn;
         }
-        if(num1==1){
-            //cout<<i1<<nn;
-            if(arr[i1[0]+1]>arr[0]){
-                cout<<"yes"<<nn;
-                cout<<1<<" "<<i1[0]+1<<nn;
-            }
-            else{
-                cout<<"no"<<nn;
-            }
-        }
-        else if(num2==1){
-            //cout<<j1<<nn;
-            if(arr[j1[0]-1]<arr[n-1]){
-                cout<<"yes"<<nn;
-                cout<<j1[0]+1<<" "<<n<<nn;
-            }
-            else{
-                cout<<"no"<<nn;
-            }
+        else{
+            cout<<"Bob"<<nn;
         }
     }
 }
@@ -217,8 +178,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
-    solve_array();
+    solve_mul();
+    //solve_array();
     //solve_single();
     return 0;
 }

@@ -2,17 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -149,69 +138,16 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll a[n];
-    for(ll i=0;i<n-1;i++){
-        if(arr[i]<=arr[i+1]){
-            a[i]=1;
-        }
-        else{
-            a[i]=0;
-        }
+    ll max1=maxar(arr,n);
+    ll max2=minar(arr,n);
+    ll ab=abs(max1-max2);
+    ll c1=count(arr,arr+n,max1);
+    c1*=count(arr,arr+n,max2);
+    if(max1==max2){
+        cout<<0<<" "<<(n*(n-1))/2<<nn;
+        return;
     }
-    a[n-1]=a[n-2];
-    ll num1=0;
-    ll num2=0;
-    vec i1;
-    vec j1;
-    for(ll i=0;i<n-1;i++){
-        if(a[i]==0 && a[i+1]==1){
-            num1++;
-            i1.pb(i+1);
-        }
-        else if(a[i]==1 && a[i+1]==0){
-            num2++;
-            j1.pb(i+1);
-        }
-    }
-    if(num1>=2 || num2>=2){
-        cout<<"no"<<nn;
-    }
-    else if(num1>1 && num2>1){
-        cout<<"no"<<nn;
-    }
-    else if(num2==0 && num1==0 && a[0]==1){
-        cout<<"yes"<<nn;
-        cout<<1<<" "<<1<<nn;
-    }
-    else if(num1==0 && num2==0 && a[0]==0){
-        cout<<"yes"<<nn;
-        cout<<1<<" "<<n<<nn;
-    }
-    else{
-        if(num1==1 && num2==1){
-            
-        }
-        if(num1==1){
-            //cout<<i1<<nn;
-            if(arr[i1[0]+1]>arr[0]){
-                cout<<"yes"<<nn;
-                cout<<1<<" "<<i1[0]+1<<nn;
-            }
-            else{
-                cout<<"no"<<nn;
-            }
-        }
-        else if(num2==1){
-            //cout<<j1<<nn;
-            if(arr[j1[0]-1]<arr[n-1]){
-                cout<<"yes"<<nn;
-                cout<<j1[0]+1<<" "<<n<<nn;
-            }
-            else{
-                cout<<"no"<<nn;
-            }
-        }
-    }
+    cout<<ab<<" "<<c1<<nn;
 }
 
 int main(){

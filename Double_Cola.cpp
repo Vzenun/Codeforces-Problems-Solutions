@@ -2,17 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -142,6 +131,57 @@ void solve_mul(){
 void solve_single(){
     ll n;
     cin>>n;
+    ll m=n/5;
+    m=m+1;
+    ll k1=(ll)floor(log2(m));
+    ll ans=pow(2,k1)-1;
+    ans=ans*5;
+    if(ans==n){
+        cout<<"Howard"<<nn;
+        return;
+    }
+    else{
+        
+        ll m1=5*((ll)pow(2,k1+1)-1)-ans;
+        //cout<<m1<<nn;
+        m1=m1/5;
+        if((n-ans)%m1==0){
+            ll r=(n-ans)/m1;
+            if(r==0){
+                cout<<"Howard"<<nn;
+            }
+            else if(r==1){
+                cout<<"Sheldon"<<nn;
+            }
+            else if(r==2){
+                cout<<"Leonard"<<nn;
+            }
+            else if(r==3){
+                cout<<"Penny"<<nn;
+            }
+            else if(r==4){
+                cout<<"Rajesh"<<nn;
+            }
+        }
+        else{
+            ll r=(n-ans)/m1;
+            if(r==0){
+                cout<<"Sheldon"<<nn;
+            }
+            else if(r==1){
+                cout<<"Leonard"<<nn;
+            }
+            else if(r==2){
+                cout<<"Penny"<<nn;
+            }
+            else if(r==3){
+                cout<<"Rajesh"<<nn;
+            }
+            else if(r==4){
+                cout<<"Howard"<<nn;
+            }
+        }
+    }
 }
 
 void solve_array(){
@@ -149,76 +189,13 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll a[n];
-    for(ll i=0;i<n-1;i++){
-        if(arr[i]<=arr[i+1]){
-            a[i]=1;
-        }
-        else{
-            a[i]=0;
-        }
-    }
-    a[n-1]=a[n-2];
-    ll num1=0;
-    ll num2=0;
-    vec i1;
-    vec j1;
-    for(ll i=0;i<n-1;i++){
-        if(a[i]==0 && a[i+1]==1){
-            num1++;
-            i1.pb(i+1);
-        }
-        else if(a[i]==1 && a[i+1]==0){
-            num2++;
-            j1.pb(i+1);
-        }
-    }
-    if(num1>=2 || num2>=2){
-        cout<<"no"<<nn;
-    }
-    else if(num1>1 && num2>1){
-        cout<<"no"<<nn;
-    }
-    else if(num2==0 && num1==0 && a[0]==1){
-        cout<<"yes"<<nn;
-        cout<<1<<" "<<1<<nn;
-    }
-    else if(num1==0 && num2==0 && a[0]==0){
-        cout<<"yes"<<nn;
-        cout<<1<<" "<<n<<nn;
-    }
-    else{
-        if(num1==1 && num2==1){
-            
-        }
-        if(num1==1){
-            //cout<<i1<<nn;
-            if(arr[i1[0]+1]>arr[0]){
-                cout<<"yes"<<nn;
-                cout<<1<<" "<<i1[0]+1<<nn;
-            }
-            else{
-                cout<<"no"<<nn;
-            }
-        }
-        else if(num2==1){
-            //cout<<j1<<nn;
-            if(arr[j1[0]-1]<arr[n-1]){
-                cout<<"yes"<<nn;
-                cout<<j1[0]+1<<" "<<n<<nn;
-            }
-            else{
-                cout<<"no"<<nn;
-            }
-        }
-    }
 }
 
 int main(){
     make_it_fast();
     //seive();
     //solve_mul();
-    solve_array();
-    //solve_single();
+    //solve_array();
+    solve_single();
     return 0;
 }

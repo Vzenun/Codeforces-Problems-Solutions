@@ -1,0 +1,1 @@
+{"name":"Local: SWap_Game","url":"/Users/vidurgoel/Codeforces/SWap_Game.cpp","tests":[{"id":1675335046137,"input":"3\n2\n1 1\n2\n2 1\n3\n5 4 4","output":"Bob\nAlice\nAlice"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/SWap_Game.cpp","group":"local","local":true}
