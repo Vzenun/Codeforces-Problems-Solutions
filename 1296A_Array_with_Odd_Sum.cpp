@@ -138,31 +138,37 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll num0=0;
     ll num1=0;
     for(ll i=0;i<n;i++){
-        if(arr[i]<0){
+        if(arr[i]%2==0){
+            num0++;
+        }
+        else{
             num1++;
         }
     }
-    if(num1%2==0){
-        ll sum=0;
-        for(ll i=0;i<n;i++){
-            sum+=abs(arr[i]);
+    if(n%2==0){
+        if(num1==0 && num0!=0){
+            cout<<nope<<nn;
         }
-        cout<<sum<<nn;
-        return;
+        else if(num0==0 && num1!=0){
+            cout<<nope<<nn;
+        }
+        else{
+            cout<<yup<<nn;
+        }
     }
     else{
-        ll sum=INT32_MAX;
-        for(ll i=0;i<n;i++){
-            sum=min(sum,abs(arr[i]));
+        if(num0==0){
+            cout<<yup<<nn;
         }
-        ll sum1=0;
-        for(ll i=0;i<n;i++){
-            sum1+=abs(arr[i]);
+        else if(num1==0){
+            cout<<nope<<nn;
         }
-        cout<<sum1-2*sum<<nn;
-        return;
+        else{
+            cout<<yup<<nn;
+        }
     }
 }
 

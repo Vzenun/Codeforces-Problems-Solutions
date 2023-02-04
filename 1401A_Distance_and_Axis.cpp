@@ -124,13 +124,24 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,k;
+    cin>>n>>k;
+    if(n>=k && ((n-k)%2==0 || (k+n)%2==0)){
+        cout<<0<<nn;
+        return;
+    }
+    else if((n>=k && !((n-k)%2==0 || (k+n)%2==0))){
+        cout<<1<<nn;
+    }
+    else{
+        cout<<k-n<<nn;
+    }
+    //cout<<max(n,k)-min(n,k)<<nn;
 }
 
 void solve_array(){
@@ -138,32 +149,6 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll num1=0;
-    for(ll i=0;i<n;i++){
-        if(arr[i]<0){
-            num1++;
-        }
-    }
-    if(num1%2==0){
-        ll sum=0;
-        for(ll i=0;i<n;i++){
-            sum+=abs(arr[i]);
-        }
-        cout<<sum<<nn;
-        return;
-    }
-    else{
-        ll sum=INT32_MAX;
-        for(ll i=0;i<n;i++){
-            sum=min(sum,abs(arr[i]));
-        }
-        ll sum1=0;
-        for(ll i=0;i<n;i++){
-            sum1+=abs(arr[i]);
-        }
-        cout<<sum1-2*sum<<nn;
-        return;
-    }
 }
 
 int main(){

@@ -1,0 +1,1 @@
+{"name":"Local: 1633B_Minority","url":"/Users/vidurgoel/Codeforces/1633B_Minority.cpp","tests":[{"id":1675489002998,"input":"4\n01\n1010101010111\n00110001000\n1\n","output":"0\n5\n3\n0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1633B_Minority.cpp","group":"local","local":true}

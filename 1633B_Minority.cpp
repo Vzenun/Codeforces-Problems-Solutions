@@ -124,13 +124,39 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    string s;
+    cin>>s;
+    if(s.size()<=2){
+        cout<<0<<nn;
+        return;
+    }
+    ll num0=0;
+    ll num1=0;
+    for(ll i=0;i<s.size();i++){
+        if(s[i]=='0'){
+            num0++;
+        }
+        else{
+            num1++;
+        }
+    }
+    if(s.size()==num1 || s.size()==num0){
+        cout<<0<<nn;
+        return;
+    }
+    else{
+        if(num1==num0){
+            cout<<min(num0,num1)-1<<nn;
+            return;
+        }
+        cout<<min(num0,num1)<<nn;
+        return;
+    }
 }
 
 void solve_array(){
@@ -138,32 +164,6 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll num1=0;
-    for(ll i=0;i<n;i++){
-        if(arr[i]<0){
-            num1++;
-        }
-    }
-    if(num1%2==0){
-        ll sum=0;
-        for(ll i=0;i<n;i++){
-            sum+=abs(arr[i]);
-        }
-        cout<<sum<<nn;
-        return;
-    }
-    else{
-        ll sum=INT32_MAX;
-        for(ll i=0;i<n;i++){
-            sum=min(sum,abs(arr[i]));
-        }
-        ll sum1=0;
-        for(ll i=0;i<n;i++){
-            sum1+=abs(arr[i]);
-        }
-        cout<<sum1-2*sum<<nn;
-        return;
-    }
 }
 
 int main(){
