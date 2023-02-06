@@ -1,0 +1,1 @@
+{"name":"Local: Monsters_(easy_version)","url":"/Users/vidurgoel/Codeforces/Monsters_(easy_version).cpp","tests":[{"id":1675687474760,"input":"2\n3\n3 1 2\n6\n4 1 5 4 1 1\n","output":"0\n4\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Monsters_(easy_version).cpp","group":"local","local":true}
