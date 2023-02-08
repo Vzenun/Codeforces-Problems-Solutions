@@ -124,55 +124,88 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,k;
+    cin>>n>>k;
+    if(n%2==0){
+        if(k%2==0){
+            // odd and even me se koi bhi ho skta hain
+            if(k>n){
+                cout<<nope<<nn;
+            }
+            else if(k==n){
+                cout<<yup<<nn;
+                for(ll i=0;i<k;i++){
+                    cout<<1<<" ";
+                }
+                cout<<nn;
+            }
+            else{
+                cout<<yup<<nn;
+                for(ll i=0;i<k-1;i++){
+                    cout<<1<<" ";
+                }
+                cout<<n-(k-1)<<nn;
+            }
+        }
+        else{
+            // sirf even hi ho skta hain
+            ll a=n/2;
+            if(k==a){
+                cout<<yup<<nn;
+                for(ll i=0;i<k;i++){
+                    cout<<2<<" ";
+                }
+                cout<<nn;
+            }
+            else if(k>a){
+                cout<<nope<<nn;
+            }
+            else{
+                cout<<yup<<nn;
+                for(ll i=0;i<k-1;i++){
+                    cout<<2<<" ";
+                }
+                cout<<n-2*(k-1)<<nn;
+            }
+        }
+    }
+    else{
+        if(k%2==0){
+            cout<<nope<<nn;
+        }
+        else{
+            // odd hi ho skta hain
+            if(k>n){
+                cout<<nope<<nn;
+            }
+            else if(k==n){
+                cout<<yup<<nn;
+                for(ll i=0;i<k;i++){
+                    cout<<1<<" ";
+                }
+                cout<<nn;
+            }
+            else{
+                cout<<yup<<nn;
+                for(ll i=0;i<k-1;i++){
+                    cout<<1<<" ";
+                }
+                cout<<n-(k-1)<<nn;
+            }
+        }
+    }
 }
 
 void solve_array(){
-    ll n,w,h;
-    cin>>n>>w>>h;
+    ll n;
+    cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll * brr=new ll[n];
-    read_array(brr,n);
-    ll k=arr[0]+w-(brr[0]+h);
-    for(ll i=0;i<n;i++){
-        arr[i]=arr[i]-k;
-    }
-    ll count1=INT_MIN;
-    ll flag=0;
-    ll flag1=0;
-    ll count2=INT_MAX;
-    for(ll i=0;i<n;i++){
-        if(arr[i]+w-h>=brr[i] && arr[i]-w+h<=brr[i]){
-            flag=1;
-            count2=min(brr[i]-h-(arr[i]-w),count2);
-        }
-        else if(arr[i]-w+h>brr[i]){
-            cout<<nope<<nn;
-            return;
-        }
-        else{
-            flag1=1;
-            count1=max(brr[i]-arr[i]-w+h,count1);
-        }
-    }
-    if(flag==1&& flag1==0){
-        cout<<yup<<nn;
-    }
-    else if(flag==1 && flag1==1){
-        if(count1<=count2){
-            cout<<yup<<nn;
-        }
-        else{
-            cout<<nope<<nn;
-        }
-    }
 }
 
 int main(){

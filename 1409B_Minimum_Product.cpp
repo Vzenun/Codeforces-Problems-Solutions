@@ -2,6 +2,17 @@
 
 //Codeforcees Handle: Vidurcodviz
 
+/*
+888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
+8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
+88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
+888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
+888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
+888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
+888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
+888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
+*/
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -124,55 +135,34 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll a,b,x,y,n;
+    cin>>a>>b>>x>>y>>n;
+    if(a>b){
+        ll k=min(b-y,n);
+        n=n-k;
+        b=b-k;
+        if(n>0){
+            ll k1=min(a-x,b-y)
+        }
+    }
+    else if(a==b){
+
+    }
+    else{
+
+    }
 }
 
 void solve_array(){
-    ll n,w,h;
-    cin>>n>>w>>h;
+    ll n;
+    cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    ll * brr=new ll[n];
-    read_array(brr,n);
-    ll k=arr[0]+w-(brr[0]+h);
-    for(ll i=0;i<n;i++){
-        arr[i]=arr[i]-k;
-    }
-    ll count1=INT_MIN;
-    ll flag=0;
-    ll flag1=0;
-    ll count2=INT_MAX;
-    for(ll i=0;i<n;i++){
-        if(arr[i]+w-h>=brr[i] && arr[i]-w+h<=brr[i]){
-            flag=1;
-            count2=min(brr[i]-h-(arr[i]-w),count2);
-        }
-        else if(arr[i]-w+h>brr[i]){
-            cout<<nope<<nn;
-            return;
-        }
-        else{
-            flag1=1;
-            count1=max(brr[i]-arr[i]-w+h,count1);
-        }
-    }
-    if(flag==1&& flag1==0){
-        cout<<yup<<nn;
-    }
-    else if(flag==1 && flag1==1){
-        if(count1<=count2){
-            cout<<yup<<nn;
-        }
-        else{
-            cout<<nope<<nn;
-        }
-    }
 }
 
 int main(){
