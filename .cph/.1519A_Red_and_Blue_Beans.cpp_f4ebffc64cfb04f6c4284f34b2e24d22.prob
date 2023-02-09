@@ -1,0 +1,1 @@
+{"name":"Local: 1519A_Red_and_Blue_Beans","url":"/Users/vidurgoel/Codeforces/1519A_Red_and_Blue_Beans.cpp","tests":[{"id":1675888045390,"input":"4\n1 1 0\n2 7 3\n6 1 4\n5 4 0\n","output":"YES\nYES\nNO\nNO\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1519A_Red_and_Blue_Beans.cpp","group":"local","local":true}
