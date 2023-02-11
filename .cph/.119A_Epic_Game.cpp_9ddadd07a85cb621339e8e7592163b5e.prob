@@ -1,0 +1,1 @@
+{"name":"Local: 119A_Epic_Game","url":"/Users/vidurgoel/Codeforces/119A_Epic_Game.cpp","tests":[{"id":1676128525239,"input":"3 5 9\n","output":"0"},{"id":1676128545363,"input":"1 1 100\n","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/119A_Epic_Game.cpp","group":"local","local":true}

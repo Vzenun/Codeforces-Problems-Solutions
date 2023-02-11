@@ -71,7 +71,8 @@
     "climits": "cpp",
     "map": "cpp",
     "random": "cpp",
-    "queue": "cpp"
+    "queue": "cpp",
+    "list": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",

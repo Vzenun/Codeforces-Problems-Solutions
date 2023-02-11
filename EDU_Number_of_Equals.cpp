@@ -163,17 +163,62 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll * brr=new ll[m];
+    read_array(brr,m);
+    ll i=0;
+    ll j=0;
+    ll k=0;
+    ll num1=0;
+    ll num2=0;
+    ll count=0;
+    while(i<n && j<m){
+        if(arr[i]<brr[j]){
+            k++;
+            i++;
+        }
+        else if(arr[i]==brr[j]){
+            ll temp=arr[i];
+            while(i<n && arr[i]==temp){
+                num1++;
+                i++;
+            }
+            while(j<m && brr[j]==temp){
+                num2++;
+                j++;
+            }
+            count+=num1*num2;
+            num1=0;
+            num2=0;
+        }
+        else{
+            k++;
+            j++;
+        }
+    }
+    if(i==n){
+        while(j<m){
+            j++;
+            k++;
+        }
+    }
+    if(j==m){
+        while(i<n){
+            i++;
+            k++;
+        }
+    }
+    cout<<count<<nn;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

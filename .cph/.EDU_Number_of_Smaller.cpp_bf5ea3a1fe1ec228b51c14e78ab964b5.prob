@@ -1,0 +1,1 @@
+{"name":"Local: EDU_Number_of_Smaller","url":"/Users/vidurgoel/Codeforces/EDU_Number_of_Smaller.cpp","tests":[{"id":1676135833437,"input":"6 7\n1 6 9 13 18 18\n2 3 8 13 15 21 25","output":"1 1 2 3 4 6 6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/EDU_Number_of_Smaller.cpp","group":"local","local":true}

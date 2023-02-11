@@ -163,17 +163,53 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll * brr=new ll[m];
+    read_array(brr,m);
+    ll * kr=new ll[n+m];
+    ll i=0;
+    ll j=0;
+    ll k=0;
+    while(i<n && j<m){
+        if(arr[i]<=brr[j]){
+            kr[k]=arr[i];
+            k++;
+            i++;
+        }
+        else{
+            kr[k]=brr[j];
+            k++;
+            j++;
+        }
+    }
+    if(i==n){
+        while(j<m){
+            kr[k]=brr[j];
+            j++;
+            k++;
+        }
+    }
+    if(j==m){
+        while(i<n){
+            kr[k]=arr[i];
+            i++;
+            k++;
+        }
+    }
+    i=0;
+    for(i=0;i<n+m;i++){
+        cout<<kr[i]<<" ";
+    }
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

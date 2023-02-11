@@ -1,0 +1,1 @@
+{"name":"Local: EDU_Number_of_Equals","url":"/Users/vidurgoel/Codeforces/EDU_Number_of_Equals.cpp","tests":[{"id":1676136895071,"input":"8 7\n1 1 3 3 3 5 8 8\n1 3 3 4 5 5 5\n","output":"11\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/EDU_Number_of_Equals.cpp","group":"local","local":true}

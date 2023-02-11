@@ -1,0 +1,1 @@
+{"name":"Local: sf2","url":"/Users/vidurgoel/Codeforces/sf2.cpp","tests":[{"id":1676052100737,"input":"3\n4\n1101\n0111\n8\n10100110\n10011110\n7\n0001101\n1110010\n","output":"YES\nNO\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/sf2.cpp","group":"local","local":true}
