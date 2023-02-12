@@ -153,26 +153,45 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
-    }
-}
-
-ll solt(ll * arr, ll i, ll n){
-    if(i==n-1){
-        return arr[i];
-    }
-    else if(i==n){
-        return 0;
-    }
-    else{
-       //cout<<arr[i];
-        return max(arr[i]+solt(arr,i+2,n),solt(arr,i+1,n));
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    string s;
+    cin>>s;
+    vec a;
+    vec b;
+    ll count=1;
+    for(ll i=0;i<s.size()-1;i++){
+        if(s[i]==s[i+1]){
+            count++;
+        }
+        else{
+            a.pb(s[i]-'0');
+            b.pb(count);
+            count=1;
+        }
+    }
+    a.pb(s[s.size()-1]-'0');
+    b.pb(count);
+    if(a.size()<=2){
+        cout<<0<<nn;
+    }
+    else{
+        ll min1=INT_MAX;
+        for(ll i=0;i<a.size()-2;i++){
+            if(a[i]!=a[i+1] && a[i+1]!=a[i+2] && a[i]!=a[i+2]){
+                min1=min(2+b[i+1],min1);
+            }
+        }
+        if(min1==INT_MAX){
+            cout<<0<<nn;
+        }
+        else{
+            cout<<min1<<nn;
+        }
+    }
 }
 
 void solve_array(){
@@ -180,14 +199,13 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    cout<<solt(arr,0,n)<<nn;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
-    solve_array();
+    solve_mul();
+    //solve_array();
     //solve_single();
     return 0;
 }

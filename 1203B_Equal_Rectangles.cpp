@@ -153,20 +153,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
-    }
-}
-
-ll solt(ll * arr, ll i, ll n){
-    if(i==n-1){
-        return arr[i];
-    }
-    else if(i==n){
-        return 0;
-    }
-    else{
-       //cout<<arr[i];
-        return max(arr[i]+solt(arr,i+2,n),solt(arr,i+1,n));
+        solve_array();
     }
 }
 
@@ -178,16 +165,32 @@ void solve_single(){
 void solve_array(){
     ll n;
     cin>>n;
-    ll * arr=new ll[n];
-    read_array(arr,n);
-    cout<<solt(arr,0,n)<<nn;
+    ll * arr=new ll[4*n];
+    read_array(arr,4*n);
+    sort(arr,arr+4*n);
+    for(ll i=0;i<4*n;i+=2){
+        if(arr[i]!=arr[i+1]){
+            cout<<nope<<nn;
+            return;
+        }
+    }
+    ll k=arr[0]*arr[4*n-1];
+    for(ll i=0;i<2*n;i+=2){
+        if(k!=arr[i]*arr[4*n-1-i]){
+            //cout<<k<<nn;
+            cout<<nope<<nn;
+            return;
+        }
+    }
+    cout<<yup<<nn;
+    return;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
-    solve_array();
+    solve_mul();
+    //solve_array();
     //solve_single();
     return 0;
 }
