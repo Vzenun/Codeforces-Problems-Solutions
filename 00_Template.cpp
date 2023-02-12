@@ -157,19 +157,6 @@ void solve_mul(){
     }
 }
 
-ll solt(ll * arr, ll i, ll n){
-    if(i==n-1){
-        return arr[i];
-    }
-    else if(i==n){
-        return 0;
-    }
-    else{
-       //cout<<arr[i];
-        return max(arr[i]+solt(arr,i+2,n),solt(arr,i+1,n));
-    }
-}
-
 void solve_single(){
     ll n;
     cin>>n;
@@ -180,14 +167,13 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    cout<<solt(arr,0,n)<<nn;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
-    solve_array();
+    solve_mul();
+    //solve_array();
     //solve_single();
     return 0;
 }
