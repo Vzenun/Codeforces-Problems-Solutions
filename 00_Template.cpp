@@ -137,7 +137,7 @@ by default the sets are sorted in the ascending order
     sort(v.begin(),v.end(),mycompare);
 */
 
-bool mycompare(pair<int, int> p1 ,pair<int, int> p2){
+bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
     if(p1.first<p2.first){
         return true;
     }

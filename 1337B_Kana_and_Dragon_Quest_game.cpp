@@ -2,6 +2,17 @@
 
 //Codeforcees Handle: Vidurcodviz
 
+/*
+888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
+8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
+88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
+888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
+888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
+888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
+888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
+888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
+*/
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -69,7 +80,7 @@ ll minar(ll * arr,ll n){return *min_element(arr,arr+n);}
 ll maxar(ll * arr,ll n){return *max_element(arr,arr+n);}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
-
+ll cal1bit(ll n){return __builtin_popcount(n);}
 void copy_array(ll * &arr,ll * &brr,ll n){copy(arr,arr+n,brr);}
 void read_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cin>>arr[i];}return;}
 void print_array(ll * &arr,ll n){for(ll i=0;i<n;i++){cout<<i<<" "<<arr[i]<<endl;}return;}
@@ -135,9 +146,12 @@ by default the sets are sorted in the ascending order
     }
     v.pb(make_pair(count,arr[n-1]));
     sort(v.begin(),v.end(),mycompare);
+
+    
+    __builtin_popcount(n) __builtin_popcount(n) this is used to count the number of the set bits in the number i.e, number of ones in the number in its binary form
 */
 
-bool mycompare(pair<ll,ll> p1 ,pair<ll,ll> p2){
+bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
     if(p1.first<p2.first){
         return true;
     }
@@ -153,67 +167,40 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        solve_array();
     }
 }
 
 void solve_single(){
-    ll a,b;
-    cin>>a>>b;
-    if(a==b && (a%3==0 || a%3==1)){
-        cout<<2*(a/3)<<nn;
-    }
-    else if(a==b && a%3==2){
-        cout<<2*(a/3)+1<<nn;
-    }
-    else{
-        if(a>b){
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
-        else{
-            swap(a,b);
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
-    ll * arr=new ll[n];
-    read_array(arr,n);
+    ll n,x,m;
+    cin>>x>>n>>m;
+    ll num1=0;
+    ll num2=0;
+    while(true){
+        if(n>0 && x>=20){
+            x=x/2;
+            x+=10;
+            n--;
+        }
+        else if(m>0){
+            x=x-10;
+            m--;
+        }
+        else{
+            break;
+        }
+    }
+    if(x<=0){
+        cout<<yup<<nn;
+    }
+    else{
+        cout<<nope<<nn;
+    }
 }
 
 int main(){

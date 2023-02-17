@@ -1,0 +1,1 @@
+{"name":"Local: 75A_Life_Without_Zeros","url":"/Users/vidurgoel/Codeforces/75A_Life_Without_Zeros.cpp","tests":[{"id":1676395503327,"input":"101\n102\n","output":"YES\n"},{"id":1676395510673,"input":"105\n106","output":"NO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/75A_Life_Without_Zeros.cpp","group":"local","local":true}

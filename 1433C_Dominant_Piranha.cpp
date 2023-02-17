@@ -137,7 +137,7 @@ by default the sets are sorted in the ascending order
     sort(v.begin(),v.end(),mycompare);
 */
 
-bool mycompare(pair<ll,ll> p1 ,pair<ll,ll> p2){
+bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
     if(p1.first<p2.first){
         return true;
     }
@@ -153,60 +153,13 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        solve_array();
     }
 }
 
 void solve_single(){
-    ll a,b;
-    cin>>a>>b;
-    if(a==b && (a%3==0 || a%3==1)){
-        cout<<2*(a/3)<<nn;
-    }
-    else if(a==b && a%3==2){
-        cout<<2*(a/3)+1<<nn;
-    }
-    else{
-        if(a>b){
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
-        else{
-            swap(a,b);
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
@@ -214,6 +167,23 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll k=maxar(arr,n);
+    ll t=count(arr,arr+n,k);
+    if(t==n){
+        cout<<-1<<nn;
+    }
+    else{
+        for(ll i=0;i<n-1;i++){
+            if((arr[i]==k && arr[i+1]!=k)){
+                cout<<i+1<<nn;
+                return;
+            }
+            else if((arr[i]!=k && arr[i+1]==k)){
+                cout<<i+2<<nn;
+                return;
+            }
+        }
+    }
 }
 
 int main(){

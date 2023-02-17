@@ -137,7 +137,7 @@ by default the sets are sorted in the ascending order
     sort(v.begin(),v.end(),mycompare);
 */
 
-bool mycompare(pair<ll,ll> p1 ,pair<ll,ll> p2){
+bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
     if(p1.first<p2.first){
         return true;
     }
@@ -153,74 +153,49 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        
     }
 }
 
 void solve_single(){
-    ll a,b;
-    cin>>a>>b;
-    if(a==b && (a%3==0 || a%3==1)){
-        cout<<2*(a/3)<<nn;
-    }
-    else if(a==b && a%3==2){
-        cout<<2*(a/3)+1<<nn;
-    }
-    else{
-        if(a>b){
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
-        else{
-            swap(a,b);
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
-    ll * arr=new ll[n];
-    read_array(arr,n);
+    ll n,t;
+    cin>>n>>t;
+    ll * arr=new ll[n-1];
+    read_array(arr,n-1);
+    ll idx=0;
+    while(idx<n){
+        if(idx==t-1){
+            cout<<yup<<nn;
+            return;
+        }
+        else{
+            if(idx>t-1){
+                cout<<nope<<nn;
+                return;
+            }
+            else{
+                idx=idx+arr[idx];
+            }
+        }
+    }
+    if(idx==t-1){
+        cout<<yup<<nn;
+    }
+    else{
+        cout<<nope<<nn;
+    }
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

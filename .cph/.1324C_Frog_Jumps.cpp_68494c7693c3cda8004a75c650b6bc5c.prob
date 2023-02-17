@@ -1,0 +1,1 @@
+{"name":"Local: 1324C_Frog_Jumps","url":"/Users/vidurgoel/Codeforces/1324C_Frog_Jumps.cpp","tests":[{"id":1676485396638,"input":"6\nLRLRRLL\nL\nLLR\nRRRR\nLLLLLL\nR\n","output":"3\n2\n3\n1\n7\n1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1324C_Frog_Jumps.cpp","group":"local","local":true}

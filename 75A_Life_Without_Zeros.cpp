@@ -137,7 +137,7 @@ by default the sets are sorted in the ascending order
     sort(v.begin(),v.end(),mycompare);
 */
 
-bool mycompare(pair<ll,ll> p1 ,pair<ll,ll> p2){
+bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
     if(p1.first<p2.first){
         return true;
     }
@@ -153,59 +153,44 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        
     }
 }
 
 void solve_single(){
-    ll a,b;
-    cin>>a>>b;
-    if(a==b && (a%3==0 || a%3==1)){
-        cout<<2*(a/3)<<nn;
+    ll n,m;
+    cin>>n>>m;
+    ll k=n+m;
+    string s1=to_string(n);
+    string s2=to_string(m);
+    string s3=to_string(k);
+    string s="";
+    string t="";
+    string j="";
+    for(ll i=0;i<s1.size();i++){
+        if(s1[i]!='0'){
+            s=s+s1[i];
+        }
     }
-    else if(a==b && a%3==2){
-        cout<<2*(a/3)+1<<nn;
+    for(ll i=0;i<s2.size();i++){
+        if(s2[i]!='0'){
+            t=t+s2[i];
+        }
+    }
+    for(ll i=0;i<s3.size();i++){
+        if(s3[i]!='0'){
+            j=j+s3[i];
+        }
+    }
+    ll k1,k2,k3;
+    k1=(ll)stoi(s);
+    k2=(ll)stoi(t);
+    k3=(ll)stoi(j);
+    if(k1+k2==k3){
+        cout<<yup<<nn;
     }
     else{
-        if(a>b){
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
-        else{
-            swap(a,b);
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
+        cout<<nope<<nn;
     }
 }
 
@@ -219,8 +204,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

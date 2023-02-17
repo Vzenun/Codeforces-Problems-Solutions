@@ -2,6 +2,17 @@
 
 //Codeforcees Handle: Vidurcodviz
 
+/*
+888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
+8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
+88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
+888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
+888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
+888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
+888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
+888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
+*/
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -137,7 +148,7 @@ by default the sets are sorted in the ascending order
     sort(v.begin(),v.end(),mycompare);
 */
 
-bool mycompare(pair<ll,ll> p1 ,pair<ll,ll> p2){
+bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
     if(p1.first<p2.first){
         return true;
     }
@@ -153,56 +164,32 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        
     }
 }
 
 void solve_single(){
-    ll a,b;
-    cin>>a>>b;
-    if(a==b && (a%3==0 || a%3==1)){
-        cout<<2*(a/3)<<nn;
+    ll n,m;
+    cin>>n>>m;
+    if(m<n){
+        cout<<n-m<<nn;
     }
-    else if(a==b && a%3==2){
-        cout<<2*(a/3)+1<<nn;
+    else if(n==m){
+        cout<<0<<nn;
     }
     else{
-        if(a>b){
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
-            }
-            else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
-                }
-                else{
-                    cout<<(a-1+b)/3<<nn;
-                }
-            }
-        }
-        else{
-            swap(a,b);
-            if(2*b==a){
-                cout<<b<<nn;
-            }
-            else if(2*b<a){
-                cout<<b<<nn;
+        ll num=0;
+        while(n!=m){
+            if(2*n<=m){
+                num++;
+                n=2*n;
             }
             else{
-                if((2*b-a)%3==0){
-                    cout<<(a+b)/3<<nn;
-                }
-                else if((2*b-a)%3==1){
-                    cout<<(a-2+b)/3<<nn;
+                if(m%2==0){
+
                 }
                 else{
-                    cout<<(a-1+b)/3<<nn;
+
                 }
             }
         }
@@ -219,8 +206,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }
