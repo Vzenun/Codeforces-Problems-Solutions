@@ -1,0 +1,1 @@
+{"name":"Local: 1511A_Review_Site","url":"/Users/vidurgoel/Codeforces/1511A_Review_Site.cpp","tests":[{"id":1676740035074,"input":"4\n1\n2\n3\n1 2 3\n5\n1 1 1 1 1\n3\n3 3 2\n","output":"0\n2\n5\n2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1511A_Review_Site.cpp","group":"local","local":true}
