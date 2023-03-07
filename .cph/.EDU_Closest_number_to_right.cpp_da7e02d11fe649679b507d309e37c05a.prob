@@ -1,0 +1,1 @@
+{"name":"Local: EDU_Closest_number_to_right","url":"/Users/vidurgoel/Codeforces/EDU_Closest_number_to_right.cpp","tests":[{"id":1678183350507,"input":"5 5\n3 3 5 8 9\n2 4 8 1 10","output":"1\n3\n4\n1\n6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/EDU_Closest_number_to_right.cpp","group":"local","local":true}

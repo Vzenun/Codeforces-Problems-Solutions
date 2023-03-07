@@ -1,0 +1,1 @@
+{"name":"Local: 1220A_Cards","url":"/Users/vidurgoel/Codeforces/1220A_Cards.cpp","tests":[{"id":1676992092557,"input":"4\nezor\n","output":"0"},{"id":1676992101982,"input":"10\nnznooeeoer\n","output":"1 1 0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1220A_Cards.cpp","group":"local","local":true}
