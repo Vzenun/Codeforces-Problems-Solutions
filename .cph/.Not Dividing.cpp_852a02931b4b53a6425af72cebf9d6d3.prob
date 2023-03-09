@@ -1,0 +1,1 @@
+{"name":"Local: Not Dividing","url":"/Users/vidurgoel/Codeforces/Not Dividing.cpp","tests":[{"id":1678249322584,"input":"3\n4\n2 4 3 6\n3\n1 2 3\n2\n4 2\n","output":"4 5 6 7\n3 2 3\n4 2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Not Dividing.cpp","group":"local","local":true}
