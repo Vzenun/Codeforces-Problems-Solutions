@@ -2,17 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -142,19 +131,35 @@ void solve_mul(){
 void solve_single(){
     ll a,b,x,y,n;
     cin>>a>>b>>x>>y>>n;
-    if(a>b){
-        ll k=min(b-y,n);
-        n=n-k;
-        b=b-k;
-        if(n>0){
-            ll k1=min(a-x,b-y)
+    if(a-x>=n && b-y>=n){
+        if(a-n<b-n){
+            cout<<(a-n)*b<<nn;
+        }
+        else{
+            cout<<(b-n)*a<<nn;
         }
     }
-    else if(a==b){
-
+    else if(a-x>=n && b-y<n){
+        ll k=y;
+        ll k1=a-(n-(b-y));
+        cout<<min((k1*k),(a-n)*b)<<nn;
+    }
+    else if(a-x<n && b-y>=n){
+        ll k=x;
+        ll k1=b-(n-(a-x));
+        cout<<min((k1*k),(b-n)*a)<<nn;
     }
     else{
-
+        if(a-x+b-y>=n){
+            ll k=y;
+            ll k1=a-(n-(b-y));
+            ll k2=x;
+            ll k12=b-(n-(a-x));
+            cout<<min(k1*k,k2*k12)<<nn;
+        }
+        else{
+            cout<<(y)*(x)<<nn;
+        }
     }
 }
 

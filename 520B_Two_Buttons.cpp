@@ -168,31 +168,45 @@ void solve_mul(){
     }
 }
 
+ll knapsack(ll m,ll n){
+    // if(arr[m]!=-1){
+    //     return ;
+    // }
+    if(m==n){
+        return 0;
+    }
+    else if(m==0){
+        return INT_MAX;
+    }
+    else{
+        if(m>n){
+            cout<<"*"<<nn;
+            return m-n;
+        }
+        else{
+            cout<<"*"<<nn;
+            return min(1+knapsack(2*m,n),1+knapsack(m-1,n));
+        }
+    }
+}
+
 void solve_single(){
-    ll n,m;
-    cin>>n>>m;
-    if(m<n){
-        cout<<n-m<<nn;
+    ll m,n;
+    cin>>m>>n;
+    if(n<m){
+        cout<<m-n<<nn;
     }
     else if(n==m){
         cout<<0<<nn;
     }
     else{
-        ll num=0;
-        while(n!=m){
-            if(2*n<=m){
-                num++;
-                n=2*n;
-            }
-            else{
-                if(m%2==0){
-
-                }
-                else{
-
-                }
-            }
+        ll * arr=new ll[n+2];
+        //ll * brr=new ll[2*n+2];
+        for(ll i=0;i<2*n+2;i++){
+            arr[i]=-1;
+            //brr[i]=-1;
         }
+        cout<<knapsack(m,n)<<nn;
     }
 }
 
