@@ -137,7 +137,7 @@ by default the sets are sorted in the ascending order
     sort(v.begin(),v.end(),mycompare);
 */
 
-bool mycompare(pair<int, int> p1 ,pair<int, int> p2){
+bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
     if(p1.first<p2.first){
         return true;
     }
@@ -157,36 +157,41 @@ void solve_mul(){
     }
 }
 
-void solve_single(){
-    ll n;
-    cin>>n;
+lld calculate(lld a){
+    lld ans=0;
+    ans+=(lld)a*a+(lld)sqrt(a);
+    return ans;
+}
+
+bool good(lld a,lld h){
+    if(calculate(a)<h){
+        return false;
+    }
+    else{
+        return true;
+    }
 }
 
 void solve_array(){
-    ll n,s;
-    cin>>n>>s;
-    ll * arr=new ll[n];
-    read_array(arr,n);
-    ll i=0;
-    ll j=0;
-    ll sum=0;
-    ll max1=0;
-    while(i<n){
-        if(sum+arr[i]<=s){
-            sum+=arr[i];
-            max1=max(i-j+1,max1);
-            i++;
-        }
-        else if(i==j){
-            j++;
-            i++;
+    lld h;
+    cin>>h;
+    lld i=0;
+    lld j=1.0;
+    while(!good(j,h)){
+        j=j*2;
+    }
+    ll t=0;
+    while(t<100){
+        lld m=(i+j)/2;
+        if(good(m,h)){
+            j=m;
         }
         else{
-            sum-=arr[j];
-            j++;
+            i=m;
         }
+        t+=1;
     }
-    cout<<max1<<nn;
+    cout<<setprecision(30)<<j<<nn;
 }
 
 int main(){

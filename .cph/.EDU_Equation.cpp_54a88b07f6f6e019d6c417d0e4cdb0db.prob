@@ -1,0 +1,1 @@
+{"name":"Local: EDU_Equation","url":"/Users/vidurgoel/Codeforces/EDU_Equation.cpp","tests":[{"id":1678353013405,"input":"2.0\n","output":"1\n"},{"id":1678353027268,"input":"15.6\n","output":"3.698232168829691\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/EDU_Equation.cpp","group":"local","local":true}

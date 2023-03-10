@@ -2,6 +2,17 @@
 
 //Codeforcees Handle: Vidurcodviz
 
+/*
+888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
+8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
+88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
+888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
+888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
+888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
+888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
+888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
+*/
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -137,7 +148,7 @@ by default the sets are sorted in the ascending order
     sort(v.begin(),v.end(),mycompare);
 */
 
-bool mycompare(pair<int, int> p1 ,pair<int, int> p2){
+bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
     if(p1.first<p2.first){
         return true;
     }
@@ -162,31 +173,74 @@ void solve_single(){
     cin>>n;
 }
 
-void solve_array(){
-    ll n,s;
-    cin>>n>>s;
-    ll * arr=new ll[n];
-    read_array(arr,n);
-    ll i=0;
-    ll j=0;
-    ll sum=0;
-    ll max1=0;
-    while(i<n){
-        if(sum+arr[i]<=s){
-            sum+=arr[i];
-            max1=max(i-j+1,max1);
-            i++;
-        }
-        else if(i==j){
-            j++;
-            i++;
+ll calculate(ll * t,ll * z,ll * y,ll j,ll n){
+    ll ans=0;
+    for(ll i=0;i<n;i++){
+        ll r=t[i]*z[i]+y[i];
+        ans+=(j/r)*z[i];
+        if((j%r)>=z[i]*t[i]){
+            ans+=z[i];
         }
         else{
-            sum-=arr[j];
-            j++;
+            ans+=(j%r)/t[i];
         }
     }
-    cout<<max1<<nn;
+    return ans;
+}
+
+bool good(ll m,ll * t,ll * z,ll * y,ll j,ll n){
+    if(calculate(t,z,y,j,n)>=m){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+void solve_array(){
+    ll m,n;
+    cin>>m>>n;
+    ll * t=new ll[n];
+    ll * z=new ll[n];
+    ll * y=new ll[n];
+    for(ll i=0;i<n;i++){
+        cin>>t[i]>>z[i]>>y[i];
+    }
+    if(m==0){
+        cout<<0<<nn;
+        for(ll i=0;i<n;i++){
+            cout<<0<<" ";
+        }
+        return;
+    }
+    ll i=-1;
+    ll j=1;
+    while(!good(m,t,z,y,j,n)){
+        j=j*2;
+    }
+    while(i+1<j){
+        ll mid=(i+j)/2;
+        if(good(m,t,z,y,mid,n)){
+            j=m;
+        }
+        else{
+            i=m;
+        }
+    }
+    cout<<j<<nn;
+    for(ll it=0;it<n;it++){
+        ll ans=0;
+        ll r=(t[it]*z[it])+y[it];
+        ans+=(j/r)*z[it];
+        if((j%r)>=z[it]*t[it]){
+            ans+=z[it];
+        }
+        else{
+            ans+=(j%r)/t[it];
+        }
+        cout<<min(ans,m)<<" ";
+        m-=min(m,ans);
+    }
 }
 
 int main(){
