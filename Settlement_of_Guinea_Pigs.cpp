@@ -153,47 +153,13 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_single();
+        solve_array();
     }
 }
 
 void solve_single(){
-    ll k,n;
-    cin>>k>>n;
-    ll arr[k];
-    //ll k=1;
-    for(ll i=0;i<k;i++){
-        arr[i]=0;
-    }
-    ll a=1;
-    ll i=0;
-    ll m=1;
-    ll flag=0;
-    while(i<k){
-        if(flag==0){
-            arr[i]=a;
-            a=a+m;
-            m++;
-            i++;
-            if(n-a<k-i-1){
-                //cout<<a<<nn;
-                flag=1;
-                a=a-m+1+1;
-            }
-        }
-        else{
-            while(i<k){
-                arr[i]=a;
-                a+=1;
-                i++;
-            }
-            break;
-        }
-    }
-    for(ll i=0;i<k;i++){
-        cout<<arr[i]<<" ";
-    }
-    cout<<nn;
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
@@ -201,6 +167,25 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    ll unknown=0;
+    ll known=0;
+    ll max1=0;
+    for(ll i=0;i<n;i++){
+        if(arr[i]==1){
+            unknown++;
+            if(known==0){
+                max1=unknown;
+            }
+            else{
+                max1=max(max1,known/2+1+unknown);
+            }
+        }
+        else{
+            known+=unknown;
+            unknown=0;
+        }
+    }
+    cout<<max1<<nn;
 }
 
 int main(){

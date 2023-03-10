@@ -158,42 +158,46 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll k,n;
-    cin>>k>>n;
-    ll arr[k];
-    //ll k=1;
-    for(ll i=0;i<k;i++){
-        arr[i]=0;
-    }
-    ll a=1;
-    ll i=0;
-    ll m=1;
+    ll n;
+    cin>>n;
+    string s;
+    cin>>s;
     ll flag=0;
-    while(i<k){
-        if(flag==0){
-            arr[i]=a;
-            a=a+m;
-            m++;
-            i++;
-            if(n-a<k-i-1){
-                //cout<<a<<nn;
-                flag=1;
-                a=a-m+1+1;
-            }
-        }
-        else{
-            while(i<k){
-                arr[i]=a;
-                a+=1;
-                i++;
-            }
-            break;
-        }
+    if(s[0]!='M' && s[0]!='m'){
+        cout<<nope<<nn;
+        return;
     }
-    for(ll i=0;i<k;i++){
-        cout<<arr[i]<<" ";
+    if(s[n-1]!='w' && s[n-1]!='W'){
+        cout<<nope<<nn;
+        return;
     }
-    cout<<nn;
+    for(ll i=0;i<n-1;i++){
+        if((s[i]=='M' || s[i]=='m') && (s[i+1]=='M' || s[i+1]=='m')){
+            continue;
+        }
+        if((s[i]=='M' || s[i]=='m') && (s[i+1]=='e' || s[i+1]=='E')){
+            continue;
+        }
+        if((s[i]=='e' || s[i]=='E') && (s[i+1]=='e' || s[i+1]=='E')){
+            continue;
+        }
+        if((s[i]=='e' || s[i]=='E') && (s[i+1]=='o' || s[i+1]=='O')){
+            continue;
+        }
+        if((s[i]=='o' || s[i]=='O') && (s[i+1]=='o' || s[i+1]=='O')){
+            continue;
+        }
+        if((s[i]=='o' || s[i]=='O') && (s[i+1]=='w' || s[i+1]=='W')){
+            continue;
+        }
+        if((s[i]=='w' || s[i]=='W') && (s[i+1]=='w' || s[i+1]=='W')){
+            continue;
+        }
+        cout<<nope<<nn;
+        return;
+    }
+    cout<<yup<<nn;
+    return;
 }
 
 void solve_array(){

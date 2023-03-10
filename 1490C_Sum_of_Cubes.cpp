@@ -157,43 +157,22 @@ void solve_mul(){
     }
 }
 
+// bool good(ll j,ll n){
+//     if()
+// }
+
 void solve_single(){
-    ll k,n;
-    cin>>k>>n;
-    ll arr[k];
-    //ll k=1;
-    for(ll i=0;i<k;i++){
-        arr[i]=0;
-    }
-    ll a=1;
-    ll i=0;
-    ll m=1;
-    ll flag=0;
-    while(i<k){
-        if(flag==0){
-            arr[i]=a;
-            a=a+m;
-            m++;
-            i++;
-            if(n-a<k-i-1){
-                //cout<<a<<nn;
-                flag=1;
-                a=a-m+1+1;
-            }
-        }
-        else{
-            while(i<k){
-                arr[i]=a;
-                a+=1;
-                i++;
-            }
-            break;
+    ll n;
+    cin>>n;
+    ll i=ceil(cbrt(n))-1;
+    for(ll j=i;j>=1;j--){
+        if(floor(cbrt(n-j*j*j))==ceil(cbrt(n-j*j*j)) && floor(cbrt(n-j*j*j))>0){
+            cout<<yup<<nn;
+            return;
         }
     }
-    for(ll i=0;i<k;i++){
-        cout<<arr[i]<<" ";
-    }
-    cout<<nn;
+    cout<<nope<<nn;
+    return;
 }
 
 void solve_array(){
