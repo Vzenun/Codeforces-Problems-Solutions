@@ -2,17 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -164,7 +153,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        
+        solve_array();
     }
 }
 
@@ -178,6 +167,46 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
+    if(n==1){
+        cout<<0<<nn;
+        return;
+    }
+    ll j=n-1;
+    while(true){
+        if(j==1){
+            cout<<0<<nn;
+            return;
+        }
+        else{
+            if(arr[j]>arr[j-1]){
+                break;
+            }
+            else{
+                j--;
+            }
+        }
+    }
+    while(true){
+        if(j==1){
+            if(arr[j]>=arr[j-1]){
+                j--;
+                cout<<0<<nn;
+                return;
+            }
+            else{
+                break;
+            }
+        }
+        else{
+            if(arr[j]>=arr[j-1]){
+                j--;
+            }
+            else{
+                break;
+            }
+        }
+    }
+    cout<<j<<nn;
 }
 
 int main(){

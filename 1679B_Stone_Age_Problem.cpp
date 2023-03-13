@@ -2,17 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -174,17 +163,73 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
     ll * arr=new ll[n];
+    ll * brr=new ll[n];
+    ll * stat=new ll[n];
     read_array(arr,n);
+    ll sum=0;
+    for(ll i=0;i<n;i++){
+        sum+=arr[i];
+    }
+    for(ll i=0;i<n;i++){
+        brr[i]=-1;
+    }
+    for(ll i=0;i<n;i++){
+        stat[i]=-1;
+    }
+    ll lock=0;
+    ll hum=0;
+    ll start=-1;
+    for(ll i=0;i<m;i++){
+        ll type;
+        cin>>type;
+        if(type==1){
+            ll j,num;
+            cin>>j>>num;
+            if(lock==1){
+                if(brr[j-1]==hum && stat[j-1]==start){
+                    ll temp=arr[j-1];
+                    arr[j-1]=num;
+                    brr[j-1]=hum;
+                    stat[j-1]=start;
+                    sum=sum-temp+num;
+                    cout<<sum<<nn;
+                }
+                else{
+                    ll temp=hum;
+                    arr[j-1]=num;
+                    brr[j-1]=hum;
+                    stat[j-1]=start;
+                    sum=sum-temp+num;
+                    cout<<sum<<nn;
+                }
+            }
+            else{
+                ll temp=arr[j-1];
+                arr[j-1]=num;
+                sum=sum-temp+num;
+                cout<<sum<<nn;
+            }
+        }
+        else{
+            ll num;
+            cin>>num;
+            sum=num*n;
+            hum=num;
+            lock=1;
+            start=i;
+            cout<<sum<<nn;
+        }
+    }
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }
