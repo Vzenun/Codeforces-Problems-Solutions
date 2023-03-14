@@ -2,17 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -174,18 +163,39 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll t,n;
-    cin>>t>>n;
-    ll * arr=new ll[n];
-    read_array(arr,n);
-    sort(arr,arr+n);
-    ll j=n-1;
-    ll i=0;
-    ll k=0;
-    ll num=0;
-    while(i!=j){
-        if(sum)
+    ll n,k;
+    cin>>n>>k;
+    ll * arr=new ll[k];
+    read_array(arr,k);
+    sort(arr,arr+k);
+    ll * brr=new ll[k];
+    copy_array(arr,brr,k);
+    for(ll i=0;i<k;i++){
+        arr[i]=n-arr[i];
     }
+    ll sum=0;
+    for(ll i=k-1;i>=0;i--){
+        sum+=arr[i];
+        arr[i]=sum;
+    }
+    ll i=-1;
+    ll j=k;
+    while(i+1<j){
+        ll m=(i+j)/2;
+        if(arr[m]<=brr[m]){
+            j=m;
+        }
+        else if(m<k-1 && brr[m]>arr[m+1]){
+            j=m;
+        }
+        else if(m==k-1){
+            j=m;
+        }
+        else{
+            i=m;
+        }
+    }
+    cout<<k-j<<nn;
 }
 
 int main(){
