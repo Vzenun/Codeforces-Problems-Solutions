@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"/Users/vidurgoel/Codeforces/B._Count_the_Number_of_Pairs.cpp","tests":[{"id":1678775104988,"input":"5\n11 2\naAaaBACacbE\n2 2\nab\n4 1\naaBB\n6 0\nabBAcC\n5 3\ncbccb","output":"5\n0\n1\n3\n2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/B._Count_the_Number_of_Pairs.cpp","group":"local","local":true}
