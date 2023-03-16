@@ -135,6 +135,11 @@ by default the sets are sorted in the ascending order
     }
     v.pb(make_pair(count,arr[n-1]));
     sort(v.begin(),v.end(),mycompare);
+
+    __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
+    __builtin_parity(n) - this is boolean function which return true if number of 1's in binary form of n are odd else returns false;
+    __builtin_clz(n) - eg: Binary form of 16 is 00000000 00000000 00000000 00010000 therefore will return the number of the leading zeroes in n here answer will be 27
+    __builtin_ctz(n) - eg: Binary form of 20 is 00000000 00000000 00000000 00010100 therefore will return the number of the trailing zeroes in n here answer will be 2
 */
 
 bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){

@@ -113,14 +113,14 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     maximium value long long can take 18, 446, 744, 073, 709, 551, 615
     2^64-1
     i.e, length of 20 only
- 
+
     reverse(s.begin(), s.end()); to reverse the string.(in built function)
     set<int, greater<int> > s1;
     s1.insert(10);
     set<int> a;
- 
+
 by default the sets are sorted in the ascending order
- 
+
     this is how we are going to use the pair here
     vector< pair<ll,ll> > v;
     ll count=1;
@@ -135,6 +135,11 @@ by default the sets are sorted in the ascending order
     }
     v.pb(make_pair(count,arr[n-1]));
     sort(v.begin(),v.end(),mycompare);
+
+    __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
+    __builtin_parity(n) - this is boolean function which return true if number of 1's in binary form of n are odd else returns false;
+    __builtin_clz(n) - eg: Binary form of 16 is 00000000 00000000 00000000 00010000 therefore will return the number of the leading zeroes in n here answer will be 27
+    __builtin_ctz(n) - eg: Binary form of 20 is 00000000 00000000 00000000 00010100 therefore will return the number of the trailing zeroes in n here answer will be 2
 */
 
 bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
@@ -148,7 +153,37 @@ bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
         return false;
     }
 }
- 
+
+bool threesum(ll * arr,ll n){
+    ll a[10]={0};
+    for(ll i=0;i<n;i++){
+        a[arr[i]]+=1;
+    }
+    for(ll i=0;i<10;i++){
+        if(a[i]>3){
+            a[i]=3;
+        }
+    }
+    vec at;
+    for(ll i=0;i<10;i++){
+        while(a[i]!=0){
+            at.pb(i);
+            a[i]-=1;
+        }
+    }
+    ll nt=at.size();
+    for(ll i=0;i<nt-2;i++){
+        for(ll j=i+1;j<nt-1;j++){
+            for(ll k=j+1;k<nt;k++){
+                if((at[i]+at[j]+at[k])%10==3){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
 void solve_mul(){
     ll test;
     cin>>test;
@@ -163,30 +198,15 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n,x,m;
-    cin>>x>>n>>m;
-    ll num1=0;
-    ll num2=0;
-    while(true){
-        if(n>0 && x>=20){
-            x=x/2;
-            x+=10;
-            n--;
-        }
-        else if(m>0){
-            x=x-10;
-            m--;
-        }
-        else{
-            break;
-        }
+    ll n;
+    cin>>n;
+    ll * arr=new ll[n];
+    read_array(arr,n);
+    for(ll i=0;i<n;i++){
+        arr[i]=arr[i]%10;
     }
-    if(x<=0){
-        cout<<yup<<nn;
-    }
-    else{
-        cout<<nope<<nn;
-    }
+    sort(arr,arr+n);
+    threesum(arr,n)?cout<<yup<<nn:cout<<nope<<nn;
 }
 
 int main(){

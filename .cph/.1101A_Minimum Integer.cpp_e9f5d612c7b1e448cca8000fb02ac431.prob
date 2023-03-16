@@ -1,0 +1,1 @@
+{"name":"Local: 1101A_Minimum Integer","url":"/Users/vidurgoel/Codeforces/1101A_Minimum Integer.cpp","tests":[{"id":1678949975513,"input":"5\n2 4 2\n5 10 4\n3 10 1\n1 2 3\n4 6 5\n","output":"6\n4\n1\n3\n10\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1101A_Minimum Integer.cpp","group":"local","local":true}

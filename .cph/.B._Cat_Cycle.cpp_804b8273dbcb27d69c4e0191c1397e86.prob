@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"/Users/vidurgoel/Codeforces/B._Cat_Cycle.cpp","tests":[{"id":1678946382248,"input":"7\n2 1\n2 2\n3 1\n3 2\n3 3\n5 5\n69 1337\n","output":"1\n2\n1\n3\n2\n2\n65\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/B._Cat_Cycle.cpp","group":"local","local":true}

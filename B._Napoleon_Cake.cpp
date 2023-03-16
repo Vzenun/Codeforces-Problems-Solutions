@@ -113,14 +113,14 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     maximium value long long can take 18, 446, 744, 073, 709, 551, 615
     2^64-1
     i.e, length of 20 only
- 
+
     reverse(s.begin(), s.end()); to reverse the string.(in built function)
     set<int, greater<int> > s1;
     s1.insert(10);
     set<int> a;
- 
+
 by default the sets are sorted in the ascending order
- 
+
     this is how we are going to use the pair here
     vector< pair<ll,ll> > v;
     ll count=1;
@@ -148,7 +148,7 @@ bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
         return false;
     }
 }
- 
+
 void solve_mul(){
     ll test;
     cin>>test;
@@ -163,30 +163,43 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n,x,m;
-    cin>>x>>n>>m;
-    ll num1=0;
-    ll num2=0;
-    while(true){
-        if(n>0 && x>=20){
-            x=x/2;
-            x+=10;
-            n--;
-        }
-        else if(m>0){
-            x=x-10;
-            m--;
+    ll n;
+    cin>>n;
+    ll * arr=new ll[n];
+    read_array(arr,n);
+    stack<ll> st;
+    for(ll i=0;i<n;i++){
+        if(arr[i]==0){
+            st.push(0);
         }
         else{
-            break;
+            st.push(arr[i]);
         }
     }
-    if(x<=0){
-        cout<<yup<<nn;
+    ll max1=INT_MIN;
+    stack<ll> ans;
+    while(!st.empty()){
+        if(st.top()!=0){
+            ans.push(1);
+            max1=max(st.top()-1,max1-1);
+            st.pop();
+        }
+        else{
+            if(max1>0){
+                max1=max1-1;
+                ans.push(1);
+            }
+            else{
+                ans.push(0);
+            }
+            st.pop();
+        }
     }
-    else{
-        cout<<nope<<nn;
+    while(!ans.empty()){
+        cout<<ans.top()<<" ";
+        ans.pop();
     }
+    cout<<nn;
 }
 
 int main(){
