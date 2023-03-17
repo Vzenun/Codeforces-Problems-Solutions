@@ -172,79 +172,21 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    sort(arr,arr+n);
-    vector<pair<ll,ll> > a;
-    ll count=1;
-    for(ll i=0;i<n-1;i++){
-        if(arr[i]==arr[i+1]){
-            count++;
-        }
-        else{
-            a.pb(mp(arr[i],count));
-            count=1;
-        }
-    }
-    a.pb(mp(arr[n-1],count));
-    ll sum=0;
-    ll prev=-1;
-    ll prev2=-1;
-    stack<pair<ll,ll> > st;
-    for(ll i=0;i<a.size();i++){
-        if(st.empty()){
-            prev=a[i].first;
-            prev2=a[i].second;
-            st.push(a[i]);
-        }
-        else{
-            if(prev+1==a[i].first){
-                if(prev2<a[i].second){
-                    st.push(a[i]);
-                    prev=a[i].first;
-                    prev2=a[i].second;
-                }
-                else if(prev2==a[i].second){
-                    prev=a[i].first;
-                }
-                else{
-                    ll lock=0;
-                    while(!st.empty() && st.top().second>a[i].second){
-                        if(lock==0){
-                            sum+=st.top().second-a[i].second;
-                            lock=1;
-                        }
-                        st.pop();
-                    }
-                    if(st.empty()){
-                        prev=a[i].first;
-                        prev2=a[i].second;
-                        st.push(a[i]);
-                    }
-                    else{
-                        if(st.top().second==a[i].second){
-                            prev=a[i].first;
-                            prev2=a[i].second;
-                        }
-                        else{
-                            prev=a[i].first;
-                            prev2=a[i].second;
-                            st.push(a[i]);
-                        }
-                    }
-                }
+    ll * brr=new ll[n];
+    copy_array(arr,brr,n);
+    sort(brr,brr+n);
+    for(ll i=0;i<n;i++){
+        if(brr[i]!=arr[i]){
+            if(gcd(brr[i],brr[0])==brr[0] && gcd(arr[i],brr[0])==brr[0]){
+                continue;
             }
             else{
-                sum+=st.top().second;
-                while(!st.empty()){
-                    st.pop();
-                }
-                prev=a[i].first;
-                prev2=a[i].second;
-                st.push(a[i]);
+                cout<<nope<<nn;
+                return;
             }
         }
     }
-    sum+=st.top().second;
-    cout<<sum<<nn;
+    cout<<yup<<nn;
 }
 
 int main(){

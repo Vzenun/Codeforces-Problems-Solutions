@@ -1,0 +1,1 @@
+{"name":"Local: 1605B_Reverse_Sort","url":"/Users/vidurgoel/Codeforces/1605B_Reverse_Sort.cpp","tests":[{"id":1679058483487,"input":"3\n7\n0011111\n5\n10100\n6\n001000\n","output":"0\n1\n4 1 3 4 5 \n1\n2 3 6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1605B_Reverse_Sort.cpp","group":"local","local":true}
