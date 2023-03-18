@@ -167,7 +167,7 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    vec a;
+    multiset<int, greater<int> > a;
     ll sum=0;
     for(ll i=0;i<n;i++){
         if(a.empty()){
@@ -175,22 +175,16 @@ void solve_array(){
                 continue;
             }
             else{
-                a.pb(arr[i]);
+                a.insert(arr[i]);
             }
         }
         else{
             if(arr[i]==0){
-                if(a.size()==1){
-                    sum+=a[0];
-                    a.ppb();
-                    continue;
-                }
-                sor(a);
-                sum+=a[a.size()-1];
-                a.ppb();
+                sum+=*a.begin();
+                a.erase(a.find(*a.begin()));
             }
             else{
-                a.pb(arr[i]);
+                a.insert(arr[i]);
             }
         }
     }

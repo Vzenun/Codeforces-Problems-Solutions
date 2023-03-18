@@ -135,6 +135,11 @@ by default the sets are sorted in the ascending order
     }
     v.pb(make_pair(count,arr[n-1]));
     sort(v.begin(),v.end(),mycompare);
+
+    __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
+    __builtin_parity(n) - this is boolean function which return true if number of 1's in binary form of n are odd else returns false;
+    __builtin_clz(n) - eg: Binary form of 16 is 00000000 00000000 00000000 00010000 therefore will return the number of the leading zeroes in n here answer will be 27
+    __builtin_ctz(n) - eg: Binary form of 20 is 00000000 00000000 00000000 00010100 therefore will return the number of the trailing zeroes in n here answer will be 2
 */
 
 bool mycompare(pair<ll, ll> p1 ,pair<ll, ll> p2){
@@ -153,13 +158,29 @@ void solve_mul(){
     ll test;
     cin>>test;
     for(ll i=0;i<test;i++){
-        solve_array();
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    string s;
+    cin>>s;
+    ll i1=-1;
+    ll lock=0;
+    for(ll i=0;i<s.size()-1;i++){
+        if(lock==0){
+            if(s[i]=='1' && s[i+1]=='1'){
+                lock=1;
+            }
+        }
+        else{
+            if(s[i]=='0' && s[i+1]=='0'){
+                cout<<nope<<nn;
+                return;
+            }
+        }
+    }
+    cout<<yup<<nn;
 }
 
 void solve_array(){
@@ -167,34 +188,6 @@ void solve_array(){
     cin>>n;
     ll * arr=new ll[n];
     read_array(arr,n);
-    vec a;
-    ll sum=0;
-    for(ll i=0;i<n;i++){
-        if(a.empty()){
-            if(arr[i]==0){
-                continue;
-            }
-            else{
-                a.pb(arr[i]);
-            }
-        }
-        else{
-            if(arr[i]==0){
-                if(a.size()==1){
-                    sum+=a[0];
-                    a.ppb();
-                    continue;
-                }
-                sor(a);
-                sum+=a[a.size()-1];
-                a.ppb();
-            }
-            else{
-                a.pb(arr[i]);
-            }
-        }
-    }
-    cout<<sum<<nn;
 }
 
 int main(){

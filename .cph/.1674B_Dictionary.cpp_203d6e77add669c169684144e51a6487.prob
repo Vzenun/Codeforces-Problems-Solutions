@@ -1,0 +1,1 @@
+{"name":"Local: 1674B_Dictionary","url":"/Users/vidurgoel/Codeforces/1674B_Dictionary.cpp","tests":[{"id":1679125569305,"input":"7\nab\nac\naz\nba\nbc\nzx\nzy\n","output":"1\n2\n25\n26\n27\n649\n650\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1674B_Dictionary.cpp","group":"local","local":true}
