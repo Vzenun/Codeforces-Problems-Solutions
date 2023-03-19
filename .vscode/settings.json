@@ -72,7 +72,10 @@
     "map": "cpp",
     "random": "cpp",
     "queue": "cpp",
-    "list": "cpp"
+    "list": "cpp",
+    "regex": "cpp",
+    "span": "cpp",
+    "valarray": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",

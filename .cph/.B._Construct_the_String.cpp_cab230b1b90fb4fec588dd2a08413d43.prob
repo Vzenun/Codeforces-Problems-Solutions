@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"/Users/vidurgoel/Codeforces/B._Construct_the_String.cpp","tests":[{"id":1679193544623,"input":"4\n7 5 3\n6 1 1\n6 6 1\n5 2 2\n","output":"tleelte\nqwerty\nvvvvvv\nabcde\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/B._Construct_the_String.cpp","group":"local","local":true}

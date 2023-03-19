@@ -131,13 +131,26 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,a,b;
+    cin>>n>>a>>b;
+    ll k=ceil(a/b);
+    char arr[26];
+    string s="";
+    for(ll i=0;i<26;i++){
+        arr[i]='a'+i;
+    }
+    // for(ll i=0;i<26;i++){
+    //     cout<<arr[i]<<" ";
+    // }
+    for(ll i=0;i<n;i++){
+        s=s+arr[i%b];
+    }
+    cout<<s<<nn;
 }
 
 void solve_array(){
