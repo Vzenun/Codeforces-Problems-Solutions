@@ -102,7 +102,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     count(first_iterator, last_iterator,x) – To count the occurrences of x in vector.
     find(first_iterator, last_iterator, x) – Returns an iterator to the first occurrence of x in vector and points to last address of vector ((name_of_vector).end()) if element is not present in vector
     
-    map.find() function has complexity 0(logn)
     maximium value long long can take 9, 223, 372, 036, 854, 775, 807
     2^63-1
     i.e, length of 19 only
@@ -132,26 +131,68 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
-    map<string,ll> mp;
-    string s;
-    rep(i,0,n){
-        cin>>s;
-        if(mp.find(s)==mp.end()){
-            mp[s]=0;
-            cout<<"OK"<<nn;
+    ull n,k;
+    cin>>n>>k;
+    ull numa=n-2;
+    ull numb=2;
+    ull t=1;
+    while(k>1){
+        if(numb!=0){
+            ll sum=0;
+            if(numa==0){
+                if(numb==1){
+                    cout<<"b"<<nn;
+                    return;
+                }
+                else{
+                    cout<<"bb"<<nn;
+                    return;
+                }
+            }
+            else{
+                if(numb==1){
+                    sum+=n-t;
+                }
+                else{
+                    sum+=((n-t)*(n-t-1))/2;
+                }
+            }
+            if(sum<=k-1){
+                cout<<"b";
+                numb-=1;
+                k-=sum;
+                t++;
+            }
+            else{
+                cout<<"a";
+                numa-=1;
+                k-=0;
+                t++;
+            }
         }
         else{
-            mp[s]++;
-            cout<<s<<mp[s]<<nn;
+            while(t<=n){
+                cout<<"a";
+                t++;
+            }
+            k=0;
+            cout<<nn;
+            return;
         }
     }
+    rep(i,0,numa){
+        cout<<"a";
+    }
+    rep(i,0,numb){
+        cout<<"b";
+    }
+    cout<<nn;
+    return;
 }
 
 void solve_array(){
@@ -164,8 +205,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
+    solve_mul();
     //solve_array();
-    solve_single();
+    //solve_single();
     return 0;
 }

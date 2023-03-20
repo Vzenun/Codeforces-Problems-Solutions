@@ -1,0 +1,1 @@
+{"name":"Local: 1681C_Double_Sort","url":"/Users/vidurgoel/Codeforces/1681C_Double_Sort.cpp","tests":[{"id":1679285300681,"input":"3\n2\n1 2\n1 2\n2\n2 1\n1 2\n4\n2 3 1 2\n2 3 2 3\n","output":"0\n-1\n3\n1 3\n2 3\n3 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1681C_Double_Sort.cpp","group":"local","local":true}

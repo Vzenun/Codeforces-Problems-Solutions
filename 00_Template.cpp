@@ -109,6 +109,8 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
+    map.find() function has complexity 0(logn)
+    map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
     __builtin_parity(n) - this is boolean function which return true if number of 1's in binary form of n are odd else returns false;
     __builtin_clz(n) - eg: Binary form of 16 is 00000000 00000000 00000000 00010000 therefore will return the number of the leading zeroes in n here answer will be 27

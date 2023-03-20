@@ -102,7 +102,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     count(first_iterator, last_iterator,x) – To count the occurrences of x in vector.
     find(first_iterator, last_iterator, x) – Returns an iterator to the first occurrence of x in vector and points to last address of vector ((name_of_vector).end()) if element is not present in vector
     
-    map.find() function has complexity 0(logn)
     maximium value long long can take 9, 223, 372, 036, 854, 775, 807
     2^63-1
     i.e, length of 19 only
@@ -110,6 +109,8 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
+    map.find() function has complexity 0(logn)
+    map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
     __builtin_parity(n) - this is boolean function which return true if number of 1's in binary form of n are odd else returns false;
     __builtin_clz(n) - eg: Binary form of 16 is 00000000 00000000 00000000 00010000 therefore will return the number of the leading zeroes in n here answer will be 27
@@ -132,40 +133,55 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
-    map<string,ll> mp;
-    string s;
-    rep(i,0,n){
-        cin>>s;
-        if(mp.find(s)==mp.end()){
-            mp[s]=0;
-            cout<<"OK"<<nn;
-        }
-        else{
-            mp[s]++;
-            cout<<s<<mp[s]<<nn;
-        }
-    }
 }
 
 void solve_array(){
     ll n;
     cin>>n;
-    vl arr(n,0);
-    rev(arr,n);
+    set<string> s;
+    vector<string> arr;
+    string st;
+    rep(i,0,n){
+        cin>>st;
+        s.insert(st);
+        arr.pb(st);
+    }
+    rep(i,0,n){
+        if(arr[i].size()==1){
+            cout<<0;
+            continue;
+        }
+        ll flag=0;
+        rep(j,1,arr[i].size()){
+            //cout<<arr[i].substr(0,j)<<" "<<arr[i].substr(j)<<nn;
+            if(s.find(arr[i].substr(0,j))!=s.end() && s.find(arr[i].substr(j))!=s.end()){
+                cout<<1;
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1){
+            continue;
+        }
+        else{
+            cout<<0;
+        }
+    }
+    cout<<nn;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
+    solve_mul();
     //solve_array();
-    solve_single();
+    //solve_single();
     return 0;
 }

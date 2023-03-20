@@ -34,10 +34,6 @@
 using namespace std;
 using namespace chrono;
 
-void solve_array();
-void solve_single();
-void solve_mul();
-
 typedef long long int ll;
 typedef unsigned long long int ull;
 typedef long double lld;
@@ -89,6 +85,10 @@ ll add_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) %
 ll mul_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}
 ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
 
+void solve_array();
+void solve_single();
+void solve_mul();
+void mergeSort_two_arr(vl &arr,vl &brr,ll i,ll j,vpll &ans);
 /*
     sqrt() in built function to give the square root in float/double
     cbrt() in built function to give the cube root in float/double
@@ -102,7 +102,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     count(first_iterator, last_iterator,x) – To count the occurrences of x in vector.
     find(first_iterator, last_iterator, x) – Returns an iterator to the first occurrence of x in vector and points to last address of vector ((name_of_vector).end()) if element is not present in vector
     
-    map.find() function has complexity 0(logn)
     maximium value long long can take 9, 223, 372, 036, 854, 775, 807
     2^63-1
     i.e, length of 19 only
@@ -110,6 +109,8 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
+    map.find() function has complexity 0(logn)
+    map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
     __builtin_parity(n) - this is boolean function which return true if number of 1's in binary form of n are odd else returns false;
     __builtin_clz(n) - eg: Binary form of 16 is 00000000 00000000 00000000 00010000 therefore will return the number of the leading zeroes in n here answer will be 27
@@ -132,26 +133,13 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
-    map<string,ll> mp;
-    string s;
-    rep(i,0,n){
-        cin>>s;
-        if(mp.find(s)==mp.end()){
-            mp[s]=0;
-            cout<<"OK"<<nn;
-        }
-        else{
-            mp[s]++;
-            cout<<s<<mp[s]<<nn;
-        }
-    }
 }
 
 void solve_array(){
@@ -159,13 +147,50 @@ void solve_array(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
+    vl brr(n,0);
+    rev(brr,n);
+    vpll ans;
+    for(ll i=0;i<n-1;i++){
+        for(ll j=i+1;j<n;j++){
+            if(arr[i]>arr[j]){
+                swap(arr[i],arr[j]);
+                swap(brr[i],brr[j]);
+                ans.pb(make_pair(i+1,j+1));
+            }
+            else if(arr[i]==arr[j]){
+                if(brr[i]>brr[j]){
+                    swap(arr[i],arr[j]);
+                    swap(brr[i],brr[j]);
+                    ans.pb(make_pair(i+1,j+1));
+                }
+            }
+        }
+    }
+    rep(i,0,n-1){
+        if(arr[i]<=arr[i+1]){
+            if(brr[i]>brr[i+1]){
+                cout<<-1<<nn;
+                return;
+            }
+        }
+    }
+    if(ans.size()==0){
+        cout<<0<<nn;
+        return;
+    }
+    else{
+        cout<<ans.size()<<nn;
+        rep(i,0,ans.size()){
+            cout<<ans[i].first<<" "<<ans[i].second<<nn;
+        }
+    }
 }
 
 int main(){
     make_it_fast();
     //seive();
-    //solve_mul();
+    solve_mul();
     //solve_array();
-    solve_single();
+    //solve_single();
     return 0;
 }
