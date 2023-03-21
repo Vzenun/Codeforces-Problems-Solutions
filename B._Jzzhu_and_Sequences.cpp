@@ -133,91 +133,37 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        solve_single();
+        
     }
-}
-void solveA(string s){
-    string row="";
-    string column="";
-    ll i=1;
-    while(s[i]!='C'){
-        row=row+s[i];
-        i++;
-    }
-    i++;
-    while(i!=s.size()){
-        column=column+s[i];
-        i++;
-    }
-    ll m=(ll)stoi(column);
-    string a="";
-    while(m>0){
-        ll r=m%26;
-        if(r==0){
-            a=char('Z')+a;
-            m=m/26-1;
-        }
-        else{
-            a=char('A'+r-1)+a;
-            m=m/26;
-        }
-    }
-    cout<<a+row<<nn;
-}
-
-void solveB(string s){
-    ll column=0;
-    ll i=0;
-    while(!((s[i]-'0')>=0 && (s[i]-'0')<=9)){
-        column=column*26+(s[i]-'A'+1);
-        i++;
-    }
-    string row="";
-    while(i!=s.size()){
-        row=row+s[i];
-        i++;
-    }
-    string a="R"+row+"C"+to_string(column);
-    cout<<a<<nn;
 }
 
 void solve_single(){
-    string s;
-    cin>>s;
-    ll locka=0;
-    ll wrong=0;
-    rep(i,0,s.size()){
-        if(i==0){
-            if(s[i]=='R'){
-                locka=1;
-            }
-            else{
-                wrong=1;
-                break;
-            }
+    ll x,y,n;
+    cin>>x>>y;
+    cin>>n;
+    ll a[6]={0};
+    a[0]=x%MOD;
+    a[1]=y%MOD;
+    a[2]=(a[1]-a[0])%MOD;
+    a[3]=(a[2]-a[1])%MOD;
+    a[4]=(a[3]-a[2])%MOD;
+    a[5]=(a[4]-a[3])%MOD;
+    ll t=n%6;
+    if(t==0){
+        if(a[5]<0){
+            cout<<a[5]+MOD<<nn;
         }
         else{
-            if(locka==1){
-                if(s[i]-'0'>=0 && s[i]-'0'<=9){
-                    locka=2;
-                }
-                else{
-                    wrong=1;
-                    break;
-                }
-            }
-            else{
-                if(s[i]=='C'){
-                    locka=3;
-                }
-            }
+            cout<<a[5]<<nn;
         }
     }
-    if(locka==3){
-        solveA(s);
-    }
     else{
-        solveB(s);
+        if(a[t-1]<0){
+            cout<<a[t-1]+MOD<<nn;
+        }
+        else{
+            cout<<a[t-1]<<nn;
+        }
     }
 }
 
@@ -231,8 +177,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

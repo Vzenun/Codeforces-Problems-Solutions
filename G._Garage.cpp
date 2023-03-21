@@ -133,91 +133,35 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        solve_single();
+        
     }
-}
-void solveA(string s){
-    string row="";
-    string column="";
-    ll i=1;
-    while(s[i]!='C'){
-        row=row+s[i];
-        i++;
-    }
-    i++;
-    while(i!=s.size()){
-        column=column+s[i];
-        i++;
-    }
-    ll m=(ll)stoi(column);
-    string a="";
-    while(m>0){
-        ll r=m%26;
-        if(r==0){
-            a=char('Z')+a;
-            m=m/26-1;
-        }
-        else{
-            a=char('A'+r-1)+a;
-            m=m/26;
-        }
-    }
-    cout<<a+row<<nn;
-}
-
-void solveB(string s){
-    ll column=0;
-    ll i=0;
-    while(!((s[i]-'0')>=0 && (s[i]-'0')<=9)){
-        column=column*26+(s[i]-'A'+1);
-        i++;
-    }
-    string row="";
-    while(i!=s.size()){
-        row=row+s[i];
-        i++;
-    }
-    string a="R"+row+"C"+to_string(column);
-    cout<<a<<nn;
 }
 
 void solve_single(){
-    string s;
-    cin>>s;
-    ll locka=0;
-    ll wrong=0;
-    rep(i,0,s.size()){
-        if(i==0){
-            if(s[i]=='R'){
-                locka=1;
-            }
-            else{
-                wrong=1;
-                break;
-            }
-        }
-        else{
-            if(locka==1){
-                if(s[i]-'0'>=0 && s[i]-'0'<=9){
-                    locka=2;
-                }
-                else{
-                    wrong=1;
-                    break;
-                }
-            }
-            else{
-                if(s[i]=='C'){
-                    locka=3;
-                }
-            }
-        }
+    ll n;
+    cin>>n;
+    if(n==1){
+        cout<<3<<nn;
+        return;
     }
-    if(locka==3){
-        solveA(s);
+    if(n==2){
+        cout<<5<<nn;
+        return;
+    }
+    if(n==3){
+        cout<<7<<nn;
+        return;
+    }
+    if(n%3==1){
+        cout<<(n/3+1)*4<<nn;
     }
     else{
-        solveB(s);
+        if(n%3==2){
+            cout<<((n-1)/3+1)*4+1<<nn;
+        }
+        else{
+            cout<<((n-2)/3+1)*4+3<<nn;
+        }
     }
 }
 
@@ -231,8 +175,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

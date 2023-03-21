@@ -2,6 +2,17 @@
 
 //Codeforcees Handle: Vidurcodviz
 
+/*
+888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
+8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
+88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
+888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
+888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
+888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
+888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
+888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
+*/
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -133,99 +144,116 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        solve_single();
+        solve_array();
     }
-}
-void solveA(string s){
-    string row="";
-    string column="";
-    ll i=1;
-    while(s[i]!='C'){
-        row=row+s[i];
-        i++;
-    }
-    i++;
-    while(i!=s.size()){
-        column=column+s[i];
-        i++;
-    }
-    ll m=(ll)stoi(column);
-    string a="";
-    while(m>0){
-        ll r=m%26;
-        if(r==0){
-            a=char('Z')+a;
-            m=m/26-1;
-        }
-        else{
-            a=char('A'+r-1)+a;
-            m=m/26;
-        }
-    }
-    cout<<a+row<<nn;
-}
-
-void solveB(string s){
-    ll column=0;
-    ll i=0;
-    while(!((s[i]-'0')>=0 && (s[i]-'0')<=9)){
-        column=column*26+(s[i]-'A'+1);
-        i++;
-    }
-    string row="";
-    while(i!=s.size()){
-        row=row+s[i];
-        i++;
-    }
-    string a="R"+row+"C"+to_string(column);
-    cout<<a<<nn;
 }
 
 void solve_single(){
-    string s;
-    cin>>s;
-    ll locka=0;
-    ll wrong=0;
-    rep(i,0,s.size()){
-        if(i==0){
-            if(s[i]=='R'){
-                locka=1;
-            }
-            else{
-                wrong=1;
-                break;
-            }
-        }
-        else{
-            if(locka==1){
-                if(s[i]-'0'>=0 && s[i]-'0'<=9){
-                    locka=2;
-                }
-                else{
-                    wrong=1;
-                    break;
-                }
-            }
-            else{
-                if(s[i]=='C'){
-                    locka=3;
-                }
-            }
-        }
-    }
-    if(locka==3){
-        solveA(s);
-    }
-    else{
-        solveB(s);
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,k;
+    cin>>n>>k;
     vl arr(n,0);
     rev(arr,n);
+    if(k==1 || k==n){
+        cout<<yup<<nn;
+        return;
+    }
+    vl ans;
+    ll sum=0;
+    ll a1=0;
+    if(arr[0]>0){
+        sum+=arr[0];
+        a1=0;
+    }
+    else{
+        sum+=arr[0];
+        a1=1;
+    }
+    rep(i,1,k-1){
+        if(a1==0){
+            if(arr[i]>0){
+                sum+=arr[i];
+            }
+            else{
+                ans.pb(sum);
+                sum=arr[i];
+                a1=1;
+            }
+        }
+        else{
+            if(arr[i]>0){
+                ans.pb(sum);
+                sum=arr[i];
+                a1=0;
+            }
+            else{
+                sum+=arr[i];
+            }
+        }
+    }
+    ans.pb(sum);
+    ll r2=ans.size();
+    ans.pb(arr[k-1]);
+    sum=0;
+    if(arr[k]>0){
+        sum+=arr[k];
+        a1=0;
+    }
+    else{
+        sum+=arr[k];
+        a1=1;
+    }
+    rep(i,k+1,n){
+        if(a1==0){
+            if(arr[i]>0){
+                sum+=arr[i];
+            }
+            else{
+                ans.pb(sum);
+                sum=arr[i];
+                a1=1;
+            }
+        }
+        else{
+            if(arr[i]>0){
+                ans.pb(sum);
+                sum=arr[i];
+                a1=0;
+            }
+            else{
+                sum+=arr[i];
+            }
+        }
+    }
+    ans.pb(sum);
+    sum=arr[k-1];
+    // rep(i,0,ans.size()){
+    //     cout<<ans[i]<<" ";
+    // }
+    // cout<<nn;
+    //cout<<r2<<nn;
+    ll i=r2-1;
+    ll j=r2+1;
+        while(i!=-1 && j!=ans.size()){
+            if(sum+ans[i]<0 && sum+ans[j]<0){
+                cout<<nope<<nn;
+                return;
+            }
+            if(sum+ans[i]>=sum+ans[j]){
+                sum=sum+arr[i];
+                i--;
+            }
+            else{
+                sum=sum+ans[j];
+                j++;
+            }
+        }
+        cout<<yup<<nn;
+        return;
 }
 
 int main(){

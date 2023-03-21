@@ -133,91 +133,48 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        solve_single();
+        
     }
-}
-void solveA(string s){
-    string row="";
-    string column="";
-    ll i=1;
-    while(s[i]!='C'){
-        row=row+s[i];
-        i++;
-    }
-    i++;
-    while(i!=s.size()){
-        column=column+s[i];
-        i++;
-    }
-    ll m=(ll)stoi(column);
-    string a="";
-    while(m>0){
-        ll r=m%26;
-        if(r==0){
-            a=char('Z')+a;
-            m=m/26-1;
-        }
-        else{
-            a=char('A'+r-1)+a;
-            m=m/26;
-        }
-    }
-    cout<<a+row<<nn;
-}
-
-void solveB(string s){
-    ll column=0;
-    ll i=0;
-    while(!((s[i]-'0')>=0 && (s[i]-'0')<=9)){
-        column=column*26+(s[i]-'A'+1);
-        i++;
-    }
-    string row="";
-    while(i!=s.size()){
-        row=row+s[i];
-        i++;
-    }
-    string a="R"+row+"C"+to_string(column);
-    cout<<a<<nn;
 }
 
 void solve_single(){
-    string s;
-    cin>>s;
-    ll locka=0;
-    ll wrong=0;
-    rep(i,0,s.size()){
-        if(i==0){
-            if(s[i]=='R'){
-                locka=1;
-            }
-            else{
-                wrong=1;
-                break;
-            }
-        }
-        else{
-            if(locka==1){
-                if(s[i]-'0'>=0 && s[i]-'0'<=9){
-                    locka=2;
-                }
-                else{
-                    wrong=1;
-                    break;
-                }
-            }
-            else{
-                if(s[i]=='C'){
-                    locka=3;
-                }
-            }
+    ll n;
+    cin>>n;
+    if(n==1){
+        cout<<1<<" "<<1<<nn;
+        return;
+    }
+    if(n==2){
+        cout<<1<<" "<<2<<nn;
+        return;
+    }
+    ll r=0;
+    rep(i,2,ceil(sqrt(n))){
+        if(n%i==0){
+            r=1;
+            break;
         }
     }
-    if(locka==3){
-        solveA(s);
+    if(r==0){
+        cout<<1<<" "<<n<<nn;
+        return;
     }
     else{
-        solveB(s);
+        ll a=sqrt(ceil(n));
+        while(true){
+            if(n%a==0){
+                if(gcd(a,n/a)==1){
+                    cout<<a<<" "<<n/a<<nn;
+                    break;
+                }
+                else{
+                    a--;
+                }
+            }
+            else{
+                a--;
+            }
+        }
     }
 }
 
@@ -231,8 +188,8 @@ void solve_array(){
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }
