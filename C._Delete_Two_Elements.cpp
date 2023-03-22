@@ -74,7 +74,6 @@ ll lmax(vl arr){return *max_element(arr.begin(),arr.end());}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
 
-ll sum(vl a){ll sum=0;rep(i,0,a.size()){sum+=a[i];}return sum;}
 void rev(vl &arr,ll n){rep(i,0,n){cin>>arr[i];}return;}
 void prv(vl arr){rep(i,0,arr.size()){cout<<arr[i]<<" ";}cout<<nn;return;}
 
@@ -129,11 +128,35 @@ bool mycompare(pll p1 ,pll p2){
     }
 }
 
+ll binar(vpll ans,ll key){
+    ll i=-1;
+    ll j=ans.size();
+    ll m;
+    while(i+1<j){
+        m=(i+j)/2;
+        if(ans[m].first<=key){
+            i=m;
+        }
+        else{
+            j=m;
+        }
+    }
+    if(i==-1){
+        return -1;
+    }
+    else if(ans[i].first==key){
+        return ans[i].second;
+    }
+    else{
+        return -1;
+    }
+}
+
 void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
@@ -147,6 +170,83 @@ void solve_array(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
+    sor(arr);
+    ll mt=n;
+    ll flag=0;
+    if(mt%2==0){
+        mt=mt/2;
+        flag=1;
+    }
+    ll s1=0;
+    rep(i,0,n){
+        s1+=arr[i];
+    }
+    if(s1%mt!=0){
+        cout<<0<<nn;
+    }
+    else{
+        if(flag==1){
+            s1=s1/mt;
+        }
+        else{
+            s1=s1/mt;
+            s1=s1*2;
+        }
+        //cout<<s1<<nn;
+        vpll ans;
+        ll count=1;
+        rep(i,0,n-1){
+            if(arr[i]==arr[i+1]){
+                count++;
+            }
+            else{
+                ans.pb(mp(arr[i],count));
+                count=1;
+            }
+        }
+        ans.pb(mp(arr[n-1],count));
+        ll sum2=0;
+        if(s1%2==0){
+            ll kt=binar(ans,s1/2);
+            if(kt!=-1 && kt>1){
+                sum2+=kt*(kt-1)/2;
+            }
+            ll i=0;
+            ll j=ans.size()-1;
+            while(i<j){
+                if(ans[i].first+ans[j].first==s1){
+                    sum2+=ans[i].second*ans[j].second;
+                    i++;
+                    j--;
+                }
+                else if(ans[i].first+ans[j].first<s1){
+                    i++;
+                }
+                else if(ans[i].first+ans[j].first>s1){
+                    j--;
+                }
+            }
+            cout<<sum2<<nn;
+        }
+        else{
+            ll i=0;
+            ll j=ans.size()-1;
+            while(i<j){
+                if(ans[i].first+ans[j].first==s1){
+                    sum2+=ans[i].second*ans[j].second;
+                    i++;
+                    j--;
+                }
+                else if(ans[i].first+ans[j].first<s1){
+                    i++;
+                }
+                else if(ans[i].first+ans[j].first>s1){
+                    j--;
+                }
+            }
+            cout<<sum2<<nn;
+        }
+    }
 }
 
 int main(){

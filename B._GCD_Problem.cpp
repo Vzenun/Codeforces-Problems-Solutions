@@ -74,7 +74,7 @@ ll lmax(vl arr){return *max_element(arr.begin(),arr.end());}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
 
-ll sum(vl a){ll sum=0;rep(i,0,a.size()){sum+=a[i];}return sum;}
+ll sum(vl a){return accumulate(a.begin(),a.end(),0);}
 void rev(vl &arr,ll n){rep(i,0,n){cin>>arr[i];}return;}
 void prv(vl arr){rep(i,0,arr.size()){cout<<arr[i]<<" ";}cout<<nn;return;}
 
@@ -133,13 +133,28 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    ll flag=0;
+    ll k;
+    if(n%2!=0){
+        n=n-1;
+        ll m=n/2;
+        if(m%2==0){
+            cout<<n/2+1<<" "<<n/2-1<<" "<<1<<nn;
+        }
+        else{
+            cout<<n/2+2<<" "<<n/2-2<<" "<<1<<nn;
+        }
+    }
+    else{
+        cout<<n/2<<" "<<n/2-1<<" "<<1<<nn;
+    }
 }
 
 void solve_array(){

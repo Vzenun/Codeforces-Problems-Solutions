@@ -47,7 +47,6 @@ typedef vector<pll> vpll;
 typedef vector<vl> vvl;
 
 #define make_it_fast() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-#define rept(i, a, n) for (ll i = (a); i < (n); i++)
 #define all(x) (x).begin(), (x).end()
 #define sor(x) sort(all(x))
 #define lb lower_bound
@@ -74,7 +73,7 @@ ll lmax(vl arr){return *max_element(arr.begin(),arr.end());}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
 
-ll sum(vl a){ll sum=0;rep(i,0,a.size()){sum+=a[i];}return sum;}
+ll sum(vl a){return accumulate(a.begin(),a.end(),0);}
 void rev(vl &arr,ll n){rep(i,0,n){cin>>arr[i];}return;}
 void prv(vl arr){rep(i,0,arr.size()){cout<<arr[i]<<" ";}cout<<nn;return;}
 
@@ -133,13 +132,49 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
     ll n;
     cin>>n;
+    ll a1=0;
+    ll m1=0;
+    ll flag=0;
+    ll num=n;
+    if(n==2 || n==3){
+        cout<<1<<nn;
+        cout<<n<<nn;
+        return;
+    }
+    for(ll i=2;i<=ceil(sqrt(num));i++){
+        ll t=0;
+        while(n%i==0){
+            t++;
+            n=n/i;
+        }
+        if(t>1){
+            flag=1;
+        }
+        if(t>a1){
+            a1=t;
+            m1=i;
+        }
+    }
+    if(flag==0){
+        cout<<1<<nn;
+        cout<<num<<nn;
+    }
+    else{
+        cout<<a1<<nn;
+        while(a1>1){
+            cout<<m1<<" ";
+            num=num/m1;
+            a1--;
+        }
+        cout<<num<<nn;
+    }
 }
 
 void solve_array(){

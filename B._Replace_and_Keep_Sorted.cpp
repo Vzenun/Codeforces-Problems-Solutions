@@ -74,7 +74,7 @@ ll lmax(vl arr){return *max_element(arr.begin(),arr.end());}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
 
-ll sum(vl a){ll sum=0;rep(i,0,a.size()){sum+=a[i];}return sum;}
+ll sum(vl a){return accumulate(a.begin(),a.end(),0);}
 void rev(vl &arr,ll n){rep(i,0,n){cin>>arr[i];}return;}
 void prv(vl arr){rep(i,0,arr.size()){cout<<arr[i]<<" ";}cout<<nn;return;}
 
@@ -133,7 +133,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
@@ -143,17 +143,60 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,q,k;
+    cin>>n>>q>>k;
     vl arr(n,0);
     rev(arr,n);
+    vl brr(n,0);
+    rep(i,0,n){
+        if(i==0){
+            brr[i]=arr[i+1]-1-1;
+        }
+        else if(i==n-1){
+            brr[i]=k-arr[i-1]-1;
+        }
+        else{
+            brr[i]=arr[i+1]-arr[i-1]-2;
+        }
+    }
+    ll sum=0;
+    vl crr(n,0);
+    rep(i,0,n){
+        sum+=brr[i];
+        crr[i]=sum;
+    }
+    ll l,r;
+    rep(i,0,q){
+        cin>>l>>r;
+        if(l==r){
+            cout<<k-1<<nn;
+            continue;
+        }
+        if(l==1){
+            if(r==n){
+                cout<<crr[r-1]<<nn;
+            }
+            else{
+                cout<<crr[r-2]+k-arr[r-2]-1<<nn;
+            }
+        }
+        else{
+            if(r==n){
+                cout<<crr[r-1]-crr[l-1]+arr[l]-2<<nn;
+            }
+            else{
+                cout<<crr[r-2]-crr[l-1]+k-arr[r-2]-1+arr[l]-2<<nn;
+            }
+        }
+    }
+
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }
