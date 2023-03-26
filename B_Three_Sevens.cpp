@@ -112,7 +112,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
-    Whenever need to do the hashing always use the map which is the stl template of hashing never use the array indexing method.
     map.find() function has complexity 0(logn)
     map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
@@ -137,7 +136,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
@@ -147,10 +146,43 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
-    vl arr(n,0);
-    rev(arr,n);
+    ll m;
+    cin>>m;
+    map<ll, ll> mpt;
+    //vl ans(50000,-1);
+    rep(i,1,m+1){
+        ll n;
+        cin>>n;
+        vl arr(n,0);
+        rep(j,0,n){
+            cin>>arr[j];
+            mpt[arr[j]-1]=i;
+        }
+    }
+    vpll ans2;
+    map<ll,ll>::iterator it = mpt.begin();
+    while(it!=mpt.end()){
+        ans2.push_back(mp(it->second,it->first+1));
+        it++;
+    }
+    sort(ans2.begin(),ans2.end());
+    vl final;
+    ll num=1;
+    rep(i,0,ans2.size()){
+        if(ans2[i].first==num && num<=m){
+            final.pb(ans2[i].second);
+            num++;
+        }
+        else if(num==m+1){
+            break;
+        }
+    }
+    if(final.size()==m){
+        prv(final);
+    }
+    else{
+        cout<<-1<<nn;
+    }
 }
 
 int main(){

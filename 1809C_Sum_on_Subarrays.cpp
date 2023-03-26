@@ -90,10 +90,7 @@ ll mul_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) %
 ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
 
 /*
-    A) double sqrt(double arg): It returns the square root of a number to type double. 
-    B) float sqrtf(float arg): It returns the square root of a number to type float.
-    C) long double sqrtl(long double arg): It returns the square root of a number to type long double with more precision. 
-    Advised to always use C) as always give correct one as other may halt in case of the big numbers
+    sqrt() in built function to give the square root in float/double
     cbrt() in built function to give the cube root in float/double
     abs() is used for the absolute value of a number
     swap() function in c++ used to swap value of two elements of the same data type.
@@ -112,7 +109,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
-    Whenever need to do the hashing always use the map which is the stl template of hashing never use the array indexing method.
     map.find() function has complexity 0(logn)
     map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
@@ -137,13 +133,35 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,k;
+    cin>>n>>k;
+    vl arr(n,-1000);
+    ll sum=1;
+    ll kt=k;
+    if(kt==0){
+        prv(arr);
+        return;
+    }
+    while((sum*(sum+1))/2<=k){
+        arr[sum-1]=1;
+        sum++;
+    }
+    kt-=(sum*(sum-1))/2;
+    if(sum==n+1){
+        prv(arr);
+        return;
+    }
+    sum-=1;
+    arr[sum]=-(sum+1);
+    rep(i,0,kt){
+        arr[i]=sum+3;
+    }
+    prv(arr);
 }
 
 void solve_array(){

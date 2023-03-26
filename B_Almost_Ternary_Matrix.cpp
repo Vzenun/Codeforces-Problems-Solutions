@@ -112,7 +112,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
-    Whenever need to do the hashing always use the map which is the stl template of hashing never use the array indexing method.
     map.find() function has complexity 0(logn)
     map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
@@ -137,13 +136,108 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_single();
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
+    vl a(m,0);
+    vvl arr(n,a);
+    ll lck=0;
+    ll flag=1;
+    ll cnt=0;
+    rep(i,0,m){
+        if(lck==0){
+            arr[0][i]=1;
+            lck=1;
+            flag=0;
+        }
+        else{
+            if(cnt==0){
+                arr[0][i]=flag;
+                cnt++;
+            }
+            else if(cnt==1){
+                arr[0][i]=flag;
+                cnt=0;
+                if(flag==0){
+                    flag=1;
+                }
+                else{
+                    flag=0;
+                }
+            }
+        }
+    }
+    lck=0;
+    flag=0;
+    cnt=0;
+    rep(i,0,m){
+        if(lck==0){
+            arr[1][i]=0;
+            lck=1;
+            flag=1;
+        }
+        else{
+            if(cnt==0){
+                arr[1][i]=flag;
+                cnt++;
+            }
+            else if(cnt==1){
+                arr[1][i]=flag;
+                cnt=0;
+                if(flag==0){
+                    flag=1;
+                }
+                else{
+                    flag=0;
+                }
+            }
+        }
+    }
+    if(n==2){
+        rep(i,0,n){
+            rep(j,0,m){
+                cout<<arr[i][j]<<" ";
+            }
+            cout<<nn;
+        }
+    }
+    else{
+        ll ct=0;
+        ll lockt=0;
+        ll signal=0;
+        rep(i,2,n){
+            if(lockt==0){
+                arr[i]=arr[1];
+                lockt=1;
+            }
+            else{
+                    if(ct==0){
+                        arr[i]=arr[signal];
+                        ct++;
+                    }
+                    else if(ct==1){
+                        arr[i]=arr[signal];
+                        ct=0;
+                        if(signal==0){
+                            signal=1;
+                        }
+                        else{
+                            signal=0;
+                        }
+                    }
+            }
+        }
+        rep(i,0,n){
+            rep(j,0,m){
+                cout<<arr[i][j]<<" ";
+            }
+            cout<<nn;
+        }
+    }
 }
 
 void solve_array(){

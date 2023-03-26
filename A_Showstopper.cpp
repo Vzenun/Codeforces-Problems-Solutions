@@ -66,8 +66,8 @@ typedef vector<vl> vvl;
 
 ll seiv[1000001]={0};
 
-string yup="YES";
-string nope="NO";
+string yup="Yes";
+string nope="No";
 
 ll lmin(vl arr){return *min_element(arr.begin(),arr.end());}
 ll lmax(vl arr){return *max_element(arr.begin(),arr.end());}
@@ -112,7 +112,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
-    Whenever need to do the hashing always use the map which is the stl template of hashing never use the array indexing method.
     map.find() function has complexity 0(logn)
     map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
@@ -137,7 +136,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
@@ -151,6 +150,35 @@ void solve_array(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
+    vl brr(n,0);
+    rev(brr,n);
+    ll k=arr[n-1];
+    ll k2=brr[n-1];
+    rep(i,0,n-1){
+        if(arr[i]>k && brr[i]>k){
+            cout<<nope<<nn;
+            return;
+        }
+        else if(arr[i]>k && brr[i]<=k){
+            swap(arr[i],brr[i]);
+        }
+    }
+    rep(i,0,n-1){
+        if(brr[i]>k2 && arr[i]>k2){
+            cout<<nope<<nn;
+            return;
+        }
+        else if(brr[i]>k2 && arr[i]<=k2 && brr[i]<=k){
+            swap(arr[i],brr[i]);
+        }
+        else if(brr[i]>k2 && arr[i]<=k2 && brr[i]>k){
+            cout<<nope<<nn;
+            return;
+        }
+    }
+    cout<<yup<<nn;
+    return;
+    // ll k2=arr[n-1];
 }
 
 int main(){

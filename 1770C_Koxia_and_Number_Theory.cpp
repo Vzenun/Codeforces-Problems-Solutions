@@ -2,6 +2,17 @@
 
 //Codeforcees Handle: Vidurcodviz
 
+/*
+888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
+8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
+88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
+888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
+888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
+888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
+888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
+888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
+*/
+
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -112,7 +123,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
-    Whenever need to do the hashing always use the map which is the stl template of hashing never use the array indexing method.
     map.find() function has complexity 0(logn)
     map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
@@ -137,7 +147,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
@@ -151,6 +161,28 @@ void solve_array(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
+    ll num_odd=0;
+    ll num_even=0;
+    sor(arr);
+    rep(i,0,n){
+        if(arr[i]%2==0){
+            num_even++;
+        }
+        else{
+            num_odd++;
+        }
+    }
+    if(num_even>=2 && num_odd>=2){
+        cout<<nope<<nn;
+        return;
+    }
+    rep(i,0,n-1){
+        if(arr[i]==arr[i+1]){
+            cout<<nope<<nn;
+            return;
+        }
+    }
+    cout<<yup<<nn;
 }
 
 int main(){
