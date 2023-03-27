@@ -50,7 +50,6 @@ typedef vector<vl> vvl;
 #define rept(i, a, n) for (ll i = (a); i < (n); i++)
 #define all(x) (x).begin(), (x).end()
 #define sor(x) sort(all(x))
-#define sorr(x) sort(x.rbegin(),x.rend()) // this is in order to do sorting in descending order
 #define lb lower_bound
 #define ub upper_bound
 #define pb push_back
@@ -138,7 +137,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
@@ -150,8 +149,41 @@ void solve_single(){
 void solve_array(){
     ll n;
     cin>>n;
-    vl arr(n,0);
-    rev(arr,n);
+    string s;
+    cin>>s;
+    ll num=0;
+    rep(i,0,n){
+        if(s[i]=='0'){
+            num++;
+        }
+    }
+    if(num==n || num==0){
+        cout<<n*n<<nn;
+        return;
+    }
+    ll max1=0;
+    ll count=1;
+    rep(i,0,n-1){
+        if(s[i]=='1' && s[i]==s[i+1]){
+            count++;
+            max1=max(max1,count);
+        }
+        else{
+            count=1;
+        }
+    }
+    count=1;
+    ll max2=0;
+    rep(i,0,n-1){
+        if(s[i]=='0' && s[i]==s[i+1]){
+            count++;
+            max2=max(max2,count);
+        }
+        else{
+            count=1;
+        }
+    }
+    cout<<max(max1*max1,max(max2*max2,num*(n-num)))<<nn;
 }
 
 int main(){
