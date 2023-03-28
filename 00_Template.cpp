@@ -56,6 +56,8 @@ typedef vector<vl> vvl;
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
+#define ff first
+#define ss second
 #define MOD 1000000007
 #define MOD1 998244353
 #define PI 3.141592653589793238462
@@ -113,6 +115,17 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
+    lower_bound(v.begin(), v.end(), 6) these are the syntax
+    upper_bound(v.begin(), v.end(), 6)
+
+    In multiset to remove all element of a same number use a.erase()
+    else to remove 1 lement only use ans.erase(ans.find(*it)) here it is the iterator
+
+    priority_queue<int, vector<int>, greater<int> > gquiz(arr, arr + n);
+    Here above is the syntax of the min_heap implementation with the help of the priority queue and here push() and pop() and top() are the main operations
+    priority_queue<int> gquiz(arr, arr + n);
+    Here above is the syntax of the max_heap implementation with the help of the priority queue and here push() and pop() and top() are the main operations
+
     Whenever need to do the hashing always use the map which is the stl template of hashing never use the array indexing method.
     map.find() function has complexity 0(logn)
     map.insert function has complexity 0(1)
@@ -120,6 +133,12 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     __builtin_parity(n) - this is boolean function which return true if number of 1's in binary form of n are odd else returns false;
     __builtin_clz(n) - eg: Binary form of 16 is 00000000 00000000 00000000 00010000 therefore will return the number of the leading zeroes in n here answer will be 27
     __builtin_ctz(n) - eg: Binary form of 20 is 00000000 00000000 00000000 00010100 therefore will return the number of the trailing zeroes in n here answer will be 2
+
+    An important info about the lower_bound used in various data structures
+    actually if number is present they will return te iterator pointing to that number in the data structure otherwise return the
+    next iterator in that data structure so depends whether sorted in ascending or descending order.
+    An important info about the upper_bound used in various data structures
+    is that it will return the iterator pointing to the next iterator to which the number should be there also depends on the sorting order
 */
 
 bool mycompare(pll p1 ,pll p2){
