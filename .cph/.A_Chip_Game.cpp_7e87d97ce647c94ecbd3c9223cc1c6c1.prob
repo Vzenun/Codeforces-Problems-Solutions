@@ -1,0 +1,1 @@
+{"name":"Local: A_Chip_Game","url":"/Users/vidurgoel/Codeforces/A_Chip_Game.cpp","tests":[{"id":1680071545416,"input":"6\n1 1\n1 4\n5 6\n2 2\n6 3\n999999999 1000000000","output":"Tonya\nBurenka\nBurenka\nTonya\nBurenka\nBurenka"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/A_Chip_Game.cpp","group":"local","local":true}
