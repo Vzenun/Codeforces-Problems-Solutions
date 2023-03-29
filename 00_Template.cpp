@@ -173,7 +173,7 @@ void solve_array(){
     rev(arr,n);
 }
 
-int main(){
+signed main(){
     make_it_fast();
     //seive();
     solve_mul();

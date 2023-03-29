@@ -2,17 +2,6 @@
 
 //Codeforcees Handle: Vidurcodviz
 
-/*
-888b    888  .d88888b. 88888888888        .d8888b.   .d88888b.  888b     d888 8888888b.  888      8888888888 88888888888 8888888888       Y88b   d88P 8888888888 88888888888 
-8888b   888 d88P" "Y88b    888           d88P  Y88b d88P" "Y88b 8888b   d8888 888   Y88b 888      888            888     888               Y88b d88P  888            888     
-88888b  888 888     888    888           888    888 888     888 88888b.d88888 888    888 888      888            888     888                Y88o88P   888            888     
-888Y88b 888 888     888    888           888        888     888 888Y88888P888 888   d88P 888      8888888        888     8888888             Y888P    8888888        888     
-888 Y88b888 888     888    888           888        888     888 888 Y888P 888 8888888P"  888      888            888     888                  888     888            888     
-888  Y88888 888     888    888           888    888 888     888 888  Y8P  888 888        888      888            888     888                  888     888            888     
-888   Y8888 Y88b. .d88P    888           Y88b  d88P Y88b. .d88P 888   "   888 888        888      888            888     888                  888     888            888     
-888    Y888  "Y88888P"     888            "Y8888P"   "Y88888P"  888       888 888        88888888 8888888888     888     8888888888           888     8888888888     888     
-*/
-
 #include<iostream>
 #include<string>
 #include<cmath>
@@ -61,11 +50,14 @@ typedef vector<vl> vvl;
 #define rept(i, a, n) for (ll i = (a); i < (n); i++)
 #define all(x) (x).begin(), (x).end()
 #define sor(x) sort(all(x))
+#define sorr(x) sort(x.rbegin(),x.rend()) // this is in order to do sorting in descending order
 #define lb lower_bound
 #define ub upper_bound
 #define pb push_back
 #define ppb pop_back
 #define mp make_pair
+#define ff first
+#define ss second
 #define MOD 1000000007
 #define MOD1 998244353
 #define PI 3.141592653589793238462
@@ -85,7 +77,7 @@ ll lmax(vl arr){return *max_element(arr.begin(),arr.end());}
 
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
 
-ll sum(vl a){return accumulate(a.begin(),a.end(),0);}
+ll sum(vl a){ll sum=0;rep(i,0,a.size()){sum+=a[i];}return sum;}
 void rev(vl &arr,ll n){rep(i,0,n){cin>>arr[i];}return;}
 void prv(vl arr){rep(i,0,arr.size()){cout<<arr[i]<<" ";}cout<<nn;return;}
 
@@ -101,7 +93,10 @@ ll mul_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) %
 ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
 
 /*
-    sqrt() in built function to give the square root in float/double
+    A) double sqrt(double arg): It returns the square root of a number to type double. 
+    B) float sqrtf(float arg): It returns the square root of a number to type float.
+    C) long double sqrtl(long double arg): It returns the square root of a number to type long double with more precision. 
+    Advised to always use C) as always give correct one as other may halt in case of the big numbers
     cbrt() in built function to give the cube root in float/double
     abs() is used for the absolute value of a number
     swap() function in c++ used to swap value of two elements of the same data type.
@@ -120,12 +115,30 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     2^64-1
     i.e, length of 20 only
 
+    lower_bound(v.begin(), v.end(), 6) these are the syntax
+    upper_bound(v.begin(), v.end(), 6)
+
+    In multiset to remove all element of a same number use a.erase()
+    else to remove 1 lement only use ans.erase(ans.find(*it)) here it is the iterator
+
+    priority_queue<int, vector<int>, greater<int> > gquiz(arr, arr + n);
+    Here above is the syntax of the min_heap implementation with the help of the priority queue and here push() and pop() and top() are the main operations
+    priority_queue<int> gquiz(arr, arr + n);
+    Here above is the syntax of the max_heap implementation with the help of the priority queue and here push() and pop() and top() are the main operations
+
+    Whenever need to do the hashing always use the map which is the stl template of hashing never use the array indexing method.
     map.find() function has complexity 0(logn)
     map.insert function has complexity 0(1)
     __builtin_popcount(n) - we use this function to count the number of 1's (set bits) in the number in binary form
     __builtin_parity(n) - this is boolean function which return true if number of 1's in binary form of n are odd else returns false;
     __builtin_clz(n) - eg: Binary form of 16 is 00000000 00000000 00000000 00010000 therefore will return the number of the leading zeroes in n here answer will be 27
     __builtin_ctz(n) - eg: Binary form of 20 is 00000000 00000000 00000000 00010100 therefore will return the number of the trailing zeroes in n here answer will be 2
+
+    An important info about the lower_bound used in various data structures
+    actually if number is present they will return te iterator pointing to that number in the data structure otherwise return the
+    next iterator in that data structure so depends whether sorted in ascending or descending order.
+    An important info about the upper_bound used in various data structures
+    is that it will return the iterator pointing to the next iterator to which the number should be there also depends on the sorting order
 */
 
 bool mycompare(pll p1 ,pll p2){
@@ -144,7 +157,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        solve_array();
+        
     }
 }
 
@@ -154,113 +167,66 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n,k;
-    cin>>n>>k;
+    ll n;
+    cin>>n;
     vl arr(n,0);
     rev(arr,n);
-    if(k==1 || k==n){
-        cout<<yup<<nn;
+    if(n<3){
+        cout<<0<<nn;
         return;
     }
-    vl ans;
+    vl brr(n,0);
     ll sum=0;
-    ll a1=0;
-    if(arr[0]>0){
-        sum+=arr[0];
-        a1=0;
+    rep(i,0,n){
+        sum+=arr[i];
+        brr[i]=sum;
+    }
+    if(sum%3!=0){
+        cout<<0<<nn;
     }
     else{
-        sum+=arr[0];
-        a1=1;
-    }
-    rep(i,1,k-1){
-        if(a1==0){
-            if(arr[i]>0){
-                sum+=arr[i];
+        vl a1;
+        vl a2;
+        rep(i,0,n){
+            if(brr[i]-arr[i]==sum/3){
+                a1.pb(i);
             }
-            else{
-                ans.pb(sum);
-                sum=arr[i];
-                a1=1;
+            else if(brr[i]-arr[i]==2*sum/3){
+                a2.pb(i-1);
             }
+        }
+        if(sum==0){
+            ll count=0;
+            rep(i,0,n){
+                if(i!=0 && i!=n-1 && brr[i]-arr[i]==0){
+                    count++;
+                }
+            }
+            cout<<(count*(count+1))/2<<nn;
         }
         else{
-            if(arr[i]>0){
-                ans.pb(sum);
-                sum=arr[i];
-                a1=0;
+            ll i=0;
+            ll j=0;
+            ll count=0;
+            while(i<a1.size() && j<a2.size()){
+                if(a1[i]<=a2[j]){
+                    count+=a2.size()-j;
+                    i++;
+                }
+                else{
+                    j++;
+                }
             }
-            else{
-                sum+=arr[i];
-            }
+            cout<<count<<nn;
         }
     }
-    ans.pb(sum);
-    ll r2=ans.size();
-    ans.pb(arr[k-1]);
-    sum=0;
-    if(arr[k]>0){
-        sum+=arr[k];
-        a1=0;
-    }
-    else{
-        sum+=arr[k];
-        a1=1;
-    }
-    rep(i,k+1,n){
-        if(a1==0){
-            if(arr[i]>0){
-                sum+=arr[i];
-            }
-            else{
-                ans.pb(sum);
-                sum=arr[i];
-                a1=1;
-            }
-        }
-        else{
-            if(arr[i]>0){
-                ans.pb(sum);
-                sum=arr[i];
-                a1=0;
-            }
-            else{
-                sum+=arr[i];
-            }
-        }
-    }
-    ans.pb(sum);
-    sum=arr[k-1];
-    // rep(i,0,ans.size()){
-    //     cout<<ans[i]<<" ";
-    // }
-    // cout<<nn;
-    //cout<<r2<<nn;
-    ll i=r2-1;
-    ll j=r2+1;
-        while(i!=-1 && j!=ans.size()){
-            if(sum+ans[i]<0 && sum+ans[j]<0){
-                cout<<nope<<nn;
-                return;
-            }
-            if(sum+ans[i]>=sum+ans[j]){
-                sum=sum+arr[i];
-                i--;
-            }
-            else{
-                sum=sum+ans[j];
-                j++;
-            }
-        }
-        cout<<yup<<nn;
-        return;
 }
 
 int main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }
