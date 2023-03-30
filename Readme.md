@@ -11,5 +11,5 @@ How to use the repository
 
 You can clone this repository to your local machine using the following command:
 
-git clone https://github.com/Vzenun/CPP_Placement_Course.git
+git clone https://github.com/Vzenun/Codeforces-Problems-Solutions.git
 To run the solutions, navigate to the problem's file name and run the code in your local IDE. Make sure to read the problem statement carefully before running the code.
