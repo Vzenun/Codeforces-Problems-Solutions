@@ -142,8 +142,8 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
 */
 
 struct dsu{
-    vl parent;
-    vl size;
+    public:
+    vl parent,size;
 
     dsu(ll n){
         size.resize(n+1);
@@ -195,7 +195,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
@@ -209,6 +209,24 @@ void solve_array(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
+    vector<bool> visited(n,false);
+    dsu * ds=new dsu(n);
+    rep(i,0,n){
+        if(!visited[i]){
+            ll s=i+1;
+            ll a=s;
+            visited[s-1]=true;
+            while(arr[a-1]!=s){
+                a=arr[a-1];
+                ds->union_set(a,s);
+                visited[a-1]=true;
+            }
+        }
+    }
+    rep(i,0,n){
+        cout<<ds->size[ds->find_set(i+1)]<<" ";
+    }
+    cout<<nn;
 }
 
 void solve_graph(){
