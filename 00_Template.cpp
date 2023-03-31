@@ -81,12 +81,26 @@ ll sum(vl a){ll sum=0;rep(i,0,a.size()){sum+=a[i];}return sum;}
 void rev(vl &arr,ll n){rep(i,0,n){cin>>arr[i];}return;}
 void prv(vl arr){rep(i,0,arr.size()){cout<<arr[i]<<" ";}cout<<nn;return;}
 
-bool prime(ll n){rep(i,2,ceil(sqrt(n))){if(n%i==0){return false;}}return true;}
+bool prime(ll n){rep(i,2,(ll)floor(sqrtl(n))+1){if(n%i==0){return false;}}return true;}
 void seive(){seiv[0]=0;seiv[1]=1;for(ll i=2;i*i<1000001;i++){if(seiv[i]==0){seiv[i]=i;for(ll j=i*i;j<1000001;j=j+i){if(seiv[j]==0){seiv[j]=i;}}}}}
 
-ll gcd(ll a,ll b){if(b==0){return a;}if(a>=b){return gcd(b,a%b);}else{return gcd(b,a);}}
-ll expo(ll num,ll coef){ll res=1;while(coef!=0){if(coef%2==0){coef=coef/2;num=num*num;}else{coef=coef-1;res=res*num;}}return res;}
-ll expo_mod(ll a,ll n,ll m){ll res=1;while(n!=0){if(n%2==0){a=a*a;a=a%m;n=n/2;}else{res=res*a;res=res%m;n--;}}return res;}
+// Always return a positive integer
+ll gcd(ll a,ll b){a=abs(a);b=abs(b);ll k=1;while(a%2==0 && b%2==0){k=2*k;a=a/2;b=b/2;}while(a%2==0){a=a/2;}while(b%2==0){b=b/2;}while(b!=0){a=a%b;swap(a,b);}return k*a;}
+
+// This implementation of extended Euclidean algorithm produces correct results for negative integers as well.
+ll gcd(ll a,ll b,ll &x,ll &y){if(b == 0){x = 1;y = 0;return a;}ll x1, y1;ll d = gcd(b, a % b, x1, y1);x = y1;y = x1 - y1 * (a / b);return d;}
+
+// Always return a positive integer
+ll lcm(ll a,ll b){a=abs(a);b=abs(b);return (a/gcd(a, b))*b;}
+
+// Binary Exponentiation
+ll binpow(ll a,ll n){ll res=1;while(n!=0){if(n%2==0){a=a*a;n=n/2;}else{res=res*a;n=n-1;}}return res;}
+
+// Modulo Binary Exponentiation
+ll binpowmod(ll a,ll n,ll m){ll res=1;while(n!=0){if(n%2==0){a=a*a%m;n=n/2;}else{res=res*a%m;n=n-1;}}return res;}
+
+// if we know that in Modulo Binary Exponentiation the m is going to be prime than even for n>>m we can speed it up
+ll binpowmod_prime(ll a,ll n,ll m){ll res=1;while(n!=0){if(n%2==0){a=a*a%m;n=(n/2)%(m-1);}else{res=res*a%m;n=(n-1)%(m-1);}}return res;}
 
 ll add_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}
 ll mul_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}
@@ -139,6 +153,8 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     next iterator in that data structure so depends whether sorted in ascending or descending order.
     An important info about the upper_bound used in various data structures
     is that it will return the iterator pointing to the next iterator to which the number should be there also depends on the sorting order
+
+    Modulo operations, although we see them as O(1), are a lot slower than simpler operations like addition, subtraction or bitwise operations. So it would be better to avoid those.
 */
 
 struct dsu{
