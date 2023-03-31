@@ -67,7 +67,7 @@ typedef vector<vl> vvl;
 #define nn endl
 #define setbits(n) __builtin_popcount(n)
 
-ll seiv[1000001]={0};
+vl seive(1000002,-1);
 
 string yup="YES";
 string nope="NO";
@@ -81,8 +81,60 @@ ll sum(vl a){ll sum=0;rep(i,0,a.size()){sum+=a[i];}return sum;}
 void rev(vl &arr,ll n){rep(i,0,n){cin>>arr[i];}return;}
 void prv(vl arr){rep(i,0,arr.size()){cout<<arr[i]<<" ";}cout<<nn;return;}
 
+// Now when we need to find the prime numbers in the range [l.....r]
+// where r and l can be really large like 10^12 but still r-l+1<=10^6 or 10^7
+// then we can use segmented seive
+// Here if ans[i]==-1 means l+i it is prime actually
+// else it will give the lowest factor>1 that divides i actually
+
+vl segmented_seive(ll l,ll r){
+    ll n=r;
+    ll num=(ll)ceil(sqrtl(n));
+    vl is_prime(num,-1);
+    vl primes;
+    vl ans(r-l+1,-1);
+    for(ll i=2;i<=num;i++){
+        if(is_prime[i]==-1){
+            primes.pb(i);
+            for(ll j=i*i;j<num;j=j+i){
+                if(is_prime[j]==-1){
+                    is_prime[j]=i;
+                }
+            }
+        }
+    }
+    for(ll i=0;i<primes.size();i++){
+        for(ll j=max(primes[i]*primes[i],(((l-1)/primes[i])*primes[i])+primes[i]);j<=r;j+=primes[i]){
+            if(ans[j-l]==-1){
+                ans[j-l]=primes[i];
+            }
+        }
+    }
+    if (l == 1){
+        is_prime[0] = 1;
+    }
+    return ans;
+}
+
 bool prime(ll n){rep(i,2,(ll)floor(sqrtl(n))+1){if(n%i==0){return false;}}return true;}
-void seive(){seiv[0]=0;seiv[1]=1;for(ll i=2;i*i<1000001;i++){if(seiv[i]==0){seiv[i]=i;for(ll j=i*i;j<1000001;j=j+i){if(seiv[j]==0){seiv[j]=i;}}}}}
+
+// if seive[i]==-1 it means it is prime else composite and seive[i] will give 
+// the lowest factor>1 that divides l+i actually.
+
+void seiv(){
+    seive[0]=0;
+    seive[1]=1;
+    rep(i,2,(ll)floor(sqrtl(1000002))+1){
+        if(seive[i]==-1){
+            seive[i]=-1;
+            for(ll j=i*i;j<1000002;j=j+i){
+                if(seive[j]==-1){
+                    seive[j]=i;
+                }
+            }
+        }
+    }
+}
 
 // Always return a positive integer
 ll gcd(ll a,ll b){a=abs(a);b=abs(b);ll k=1;while(a%2==0 && b%2==0){k=2*k;a=a/2;b=b/2;}while(a%2==0){a=a/2;}while(b%2==0){b=b/2;}while(b!=0){a=a%b;swap(a,b);}return k*a;}
