@@ -207,8 +207,6 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     is that it will return the iterator pointing to the next iterator to which the number should be there also depends on the sorting order
 
     Modulo operations, although we see them as O(1), are a lot slower than simpler operations like addition, subtraction or bitwise operations. So it would be better to avoid those.
-
-    Always in the question related to the graph always access from the global variables
 */
 
 struct dsu{
@@ -281,24 +279,55 @@ void solve_array(){
     rev(arr,n);
 }
 
-void solve_graph(){
-    ll n,m;
-    cin>>n>>m;
-    vl a;
-    vvl arr(n,a);
-    rep(i,0,m){
-        ll x,y;
-        cin>>x>>y;
-        arr[x-1].pb(y);
-        arr[y-1].pb(x);
+ll answer=0;
+ll max1,num;
+vl cats;
+vvl adjl;
+void dfs(ll n,ll nu,ll parent){
+    if(nu>max1){
+        return;
     }
+    if(cats[n-1]==0){
+        nu=0;
+    }
+    else{
+        nu=nu+cats[n-1];
+    }
+    if(nu>max1){
+        return;
+    }
+    if(adjl[n-1].size()==1 && n!=1){
+        answer++;
+        return;
+    }
+    rep(i,0,adjl[n-1].size()){
+        if(adjl[n-1][i]!=parent){
+            dfs(adjl[n-1][i],nu,n);
+        }
+    }
+}
+
+void solve_graph(){
+    cin>>num>>max1;
+    cats.resize(num);
+
+    rep(i,0,num){
+        cin>>cats[i];
+    }
+    ll x,y;
+    vl at;
+    adjl.resize(num,at);
+    rep(i,0,num-1){
+        cin>>x>>y;
+        adjl[x-1].pb(y);
+        adjl[y-1].pb(x);
+    }
+    dfs(1,0,-1);
+    cout<<answer<<nn;
 }
 
 signed main(){
     make_it_fast();
-    //seive();
-    solve_mul();
-    //solve_array();
-    //solve_single();
+    solve_graph();
     return 0;
 }

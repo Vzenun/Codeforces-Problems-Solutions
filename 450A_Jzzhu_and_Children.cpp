@@ -256,8 +256,8 @@ struct dsu{
 };
 
 bool mycompare(pll p1 ,pll p2){
-    if(p1.first<p2.first){return true;}
-    else if(p1.first==p2.first){return p1.second<p2.second;}
+    if(p1.first>p2.first){return true;}
+    else if(p1.first==p2.first){return p1.second>p2.second;}
     else{return false;}
 }
 
@@ -275,10 +275,26 @@ void solve_single(){
 }
 
 void solve_array(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
     vl arr(n,0);
     rev(arr,n);
+    vl brr(n,0);
+    ll max1=0;
+    ll min1=-1;
+    rep(i,0,n){
+        if(i==0){
+            max1=ceil((double)arr[i]/m);
+            min1=0;
+        }
+        else{
+            if(max1<=ceil((double)arr[i]/m)){
+                max1=ceil((double)arr[i]/m);
+                min1=i;
+            }
+        }
+    }
+    cout<<min1+1<<nn;
 }
 
 void solve_graph(){
@@ -297,8 +313,8 @@ void solve_graph(){
 signed main(){
     make_it_fast();
     //seive();
-    solve_mul();
-    //solve_array();
+    //solve_mul();
+    solve_array();
     //solve_single();
     return 0;
 }

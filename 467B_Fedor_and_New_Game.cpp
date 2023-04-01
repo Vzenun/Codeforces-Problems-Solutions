@@ -270,8 +270,18 @@ void solve_mul(){
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,m,k;
+    cin>>n>>m>>k;
+    vl arr(m+1,0);
+    rev(arr,m+1);
+    ll a1=arr[m];
+    ll sum=0;
+    rep(i,0,m){
+        if(setbits(a1^arr[i])<=k){
+            sum++;
+        }
+    }
+    cout<<sum<<nn;
 }
 
 void solve_array(){
@@ -297,8 +307,8 @@ void solve_graph(){
 signed main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
     return 0;
 }

@@ -207,6 +207,8 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     is that it will return the iterator pointing to the next iterator to which the number should be there also depends on the sorting order
 
     Modulo operations, although we see them as O(1), are a lot slower than simpler operations like addition, subtraction or bitwise operations. So it would be better to avoid those.
+
+    Always in the question related to the graph always access from the global variables
 */
 
 struct dsu{
@@ -298,5 +300,6 @@ signed main(){
     solve_mul();
     //solve_array();
     //solve_single();
+    //solve_graph();
     return 0;
 }
