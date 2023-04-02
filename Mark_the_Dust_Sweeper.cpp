@@ -265,102 +265,13 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        solve_single();
+        solve_array();
     }
 }
 
 void solve_single(){
-    string s,t;
-    cin>>s>>t;
-    ll n=s.size();
-    ll m1=t.size();
-    ll a1=count(s.begin(),s.end(),s[0]);
-    ll a2=count(t.begin(),t.end(),t[0]);
-    if(a1==s.size() && a2==t.size() && s[0]==t[0]){
-        string str1(lcm(a1,a2),s[0]);
-        cout<<str1<<nn;
-    }
-    else if(a1==s.size() && a2==t.size() && s[0]!=t[0]){
-        cout<<-1<<nn;
-    }
-    else{
-        if(t.size()==s.size()){
-            rep(i,0,s.size()){
-                if(s[i]!=t[i]){
-                    cout<<-1<<nn;
-                    return;
-                }
-            }
-            cout<<s<<nn;
-        }
-        else if(t.size()<s.size()){
-            if(s.size()%t.size()==0){
-                string m=t;
-                rep(i,0,n/m1-1){
-                    t=t+m;
-                }
-                if(s==t){
-                    cout<<s<<nn;
-                    return;
-                }
-                else{
-                    cout<<-1<<nn;
-                }
-            }
-            else{
-                string m=t;
-                rep(i,0,lcm(n,m1)/m1-1){
-                    t=t+m;
-                }
-                m=s;
-                rep(i,0,lcm(n,m1)/n-1){
-                    s=s+m;
-                }
-                if(s==t){
-                    cout<<s<<nn;
-                    return;
-                }
-                else{
-                    cout<<-1<<nn;
-                }
-            }
-        }
-        else{
-            swap(s,t);
-            swap(n,m1);
-            if(s.size()%t.size()==0){
-                string m=t;
-                rep(i,0,n/m1-1){
-                    t=t+m;
-                }
-                //cout<<t<<nn;
-                if(s==t){
-                    cout<<s<<nn;
-                    return;
-                }
-                else{
-                    cout<<-1<<nn;
-                }
-            }
-            else{
-                string m=t;
-                rep(i,0,lcm(n,m1)/m1-1){
-                    t=t+m;
-                }
-                m=s;
-                rep(i,0,lcm(n,m1)/n-1){
-                    s=s+m;
-                }
-                if(s==t){
-                    cout<<s<<nn;
-                    return;
-                }
-                else{
-                    cout<<-1<<nn;
-                }
-            }
-        }
-    }
+    ll n;
+    cin>>n;
 }
 
 void solve_array(){
@@ -368,6 +279,24 @@ void solve_array(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
+    ll sum1=sum(arr);
+    sum1-=arr[n-1];
+    ll ans=0;
+    rep(i,0,n-1){
+        if(arr[i]==0){
+            ans++;
+        }
+        else{
+            break;
+        }
+    }
+    sum1-=ans;
+    ll a1=count(all(arr),0);
+    sum1+=a1;
+    if(arr[n-1]==0){
+        sum1--;
+    }
+    cout<<sum1<<nn;
 }
 
 void solve_graph(){
@@ -389,5 +318,6 @@ signed main(){
     solve_mul();
     //solve_array();
     //solve_single();
+    //solve_graph();
     return 0;
 }
