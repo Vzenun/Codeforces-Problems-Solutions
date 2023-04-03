@@ -75,7 +75,10 @@
     "list": "cpp",
     "regex": "cpp",
     "span": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "forward_list": "cpp",
+    "unordered_set": "cpp",
+    "filesystem": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",
