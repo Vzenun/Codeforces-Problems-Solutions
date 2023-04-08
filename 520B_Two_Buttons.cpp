@@ -207,6 +207,8 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     is that it will return the iterator pointing to the next iterator to which the number should be there also depends on the sorting order
 
     Modulo operations, although we see them as O(1), are a lot slower than simpler operations like addition, subtraction or bitwise operations. So it would be better to avoid those.
+
+    Always in the question related to the graph always access from the global variables
 */
 
 struct dsu{
@@ -263,13 +265,57 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        solve_array();
+        
     }
 }
 
 void solve_single(){
-    ll n;
-    cin>>n;
+    ll n,m;
+    cin>>n>>m;
+    if(n>=m){
+        cout<<abs(n-m)<<nn;
+    }
+    else{
+        vl a;
+        vvl graph(2*m-1,a);
+        rep(i,1,2*m){
+            if(2*i<2*m){
+                graph[i-1].pb(2*i);
+            }
+            if(i-1>0){
+                graph[i-1].pb(i-1);
+            }
+        }
+        queue<ll> q;
+        q.push(n);
+        ll k;
+        ll num=0;
+        vector<bool> visited(2*m-1,false);
+        visited[n-1]=true;
+        while(!q.empty()){
+            num++;
+            // cout<<q.size()<<nn;
+            ll kt=q.size();
+            rep(i,0,kt){
+                k=q.front();
+                q.pop();
+                //cout<<num<<" "<<k<<" "<<graph[k-1].size()<<endl;
+                rep(j,0,graph[k-1].size()){
+                    if(!visited[graph[k-1][j]-1]){
+                        if(graph[k-1][j]==m){
+                            cout<<num<<nn;
+                            return;
+                        }
+                        else{
+                            visited[graph[k-1][j]-1]=true;
+                            q.push(graph[k-1][j]);
+                        }
+                    }
+                }
+            }
+            //cout<<endl;
+        }
+    }
 }
 
 void solve_array(){
@@ -277,70 +323,6 @@ void solve_array(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
-    //sor(arr);
-    if(count(all(arr),arr[0])==n){
-        cout<<0<<nn;
-        return;
-    }
-    if(count(all(arr),1)!=0){
-        cout<<-1<<nn;
-        return;
-    }
-    vpll ans;
-    rep(i,0,n){
-        ans.pb(mp(arr[i],i+1));
-    }
-    sor(ans);
-    cout<<"*";
-    rep(i,0,ans.size()){
-        cout<<ans[i].ff<<" "<<ans[i].ss<<nn;
-    }
-    cout<<"*";
-    cout<<nn;
-    vpll ans2;
-    if(ans[0].ff==2){
-        ll sum=0;
-        ll i=n-1;
-        while(ans[i].ff!=2){
-            while(ans[i].ff!=2){
-                ans2.pb(mp(ans[i].ss,ans[0].ss));
-                ans[i].ff=(ll)ceil((lld)ans[i].ff/ans[0].ff);
-                sum++;
-            }
-            i--;
-        }
-        cout<<sum<<nn;
-    }
-    else{
-        ll sum=0;
-        ll flag=0;
-        ll i=n-1;
-        while(i>0){
-            if(flag==0){
-                if(ans[n-1].ff>ans[0].ff){
-                    ans2.pb(mp(ans[n-1].ss,ans[0].ss));
-                    ans[n-1].ff=(ll)ceil((lld)ans[n-1].ff/ans[0].ff);
-                    sum++;
-                }
-                else
-            }
-        }
-        // ll i=n-1;
-        // while(i!=-1){
-        //     while(ans[i].ff!=2){
-        //         ans2.pb(mp(ans[i].ss,ans[n-1].ss));
-        //         ans[i].ff=(ll)ceil((lld)ans[i].ff/ans[n-1].ff);
-        //         sum++;
-        //     }
-        //     i--;
-        // }
-        cout<<sum<<nn;
-    }
-
-    rep(i,0,ans2.size()){
-        cout<<ans2[i].ff<<" "<<ans2[i].ss<<nn;
-    }
-    //cout<<nn;
 }
 
 void solve_graph(){
@@ -359,8 +341,9 @@ void solve_graph(){
 signed main(){
     make_it_fast();
     //seive();
-    solve_mul();
+    //solve_mul();
     //solve_array();
-    //solve_single();
+    solve_single();
+    //solve_graph();
     return 0;
 }
