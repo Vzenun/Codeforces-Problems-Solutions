@@ -1,0 +1,1 @@
+{"name":"Local: 1334B_Middle_Class","url":"/Users/vidurgoel/Codeforces/1334B_Middle_Class.cpp","tests":[{"id":1681381235363,"input":"4\n4 3\n5 1 2 1\n4 10\n11 9 11 9\n2 5\n4 3\n3 7\n9 4 9","output":"2\n4\n0\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1334B_Middle_Class.cpp","group":"local","local":true}
