@@ -280,7 +280,18 @@ void solve_array(){
     vl arr(n,0);
     rev(arr,n);
     sor(arr);
-    vl answer(arr,0)
+    ll ans=0;
+    ll count=1;
+    rep(i,0,n){
+        if(count<arr[i]){
+            count++;
+        }
+        else{
+            ans++;
+            count=1;
+        }
+    }
+    cout<<ans<<nn;
 }
 
 void solve_graph(){
