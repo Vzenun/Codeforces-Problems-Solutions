@@ -1,0 +1,1 @@
+{"name":"Local: 479C_Exams","url":"/Users/vidurgoel/Codeforces/479C_Exams.cpp","tests":[{"id":1681535083581,"input":"3\n5 2\n3 1\n4 2\n","output":"2"},{"id":1681541445258,"input":"3\n6 1\n5 2\n4 3\n","output":"6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/479C_Exams.cpp","group":"local","local":true}

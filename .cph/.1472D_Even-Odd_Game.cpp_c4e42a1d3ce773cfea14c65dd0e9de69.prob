@@ -1,0 +1,1 @@
+{"name":"Local: 1472D_Even-Odd_Game","url":"/Users/vidurgoel/Codeforces/1472D_Even-Odd_Game.cpp","tests":[{"id":1681483081579,"input":"4\n4\n5 2 7 3\n3\n3 2 1\n4\n2 2 2 2\n2\n7 8\n","output":"Bob\nTie\nAlice\nAlice"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1472D_Even-Odd_Game.cpp","group":"local","local":true}
