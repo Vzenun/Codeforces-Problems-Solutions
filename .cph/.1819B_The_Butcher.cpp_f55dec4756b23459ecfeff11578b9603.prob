@@ -1,0 +1,1 @@
+{"name":"Local: 1819B_The_Butcher","url":"/Users/vidurgoel/Codeforces/1819B_The_Butcher.cpp","tests":[{"id":1681735680342,"input":"4\n3\n1 2\n3 5\n1 3\n3\n1 1\n1 1\n1 1\n1\n10 10\n4\n3 2\n5 5\n2 2\n8 7","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/1819B_The_Butcher.cpp","group":"local","local":true}
