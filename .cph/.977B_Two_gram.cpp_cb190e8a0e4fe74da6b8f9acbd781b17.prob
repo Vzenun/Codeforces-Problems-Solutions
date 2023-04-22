@@ -1,0 +1,1 @@
+{"name":"Local: 977B_Two_gram","url":"/Users/vidurgoel/Codeforces/977B_Two_gram.cpp","tests":[{"id":1682154817541,"input":"7\nABACABA\n","output":"AB"},{"id":1682155375759,"input":"5\nZZZAA\n","output":"ZZ"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/977B_Two_gram.cpp","group":"local","local":true}
