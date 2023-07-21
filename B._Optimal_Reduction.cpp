@@ -1,12 +1,41 @@
 // Vidur Goel
 
 //Codeforcees Handle: Vidurcodviz
-#include<bits/stdc++.h>
+
+#include<iostream>
+#include<string>
+#include<cmath>
+#include<climits>
+#include<algorithm>
+#include<cstddef>
+#include<cstdio>
+#include<cstdlib>
+#include<vector>
+#include<stack>
+#include<chrono>
+#include<random>
+#include<cassert>
+#include<array>
+#include<bitset>
+#include<complex>
+#include<cstring>
+#include<functional>
+#include<iomanip>
+#include<map>
+#include<numeric>
+#include<queue>
+#include<set>
+#include<utility>
+#include<string_view>
+#include<deque>
+#include<iterator>
+#include<sstream>
+
 using namespace std;
 using namespace chrono;
 
-void solve();
-void solvg();
+void solve_array();
+void solve_single();
 void solve_mul();
 
 typedef long long int ll;
@@ -24,7 +53,7 @@ typedef vector<vl> vvl;
 #define sorr(x) sort(x.rbegin(),x.rend()) // this is in order to do sorting in descending order
 #define lb lower_bound
 #define ub upper_bound
-#define pb emplace_back
+#define pb push_back
 #define ppb pop_back
 #define mp make_pair
 #define ff first
@@ -38,11 +67,17 @@ typedef vector<vl> vvl;
 #define nn endl
 #define setbits(n) __builtin_popcount(n)
 
-vl seive(1000009,-1);
+vl seive(1000002,-1);
 
 string yup="YES";
 string nope="NO";
+
+ll lmin(vl arr){return *min_element(arr.begin(),arr.end());}
+ll lmax(vl arr){return *max_element(arr.begin(),arr.end());}
+
 ll fibonacci(ll n){ll a=0;ll b=1;ll c;if(n==0 || n==1){return n;}for(ll i=2;i<n+1;i++){c=a+b;a=b;b=c;}return c;}
+
+ll sum(vl a){ll sum=0;rep(i,0,a.size()){sum+=a[i];}return sum;}
 void rev(vl &arr,ll n){rep(i,0,n){cin>>arr[i];}return;}
 void prv(vl arr){rep(i,0,arr.size()){cout<<arr[i]<<" ";}cout<<nn;return;}
 
@@ -89,10 +124,10 @@ bool prime(ll n){rep(i,2,(ll)floor(sqrtl(n))+1){if(n%i==0){return false;}}return
 void seiv(){
     seive[0]=0;
     seive[1]=1;
-    for(ll i=2;i*i<=1000008;i++){
+    rep(i,2,(ll)floor(sqrtl(1000002))+1){
         if(seive[i]==-1){
-            seive[i]=i;
-            for(ll j=i*i;j<=1000008;j=j+i){
+            seive[i]=-1;
+            for(ll j=i*i;j<1000002;j=j+i){
                 if(seive[j]==-1){
                     seive[j]=i;
                 }
@@ -105,20 +140,7 @@ void seiv(){
 ll gcd(ll a,ll b){a=abs(a);b=abs(b);ll k=1;while(a%2==0 && b%2==0){k=2*k;a=a/2;b=b/2;}while(a%2==0){a=a/2;}while(b%2==0){b=b/2;}while(b!=0){a=a%b;swap(a,b);}return k*a;}
 
 // This implementation of extended Euclidean algorithm produces correct results for negative integers as well.
-ll gcd(ll a,ll b,ll &x,ll &y){
-    a=abs(a);
-    b=abs(b);
-    if(b == 0){
-        x = 1;
-        y = 0;
-        return a;
-    }
-    ll x1,y1;
-    ll d = gcd(b, a % b, x1, y1);
-    x = y1;
-    y = x1 - y1 * (a / b);
-    return d;
-}
+ll gcd(ll a,ll b,ll &x,ll &y){if(b == 0){x = 1;y = 0;return a;}ll x1, y1;ll d = gcd(b, a % b, x1, y1);x = y1;y = x1 - y1 * (a / b);return d;}
 
 // Always return a positive integer
 ll lcm(ll a,ll b){a=abs(a);b=abs(b);return (a/gcd(a, b))*b;}
@@ -185,14 +207,14 @@ ll sub_mod(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) %
     is that it will return the iterator pointing to the next iterator to which the number should be there also depends on the sorting order
 
     Modulo operations, although we see them as O(1), are a lot slower than simpler operations like addition, subtraction or bitwise operations. So it would be better to avoid those.
-    getline(cin,s); used for the string input
+
     Always in the question related to the graph always access from the global variables
 */
 
 struct dsu{
     vl parent;
     vl size;
-    
+
     dsu(ll n){
         size.resize(n+1);
         parent.resize(n+1);
@@ -243,19 +265,77 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve_array();
     }
 }
 
-void solve(){
-    string s;
+void solve_single(){
+    ll n;
+    cin>>n;
+
+}
+
+void solve_array(){
     ll n;
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
+    ll i=0;
+    ll j=n-1;
+    ll flag=0;
+    ll num=*min_element(all(arr));
+    //cout<<num<<nn;
+    while(i<=j){
+        if(flag==0){
+            if(arr[i]==num){
+                i++;
+                flag=1;
+            }
+            else if(arr[j]==num){
+                j--;
+                flag=1;
+            }
+            else{
+                cout<<nope<<nn;
+                return;
+            }
+        }
+        else{
+            if(arr[i]<=arr[j]){
+                if(arr[i]>=num){
+                    num=arr[i];
+                    i++;
+                }
+                else if(arr[j]>=num){
+                    num=arr[j];
+                    j--;
+                }
+                else{
+                    cout<<nope<<nn;
+                    return;
+                }
+            }
+            else{
+                if(arr[j]>=num){
+                    num=arr[j];
+                    j--;
+                }
+                else if(arr[i]>=num){
+                    num=arr[i];
+                    i++;
+                }
+                else{
+                    cout<<nope<<nn;
+                    return;
+                }
+            }
+        }
+    }
+    cout<<yup<<nn;
+    return;
 }
 
-void solvg(){
+void solve_graph(){
     ll n,m;
     cin>>n>>m;
     vl a;
@@ -270,9 +350,10 @@ void solvg(){
 
 signed main(){
     make_it_fast();
-    //seiv();
+    //seive();
     solve_mul();
-    //solve();
-    //solvg();
+    //solve_array();
+    //solve_single();
+    //solve_graph();
     return 0;
 }
