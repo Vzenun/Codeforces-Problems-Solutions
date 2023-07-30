@@ -1,0 +1,1 @@
+{"name":"Local: Morning_Sandwitch","url":"/Users/vidurgoel/Codeforces/Morning_Sandwitch.cpp","tests":[{"id":1690614695978,"input":"3\n2 1 1\n10 1 2\n3 7 8","output":"3\n7\n5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Morning_Sandwitch.cpp","group":"local","local":true}
