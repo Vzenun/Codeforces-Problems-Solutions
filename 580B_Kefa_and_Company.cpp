@@ -158,7 +158,7 @@ struct segtree{
 
 bool mycompare(pll p1 ,pll p2){
     if(p1.first<p2.first){return true;}
-    else if(p1.first==p2.first){return p1.second<p2.second;}
+    else if(p1.first==p2.first){return p1.second>p2.second;}
     else{return false;}
 }
 
@@ -172,10 +172,14 @@ void solve_mul(){
 
 void solve(){
     string s;
-    ll n;
-    cin>>n;
-    vl arr(n,0);
-    rev(arr,n);
+    ll n,d;
+    cin>>n,d;
+    vpll arr(n);
+    rep(i,0,n){
+        cin>>arr[i].ff>>arr[i].ss;
+    }
+    sort(all(arr),mycompare);
+
 }
 
 void solvg(){
@@ -194,8 +198,8 @@ void solvg(){
 signed main(){
     make_it_fast();
     //seiv();
-    solve_mul();
-    //solve();
+    //solve_mul();
+    solve();
     //solvg();
     return 0;
 }

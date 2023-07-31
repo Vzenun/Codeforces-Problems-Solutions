@@ -172,10 +172,11 @@ void solve_mul(){
 
 void solve(){
     string s;
-    ll n;
-    cin>>n;
-    vl arr(n,0);
-    rev(arr,n);
+    ll r,x,y,x1,y1;
+    cin>>r>>x>>y>>x1>>y1;
+    lld ans=sqrtl((x1-x)*(x1-x)+(y1-y)*(y1-y));
+    ll ans2=(ll)ceil(ans/(2*r));
+    cout<<ans2<<endl;
 }
 
 void solvg(){
@@ -194,8 +195,8 @@ void solvg(){
 signed main(){
     make_it_fast();
     //seiv();
-    solve_mul();
-    //solve();
+    //solve_mul();
+    solve();
     //solvg();
     return 0;
 }

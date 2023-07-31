@@ -174,8 +174,43 @@ void solve(){
     string s;
     ll n;
     cin>>n;
-    vl arr(n,0);
-    rev(arr,n);
+    vpll arr(n);
+    rep(i,0,n){
+        cin>>arr[i].ff>>arr[i].ss;
+    }
+    ll sum=0;
+    ll prev=0;
+    rep(i,0,n){
+        if(i==0 || i==n-1){
+            sum+=1;
+        }
+        else{
+            if(prev==0){
+                if(arr[i].ff-arr[i].ss>arr[i-1].ff){
+                    prev=0;
+                    sum+=1;
+                }
+                else if(arr[i].ff+arr[i].ss<arr[i+1].ff){
+                    prev=1;
+                    sum+=1;
+                }
+            }
+            else if(prev==1){
+                if(arr[i].ff-arr[i].ss>arr[i-1].ff+arr[i-1].ss){
+                    prev=0;
+                    sum+=1;
+                }
+                else if(arr[i].ff+arr[i].ss<arr[i+1].ff){
+                    prev=1;
+                    sum+=1;
+                }
+                else{
+                    prev=0;
+                }
+            }
+        }
+    }
+    cout<<sum<<endl;
 }
 
 void solvg(){
@@ -194,8 +229,8 @@ void solvg(){
 signed main(){
     make_it_fast();
     //seiv();
-    solve_mul();
-    //solve();
+    //solve_mul();
+    solve();
     //solvg();
     return 0;
 }

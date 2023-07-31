@@ -247,122 +247,33 @@ void solve_mul(){
     }
 }
 
-void prt(vpll ans2){
-    cout<<ans2.size()<<endl;
-    rep(i,0,ans2.size()){
-        cout<<ans2[i].ff<<" "<<ans2[i].ss<<endl;
-    }
-}
-
 void solve(){
     string s;
     ll n;
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
-    vl brr=arr;
-    ll i1=-1;
-    ll i2=-1;
-    ll max1=-21;
-    ll min1=21;
-    ll fp=0;
-    ll fn=0;
+    sor(arr);
+    map<ll,ll> mpt;
     rep(i,0,n){
-        if(arr[i]>0){
-            fp=1;
-        }
-        if(arr[i]<0){
-            fn=1;
-        }
+        mpt[arr[i]]+=1;
     }
-    if(fp==0){
-        vpll ans2;
-        ll i=n-2;
-        while(i>=0){
-            arr[i]+=arr[i+1];
-            ans2.emplace_back(i+1,i+2);
-            i--;
-        }
-        prt(ans2);
-        return;
-    }
-    if(fn==0){
-        vpll ans2;
-        ll i=1;
-        while(i<n){
-            arr[i]+=arr[i-1];
-            ans2.emplace_back(i+1,i);
-            i++;
-        }
-        prt(ans2);
-        return;
-    }
-    if(fp==0 && fn==0){
-        cout<<0<<nn;
-        return;
-    }
+    vl dp(n,0);
     rep(i,0,n){
-        if(max1<arr[i] && arr[i]!=0){
-            max1=arr[i];
-            i1=i;
-        }
-        if(min1>arr[i] && arr[i]!=0){
-            min1=arr[i];
-            i2=i;
-        }
-    }
-    ll flag=0;
-    rep(i,0,n-1){
-        if(arr[i]>arr[i+1]){
-            flag=1;
+        ll a=i+1;
+        for(ll j=1;j*j<=a;j++){
+            if(a%j==0){
+                if(j*j==a){
+                    dp[a-1]+=mpt[j];
+                }
+                else{
+                    dp[a-1]+=mpt[j];
+                    dp[a-1]+=mpt[a/j];
+                }
+            }
         }
     }
-    if(flag==0){
-        cout<<0<<nn;
-        return;
-    }
-    vpll ans5;
-    vpll ans3;
-    while(abs(arr[i2])<abs(arr[i1])){
-        arr[i2]+=arr[i2];
-        ans5.emplace_back(i2+1,i2+1);
-    }
-    rep(i,0,n){
-        if(arr[i]>0){
-            arr[i]+=arr[i2];
-            ans5.emplace_back(i+1,i2+1);
-        }
-    }
-    ll i=n-2;
-    while(i>=0){
-        arr[i]+=arr[i+1];
-        ans5.emplace_back(i+1,i+2);
-        i--;
-    }
-    while(abs(brr[i1])<abs(brr[i2])){
-        brr[i1]+=brr[i1];
-        ans3.emplace_back(i1+1,i1+1);
-    }
-    rep(i,0,n){
-        if(brr[i]<0){
-            brr[i]+=brr[i1];
-            ans3.emplace_back(i+1,i1+1);
-        }
-    }
-    i=1;
-    while(i<n){
-        brr[i]+=brr[i-1];
-        ans3.emplace_back(i+1,i);
-        i++;
-    }
-    if(ans5.size()!=0 && ans5.size()<=31){
-        prt(ans5);
-        return;
-    } 
-    if(ans3.size()!=0 && ans3.size()<=31){
-        prt(ans3);
-        return;
-    }
+    cout<<*max_element(all(dp))<<nn;
 }
 
 void solvg(){

@@ -233,6 +233,130 @@ struct dsu{
     }
 };
 
+struct segtree{
+    ll n;
+    vl a,tree;
+    
+    // segtree(vl &a){
+    //     this->a = a;
+    //     ll k=1;
+    //     this->n = a.size();
+    //     while(k<n){
+    //         k=k*2;
+    //     }
+    //     k*=2;
+    //     this->tree.resize(k);
+    //     built(1,0,n-1);
+    // }
+    
+    segtree(ll n){
+        ll k=1;
+        this->n = n;
+        while(k<n){
+            k=k*2;
+        }
+        k*=2;
+        tree.assign(k,0);
+    }
+ 
+    ll merge_opn(ll x, ll y){
+        return x+y;
+    }
+    
+    // void built(ll node, ll l, ll r){
+    //     if(l==r){
+    //         tree[node]=a[l];
+    //         return;
+    //     }
+    //     built(2*node,l,(l+r)/2);
+    //     built(2*node+1,(l+r)/2+1,r);
+        
+    //     merge(node);
+    // }
+    
+    void merge(ll node){
+        tree[node]=merge_opn(tree[2*node+1],tree[2*node+2]);
+    }
+    
+    ll range_query(ll node, ll l, ll r, ll query_l, ll query_r){
+        if(r<query_l || l>query_r){
+            return 0;
+        }
+        if(l>=query_l && r<=query_r){
+            return tree[node];
+        }
+        ll mid = (l+r)/2;
+        ll left=range_query(2*node+1,l,mid,query_l,query_r);
+        ll right=range_query(2*node+2,mid+1,r,query_l,query_r);
+        return merge_opn(left,right);
+    }
+    
+    ll range_query(ll query_l, ll query_r){
+        return range_query(0,0,n-1,query_l,query_r-1);
+    }
+    
+    void point_update(ll node, ll l, ll r, ll idx, ll val){
+        if(r-l==0){
+            tree[node]=val;
+            return;
+        }
+        ll mid = (l+r)/2;
+        if(idx>mid){
+            point_update(2*node+2,mid+1,r,idx,val);
+        }
+        else{
+            point_update(2*node+1,l,mid,idx,val);
+        }
+        merge(node);
+    }
+    
+    void point_update(ll idx, ll val){
+        point_update(0,0,n-1,idx,val);
+    }
+    
+    // void range_update(int node, int l, int r, int query_l, int query_r, int val){
+    //     if(l>query_r || r<query_l){    
+    //         return;
+    //     }
+    //     if(l>=query_l && r<=query_r){
+    //         tree[node]=val;
+    //         return;
+    //     }
+    //     int mid = (l+r)/2;
+        
+    //     //if(tree[node]!=-1)
+    //     //tree[2*node]=tree[2*node+1]=tree[node];
+    //     //tree[node]=-1;
+        
+    //     range_update(2*node,l,mid,query_l,query_r,val);
+    //     range_update(2*node+1,mid+1,r,query_l,query_r,val);
+        
+    //     merge(node);
+    // }
+    
+    // void range_update(int query_l, int query_r, int val){
+    //     range_update(1,0,n-1,query_l,query_r,val);
+    // }
+    
+    // int point_query(int node, int l, int r, int idx){
+    //     if(l==r || tree[node]!=-1){
+    //         return tree[node];
+    //     }
+    //     int mid = (l+r)/2;
+    //     if(idx>mid){
+    //         return point_query(2*node+1,mid+1,r,idx);
+    //     }
+    //     else{
+    //         return point_query(2*node,l,mid,idx);
+    //     }
+    // }
+    
+    // int point_query(int idx){
+    //     return point_query(1,0,n-1,idx);
+    // }
+};
+
+
 bool mycompare(pll p1 ,pll p2){
     if(p1.first<p2.first){return true;}
     else if(p1.first==p2.first){return p1.second<p2.second;}
@@ -243,14 +367,7 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        solve();
-    }
-}
-
-void prt(vpll ans2){
-    cout<<ans2.size()<<endl;
-    rep(i,0,ans2.size()){
-        cout<<ans2[i].ff<<" "<<ans2[i].ss<<endl;
+        
     }
 }
 
@@ -260,109 +377,6 @@ void solve(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
-    vl brr=arr;
-    ll i1=-1;
-    ll i2=-1;
-    ll max1=-21;
-    ll min1=21;
-    ll fp=0;
-    ll fn=0;
-    rep(i,0,n){
-        if(arr[i]>0){
-            fp=1;
-        }
-        if(arr[i]<0){
-            fn=1;
-        }
-    }
-    if(fp==0){
-        vpll ans2;
-        ll i=n-2;
-        while(i>=0){
-            arr[i]+=arr[i+1];
-            ans2.emplace_back(i+1,i+2);
-            i--;
-        }
-        prt(ans2);
-        return;
-    }
-    if(fn==0){
-        vpll ans2;
-        ll i=1;
-        while(i<n){
-            arr[i]+=arr[i-1];
-            ans2.emplace_back(i+1,i);
-            i++;
-        }
-        prt(ans2);
-        return;
-    }
-    if(fp==0 && fn==0){
-        cout<<0<<nn;
-        return;
-    }
-    rep(i,0,n){
-        if(max1<arr[i] && arr[i]!=0){
-            max1=arr[i];
-            i1=i;
-        }
-        if(min1>arr[i] && arr[i]!=0){
-            min1=arr[i];
-            i2=i;
-        }
-    }
-    ll flag=0;
-    rep(i,0,n-1){
-        if(arr[i]>arr[i+1]){
-            flag=1;
-        }
-    }
-    if(flag==0){
-        cout<<0<<nn;
-        return;
-    }
-    vpll ans5;
-    vpll ans3;
-    while(abs(arr[i2])<abs(arr[i1])){
-        arr[i2]+=arr[i2];
-        ans5.emplace_back(i2+1,i2+1);
-    }
-    rep(i,0,n){
-        if(arr[i]>0){
-            arr[i]+=arr[i2];
-            ans5.emplace_back(i+1,i2+1);
-        }
-    }
-    ll i=n-2;
-    while(i>=0){
-        arr[i]+=arr[i+1];
-        ans5.emplace_back(i+1,i+2);
-        i--;
-    }
-    while(abs(brr[i1])<abs(brr[i2])){
-        brr[i1]+=brr[i1];
-        ans3.emplace_back(i1+1,i1+1);
-    }
-    rep(i,0,n){
-        if(brr[i]<0){
-            brr[i]+=brr[i1];
-            ans3.emplace_back(i+1,i1+1);
-        }
-    }
-    i=1;
-    while(i<n){
-        brr[i]+=brr[i-1];
-        ans3.emplace_back(i+1,i);
-        i++;
-    }
-    if(ans5.size()!=0 && ans5.size()<=31){
-        prt(ans5);
-        return;
-    } 
-    if(ans3.size()!=0 && ans3.size()<=31){
-        prt(ans3);
-        return;
-    }
 }
 
 void solvg(){

@@ -170,12 +170,42 @@ void solve_mul(){
     }
 }
 
+ll ans(ll n,ll k,vl &dp){
+    if(n==0){
+        return dp[n]=1;
+    }
+    else if(dp[n]!=-1){
+        return dp[n];
+    }
+    else{
+        ll sum=0;
+        for(ll j=1;j<=k;j++){
+            if(n-j>=0){
+                sum=add_mod(ans(n-j,k,dp),sum,MOD);
+            }
+            else{
+                break;
+            }
+        }
+        return dp[n]=sum;
+    }
+}
+
 void solve(){
     string s;
-    ll n;
-    cin>>n;
-    vl arr(n,0);
-    rev(arr,n);
+    ll n,k,d;
+    cin>>n>>k>>d;
+    vl dp(n+1,-1);
+    ll ans1=ans(n,k,dp);
+    rep(i,0,n+1){
+        dp[i]=-1;
+    }
+    if(d==1){
+        cout<<ans1<<endl;
+        return;
+    }
+    ll ans2=ans(n,d-1,dp);
+    cout<<(ans1-ans2+MOD)%MOD<<endl;
 }
 
 void solvg(){
@@ -194,8 +224,8 @@ void solvg(){
 signed main(){
     make_it_fast();
     //seiv();
-    solve_mul();
-    //solve();
+    //solve_mul();
+    solve();
     //solvg();
     return 0;
 }
