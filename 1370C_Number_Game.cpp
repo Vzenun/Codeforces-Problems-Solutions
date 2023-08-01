@@ -166,36 +166,55 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve();
     }
 }
 
 void solve(){
-    string s;
-    ll n,d;
-    cin>>n>>d;
-    vpll arr(n);
-    rep(i,0,n){
-        cin>>arr[i].ff>>arr[i].ss;
-    }
-    sort(all(arr),mycompare);
-    ll i=0;
-    ll j=0;
-    ll ans=0;
-    ll sum=0;
-    while(j<n){
-        if(arr[j].ff-arr[i].ff<d){
-            sum+=arr[j].ss;
-            j++;
-            ans=max(ans,sum);
+    ll n;
+    cin>>n;
+    string a="Ashishgup";
+    string b="FastestFinger";
+    if(n%2!=0){
+        if(n==1){
+            cout<<b<<nn;
         }
         else{
-            sum-=arr[i].ss;
-            i++;
-            ans=max(ans,sum);
+            cout<<a<<nn;
+        }
+        return;
+    }
+    ll number=0;
+    while(n!=1 && n%2==0){
+        number++;
+        n=n/2;
+    }
+    if(n==1){
+        if(number==1){
+            cout<<a<<nn;
+            return;
+        }
+        else{
+            cout<<b<<nn;
+            return;
         }
     }
-    cout<<ans<<endl;
+    else{
+        if(number>1){
+            cout<<a<<nn;
+            return;
+        }
+        else{
+            if(prime(n)){
+                cout<<b<<nn;
+                return;
+            }
+            else{
+                cout<<a<<nn;
+                return;
+            }
+        }
+    }
 }
 
 void solvg(){
@@ -214,8 +233,8 @@ void solvg(){
 signed main(){
     make_it_fast();
     //seiv();
-    //solve_mul();
-    solve();
+    solve_mul();
+    //solve();
     //solvg();
     return 0;
 }

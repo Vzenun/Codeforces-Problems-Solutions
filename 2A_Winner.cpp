@@ -172,30 +172,40 @@ void solve_mul(){
 
 void solve(){
     string s;
-    ll n,d;
-    cin>>n>>d;
-    vpll arr(n);
+    ll n,a;
+    cin>>n;
+    map<string,ll> mpt;
+    map<string,ll> mpt2;
+    map<string,ll> mpt3;
+    ll max1=INT64_MIN;
+    vector<string> ans;
+    vector<ll> ans2;
     rep(i,0,n){
-        cin>>arr[i].ff>>arr[i].ss;
+        cin>>s>>a;
+        mpt[s]+=a;
+        ans.pb(s);
+        ans2.pb(a);
     }
-    sort(all(arr),mycompare);
-    ll i=0;
-    ll j=0;
-    ll ans=0;
-    ll sum=0;
-    while(j<n){
-        if(arr[j].ff-arr[i].ff<d){
-            sum+=arr[j].ss;
-            j++;
-            ans=max(ans,sum);
-        }
-        else{
-            sum-=arr[i].ss;
-            i++;
-            ans=max(ans,sum);
+    map<string,ll> :: iterator it=mpt.begin();
+    while(it!=mpt.end()){
+        max1=max(max1,it->ss);
+        it++;
+    }
+    rep(i,0,n){
+        //cout<<ans[i]<<" "<<mpt[ans[i]]<<endl;
+        if(mpt[ans[i]]==max1){
+            mpt2[ans[i]]=1;
         }
     }
-    cout<<ans<<endl;
+    //cout<<max1<<endl;
+    rep(i,0,n){
+        mpt3[ans[i]]+=ans2[i];
+        //cout<<ans[i]<<" "<<mpt3[ans[i]]<<endl;
+        if(mpt3[ans[i]]>=max1 && mpt2[ans[i]]==1){
+            cout<<ans[i]<<nn;
+            return;
+        }
+    }
 }
 
 void solvg(){
