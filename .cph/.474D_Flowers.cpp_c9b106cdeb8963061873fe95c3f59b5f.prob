@@ -1,0 +1,1 @@
+{"name":"Local: 474D_Flowers","url":"/Users/vidurgoel/Codeforces/474D_Flowers.cpp","tests":[{"id":1690880323097,"input":"5 99252\n70888 79845\n2746 73795\n86884 88479\n28655 47059\n7868 28059","output":"8958\n71050\n1596\n18405\n20192"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/474D_Flowers.cpp","group":"local","local":true}
