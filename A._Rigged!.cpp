@@ -166,33 +166,34 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve();
     }
 }
 
 void solve(){
     string s;
-    ll n,m;
-    cin>>n>>m;
-    ll a1=max(n,m);
-    if(a1==1){
-        cout<<"1/1"<<nn;
+    ll n;
+    cin>>n;
+    vl arr(n,0);
+    vl brr(n,0);
+    rep(i,0,n){
+        cin>>arr[i]>>brr[i];
     }
-    else if(a1==2){
-        cout<<"5/6"<<nn;
+    ll a1=arr[0];
+    ll a2=brr[0];
+    ll a3=a2-1;
+    rep(i,1,n){
+        if(arr[i]>=a1){
+            a3=max(a3,brr[i]);
+        }
     }
-    else if(a1==3){
-        cout<<"2/3"<<nn;
+    if(a3<a2){
+        cout<<a1<<nn;
     }
-    else if(a1==4){
-        cout<<"1/2"<<nn;
+    else{
+        cout<<-1<<nn;
     }
-    else if(a1==5){
-        cout<<"1/3"<<nn;
-    }
-    else if(a1==6){
-        cout<<"1/6"<<nn;
-    }
+
 }
 
 void solvg(){
@@ -211,8 +212,8 @@ void solvg(){
 signed main(){
     make_it_fast();
     //seiv();
-    //solve_mul();
-    solve();
+    solve_mul();
+    //solve();
     //solvg();
     return 0;
 }

@@ -166,33 +166,58 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve();
     }
 }
 
 void solve(){
-    string s;
-    ll n,m;
-    cin>>n>>m;
-    ll a1=max(n,m);
-    if(a1==1){
-        cout<<"1/1"<<nn;
+    string arr;
+    cin>>arr;
+    ll n=arr.size();
+    ll flag=0;
+    rep(i,0,n-1){
+        if(arr[i]!=arr[i+1]){
+            flag++;
+        }
     }
-    else if(a1==2){
-        cout<<"5/6"<<nn;
+    if(flag==0 || flag==1){
+        cout<<0<<nn;
+        return;
     }
-    else if(a1==3){
-        cout<<"2/3"<<nn;
+    ll num1=0;
+    ll num0=0;
+    rep(i,0,n){
+        if(arr[i]=='0'){
+            num0++;
+        }
+        if(arr[i]=='1'){
+            num1++;
+        }
     }
-    else if(a1==4){
-        cout<<"1/2"<<nn;
+    ll num_0=0;
+    ll num_1=0;
+    ll answer=n;
+    answer=min(num0,answer);
+    answer=min(num1,answer);
+    rep(i,0,n){
+        if(arr[i]=='0'){
+            num_0++;
+        }
+        if(arr[i]=='1'){
+            num1--;
+        }
+        answer=min(num1+num_0,answer);
     }
-    else if(a1==5){
-        cout<<"1/3"<<nn;
+    rep(i,0,n){
+        if(arr[i]=='1'){
+            num_1++;
+        }
+        if(arr[i]=='0'){
+            num0--;
+        }
+        answer=min(num_1+num0,answer);
     }
-    else if(a1==6){
-        cout<<"1/6"<<nn;
-    }
+    cout<<answer<<nn;
 }
 
 void solvg(){
@@ -211,8 +236,8 @@ void solvg(){
 signed main(){
     make_it_fast();
     //seiv();
-    //solve_mul();
-    solve();
+    solve_mul();
+    //solve();
     //solvg();
     return 0;
 }

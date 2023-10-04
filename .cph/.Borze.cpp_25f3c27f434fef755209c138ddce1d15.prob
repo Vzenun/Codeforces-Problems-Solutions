@@ -1,0 +1,1 @@
+{"name":"Local: Borze","url":"/Users/vidurgoel/Codeforces/Borze.cpp","tests":[{"id":1696432968272,"input":".-.--\n","output":""},{"id":1696432974675,"input":"--.\n","output":""},{"id":1696432979058,"input":"-..-.--\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/vidurgoel/Codeforces/Borze.cpp","group":"local","local":true}

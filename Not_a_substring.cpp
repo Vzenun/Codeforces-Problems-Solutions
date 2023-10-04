@@ -166,32 +166,43 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve();
     }
 }
 
 void solve(){
     string s;
-    ll n,m;
-    cin>>n>>m;
-    ll a1=max(n,m);
-    if(a1==1){
-        cout<<"1/1"<<nn;
+    cin>>s;
+    stack<char> st;
+    ll a1=0;
+    ll a2=0;
+    for(ll i=0;i<s.size();i++){
+        a1+=(s[i]==')');
+        a2+=(s[i]=='(');
     }
-    else if(a1==2){
-        cout<<"5/6"<<nn;
+    if(s=="()"){
+        cout<<nope<<nn;
     }
-    else if(a1==3){
-        cout<<"2/3"<<nn;
-    }
-    else if(a1==4){
-        cout<<"1/2"<<nn;
-    }
-    else if(a1==5){
-        cout<<"1/3"<<nn;
-    }
-    else if(a1==6){
-        cout<<"1/6"<<nn;
+    else{
+        cout<<yup<<nn;
+        string t;
+        rep(i,0,s.size()){
+            t.pb('(');
+        }
+        rep(i,0,s.size()){
+            t.pb(')');
+        }
+        string m;
+        rep(i,0,s.size()){
+            m.pb('(');
+            m.pb(')');
+        }
+        if (t.find(s) != string::npos){
+            cout<<m<<nn;
+        }
+        else{
+            cout<<t<<nn;
+        }
     }
 }
 
@@ -211,8 +222,8 @@ void solvg(){
 signed main(){
     make_it_fast();
     //seiv();
-    //solve_mul();
-    solve();
+    solve_mul();
+    //solve();
     //solvg();
     return 0;
 }

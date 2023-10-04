@@ -166,33 +166,59 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+
+    }
+}
+
+ll ans(vvl &dp,ll n,ll i,vl &arr,vl &brr,ll prev){
+    if(dp[prev][i]!=-1){
+        return dp[prev][i];
+    }
+    if(i==n-1){
+        if(prev==0){
+            return dp[prev][i]=max(arr[i],brr[i]);
+        }
+        else if(prev==1){
+            return dp[prev][i]=brr[i];
+        }
+        else{
+            return dp[prev][i]=arr[i];
+        }
+    }
+    else if(i==n-2){
+        if(prev==0){
+            return dp[prev][i]=max(arr[i]+brr[i+1],brr[i]+arr[i+1]);
+        }
+        else if(prev==1){
+            return dp[prev][i]=brr[i]+arr[i+1];
+        }
+        else{
+            return dp[prev][i]=arr[i]+brr[i+1];
+        }
+    }
+    else{
+        if(prev==0){
+            return dp[prev][i]=max(arr[i]+max(ans(dp,n,i+1,arr,brr,1),ans(dp,n,i+2,arr,brr,1)),brr[i]+max(ans(dp,n,i+1,arr,brr,2),ans(dp,n,i+2,arr,brr,2)));
+        }
+        else if(prev==1){
+            return dp[prev][i]=brr[i]+max(ans(dp,n,i+1,arr,brr,2),ans(dp,n,i+2,arr,brr,2));
+        }
+        else{
+            return dp[prev][i]=arr[i]+max(ans(dp,n,i+1,arr,brr,1),ans(dp,n,i+2,arr,brr,1));
+        }
     }
 }
 
 void solve(){
     string s;
-    ll n,m;
-    cin>>n>>m;
-    ll a1=max(n,m);
-    if(a1==1){
-        cout<<"1/1"<<nn;
-    }
-    else if(a1==2){
-        cout<<"5/6"<<nn;
-    }
-    else if(a1==3){
-        cout<<"2/3"<<nn;
-    }
-    else if(a1==4){
-        cout<<"1/2"<<nn;
-    }
-    else if(a1==5){
-        cout<<"1/3"<<nn;
-    }
-    else if(a1==6){
-        cout<<"1/6"<<nn;
-    }
+    ll n;
+    cin>>n;
+    vl arr(n,0);
+    rev(arr,n);
+    vl brr(n,0);
+    rev(brr,n);
+    vvl dp(3,vl(n+1,-1));
+    cout<<ans(dp,n,0,arr,brr,0)<<nn;
 }
 
 void solvg(){
