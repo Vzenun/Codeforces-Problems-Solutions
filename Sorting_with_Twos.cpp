@@ -166,8 +166,18 @@ void solve_mul(){
     ll test;
     cin>>test;
     rep(i,0,test){
-        
+        solve();
     }
+}
+
+bool check(vl arr){
+    ll n=arr.size();
+    for(ll i=0;i<n-1;i++){
+        if(arr[i]>arr[i+1]){
+            return false;
+        }
+    }
+    return true;
 }
 
 void solve(){
@@ -176,6 +186,51 @@ void solve(){
     cin>>n;
     vl arr(n,0);
     rev(arr,n);
+    ll i=0;
+    vvl arr2;
+    ll num=0;
+    while(pow(2,i)-1<=n-1){
+        if(i==0){
+            vl am;
+            ll j=0;
+            while(j<=(ll)pow(2,i)-1){
+                am.pb(arr[num]);
+                num++;
+                j++;
+            }
+            arr2.pb(am);
+            i++;
+        }
+        else{
+            vl am;
+            ll j=0;
+            while(j<(ll)pow(2,i-1)){
+                am.pb(arr[num]);
+                num++;
+                j++;
+            }
+            arr2.pb(am);
+            i++;
+        }
+        //i++;
+    }
+    vl am;
+    while(num<=n-1){
+        am.pb(arr[num]);
+        num++;
+    }
+    arr2.pb(am);
+    for(ll i=0;i<arr2.size();i++){
+        bool check1=check(arr2[i]);
+        if(check1){
+            continue;
+        }
+        else{
+            cout<<nope<<nn;
+            return;
+        }
+    }
+    cout<<yup<<nn;
 }
 
 void solvg(){
